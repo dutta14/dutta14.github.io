@@ -1,0 +1,25 @@
+table, tr, td{
+    border: 1px solid powderblue;
+    padding: 15px;
+    font-size: 14px;
+}
+
+h1 {
+    font-size: 70px;
+    line-height: 100px;
+}
+
+h4{
+    font-size: 30px;
+    line-height: 100px;
+}
+
+a:link, a:visited, a:hover, a:active {
+    color: cadetblue;
+    text-decoration: none;
+}
+
+body {
+    font-family: sans-serif;
+    text-align: center;
+}
