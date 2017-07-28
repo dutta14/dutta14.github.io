@@ -2,13 +2,25 @@ header {
     text-align: center;
 }
 
-body  {
+body {
+    background-color: #f8f8f8;
+}
+
+.content  {
     width:75%;
     margin: 0 auto;
-    background-color: #f8f8f8;
 }
 
 .contact {
     margin: 0 auto;
     width: 40%;
+    font-size: 2em;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+.icons {
+    padding: 10px;
 }
