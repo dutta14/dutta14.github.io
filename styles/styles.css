@@ -3,6 +3,9 @@
     font-size: 1.3em;
 }
 
+.content {
+    margin-top: 10px;
+}
 
 .filters {
     font-size: 40px;
@@ -69,6 +72,7 @@ body {
 .profile-userbuttons {
   text-align: center;
 }
+
 
 
 .profile-usermenu {
