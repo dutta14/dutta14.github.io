@@ -41,7 +41,7 @@ $(document).ready(function(){
         var $anchor = $('#'+$href).offset();
         window.scrollTo($anchor.left,$anchor.top);
         return false;
-});
+    });
 });
 
 
