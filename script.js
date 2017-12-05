@@ -11,6 +11,7 @@ $(document).ready(function(){
 
     // hide .navbar first
     $(".navbar-brand").hide();
+    $('[data-toggle="tooltip"]').tooltip()
 
     // fade in .navbar
 
