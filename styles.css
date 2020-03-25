@@ -46,7 +46,8 @@
 }
 
 #mainnav {
-    background: #e9ecef !important;
+    background-image:url("img/heading.png")  !important;
+    background-repeat: repeat;
 }
 
 .end {
@@ -54,8 +55,8 @@
 }
 
 #skills {
-    font-size:2em;
-    letter-spacing: 0.1em;
+    font-size:1.2em;
+    letter-spacing: 0.4em;
     color: #a1adc4;
 }
 
@@ -79,7 +80,7 @@
 }
 
 .social a, .demo a {
-    color: black;
+    color: #444;
     text-decoration: none;
 }
 
@@ -88,7 +89,7 @@
 }
 
 #experience{
-    padding-top: 90px;
+    margin-top: 90px;
 }
 
 #projects, #education, #contact{
@@ -163,7 +164,7 @@
   content: " ";
 }
 .timeline > li > .timeline-badge {
-  color: #fff;
+  color: #000;
   width: 50px;
   height: 50px;
   line-height: 50px;
@@ -173,7 +174,7 @@
   top: 16px;
   left: 50%;
   margin-left: -25px;
-  background-color: #999999;
+  background-color: #eee;
   z-index: 100;
   border-top-right-radius: 50%;
   border-top-left-radius: 50%;
@@ -283,6 +284,28 @@
     #tag {
         display: none;
     }
+    #heading {
+        padding-left: 0px;
+    }
+    
+    .display-3 {
+        white-space: nowrap;
+    }
+    
+    .connect, #experience {
+        margin-top: 50px;
+    }
 }
 
+.paper-bg {
+    background-image:url("img/heading.png");
+    background-repeat: repeat;
+}
 
+.thinfont {
+    font-weight: 100 !important;
+}
+
+.explink {
+    color: #444;
+}

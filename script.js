@@ -1,7 +1,7 @@
 $(document).ready(function(){
       
     new TypeIt('#tagline', {
-         strings: ["Coffee. Innovate. Develop. Repeat."],
+         strings: ["Coffee. Innovate. Create. Repeat."],
          speed: 150,
          breakLines: false,
          autoStart: true,
@@ -25,6 +25,7 @@ $(document).ready(function(){
         }
     });
     
+    textFit($('.display-3')[0]);
     
    
     $('#return-to-top').click(function() {      // When arrow is clicked
