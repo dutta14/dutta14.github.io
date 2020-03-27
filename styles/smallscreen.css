@@ -1,0 +1,31 @@
+@media screen and (max-width: 768px) {
+    .timeline > li > .timeline-panel {
+        width: 100%;
+        float: none;
+    }
+    .timeline > li.timeline-inverted > .timeline-panel {
+        float: none;
+        width: 100%;
+    }
+    .timeline > li > .timeline-badge {
+       display: none;
+    }
+    
+    .timeline:before {
+      display: none;
+    }
+    #tag {
+        display: none;
+    }
+    #heading {
+        padding-left: 0px;
+    }
+    
+    .display-3 {
+        white-space: nowrap;
+    }
+    
+    .connect, #experience {
+        margin-top: 50px;
+    }
+}
