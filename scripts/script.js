@@ -44,6 +44,13 @@ $(document).ready(function(){
         window.scrollTo($anchor.left,$anchor.top);
         return false;
     });
+    
+    $("#intern").hide();
+    
+    $("#moreexp").click(function() {        
+        $("#moreexp").text($("#intern").is(":visible") ? "Load more experiences" : "Show less");
+        $("#intern").slideToggle(500);
+    });
 });
 
 
