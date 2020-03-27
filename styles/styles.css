@@ -42,7 +42,7 @@
 }
 
 #mainnav {
-    background-image:url("img/heading.png")  !important;
+    background-image:url("../img/heading.png")  !important;
     background-repeat: repeat;
 }
 
@@ -93,7 +93,7 @@
 }
 
 .paper-bg {
-    background-image:url("img/heading.png");
+    background-image:url("../img/heading.png");
     background-repeat: repeat;
 }
 
