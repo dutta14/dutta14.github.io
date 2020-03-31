@@ -38,19 +38,12 @@ $(document).ready(function(){
         $("#myModal").modal("show");
     }
     
-    $('div.navbar-nav').find('a').click(function(){
-        var $href = $(this).attr('href');
-        var $anchor = $('#'+$href).offset();
-        window.scrollTo($anchor.left,$anchor.top);
-        return false;
-    });
-    
     $("#intern").hide();
     
     $("#moreexp").click(function() {        
         $("#moreexp").text($("#intern").is(":visible") ? "Load more experiences" : "Show less");
         $("#intern").slideToggle(500);
     });
+    
+    $(".navbar-nav a").smoothScroll();
 });
-
-

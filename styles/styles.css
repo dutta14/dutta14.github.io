@@ -13,6 +13,7 @@
 .card {
     margin-top: 40px;
     align-content: center;
+    transition: transform .5s ease;
 }
 
 .typed_wrap {
@@ -80,6 +81,14 @@
     text-decoration: none;
 }
 
+.social i:hover {
+    transform: scale(1.25);
+}
+
+.social i {
+    transition: transform .5s ease;
+}
+
 #home {
     padding-top:  50px;
 }
@@ -116,4 +125,14 @@
     padding-top: 15px;
     padding-bottom: 15px;
     background: white;
+}
+
+#moreexp:hover {
+    color: white;
+    background: #444;
+}
+
+.card:hover {
+    background: #eee;
+    transform: scale(1.10);
 }
