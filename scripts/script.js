@@ -1,14 +1,5 @@
 $(document).ready(function(){
-      
-    new TypeIt('#tagline', {
-         strings: ["Coffee. Innovate. Create. Repeat."],
-         speed: 150,
-         breakLines: false,
-         autoStart: true,
-         loop: false,
-          cursor: false
-    });
-
+    
     // hide .navbar first
     $(".navbar-brand").hide();
     $('[data-toggle="tooltip"]').tooltip()
@@ -16,7 +7,7 @@ $(document).ready(function(){
     // fade in .navbar
 
     $(window).scroll(function () {
-        if ($(this).scrollTop() > 100) {
+        if ($(this).scrollTop() > 300) {
             $('.navbar-brand').fadeIn(200);
             $('#return-to-top').fadeIn(200)
         } else {

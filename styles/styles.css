@@ -2,10 +2,6 @@
     margin-bottom: 0px;
 }
 
-#heading {
-    padding-left: 100px;
-}
-
 #home .row {
     margin-top: 20px;
 }
@@ -13,7 +9,6 @@
 .card {
     margin-top: 40px;
     align-content: center;
-    transition: transform .5s ease;
 }
 
 .typed_wrap {
@@ -35,16 +30,13 @@
 
 .footer {
     height:100px;
-    background: #e9ecef;
+    background: #fff;
+    border-style: solid;
+    border-color: #eee #fff;
 }
 
 .credit {
     padding-top: 20px;
-}
-
-#mainnav {
-    background-image:url("../img/heading.png")  !important;
-    background-repeat: repeat;
 }
 
 .end {
@@ -58,9 +50,7 @@
 }
 
 .connect {
-    margin-top: 100px;
     letter-spacing: 0.3em;
-    color: black;
     text-transform: uppercase;
 }
 
@@ -102,9 +92,9 @@
 }
 
 .paper-bg {
-    background-image:url("../img/heading.png");
-    background-repeat: repeat;
+    background-color: white;
 }
+
 
 .thinfont {
     font-weight: 100 !important;
@@ -132,7 +122,10 @@
     background: #444;
 }
 
-.card:hover {
-    background: #eee;
-    transform: scale(1.10);
+.center {
+    margin: 0 auto;
+}
+
+.navbar {
+    background-color:white;
 }

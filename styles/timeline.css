@@ -80,7 +80,6 @@
 }
 
 .timeline > li > .timeline-badge {
-  color: #000;
   width: 50px;
   height: 50px;
   line-height: 50px;
@@ -90,12 +89,13 @@
   top: 16px;
   left: 50%;
   margin-left: -25px;
-  background-color: #eee;
-  z-index: 100;
+  background-color: #fff;
   border-top-right-radius: 50%;
   border-top-left-radius: 50%;
   border-bottom-right-radius: 50%;
   border-bottom-left-radius: 50%;
+  border-style: solid;
+  border-color: #bbb;
 }
 
 .timeline > li.timeline-inverted > .timeline-panel {
@@ -149,11 +149,6 @@
 
 .timeline-body > p + p {
   margin-top: 5px;
-}
-
-.timeline-panel:hover {
-    background: #eee;
-    transform: scale(1.05);
 }
 
 .timeline-panel {
