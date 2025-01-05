@@ -28,6 +28,11 @@
     color: #4d5666;
 }
 
+.display-5 {
+    color: #4d5666;
+    font-weight: lighter;
+}
+
 .footer {
     height:100px;
     background: #fff;
@@ -47,6 +52,12 @@
     font-size:1.2em;
     letter-spacing: 0.4em;
     color: #a1adc4;
+}
+
+.name {
+    font-size: 3em;
+    font-weight: lighter;
+
 }
 
 .connect {
@@ -92,7 +103,7 @@
 }
 
 .paper-bg {
-    background-color: white;
+    background-color: rgb(245, 245, 245) !important
 }
 
 
@@ -128,4 +139,9 @@
 
 .navbar {
     background-color:white;
+}
+
+.grayscale {
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
 }
