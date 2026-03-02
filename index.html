@@ -1,364 +1,629 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Anindya Dutta</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Come explore.">
-	<meta name="keywords" content="Anindya,Dutta,Android,Java,Software Developer,Amazon,Samsung,LinkedIn,Microsoft">
-	<meta name="author" content="Anindya Dutta">
-	<meta name="robots" content="index,follow">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anindya Dutta - Software Engineering Leader</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light-bg: #ecf0f1;
+            --white: #fff;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+        }
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/styles.css"/>
-    <link rel="stylesheet" href="styles/timeline.css"/>
-    <link rel="stylesheet" href="styles/smallscreen.css"/>
-      
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/5.0.1/typeit.min.js"></script>
-    <script src="https://kit.fontawesome.com/ec3b6d7984.js" crossorigin="anonymous"></script>
-     
-  </head>
-  <body data-spy="scroll" data-target="#mainnav" data-offset="50">
-      
-      <div class="jumbotron heading paper-bg">
-          <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12 center">
-                    <img src="img/me.jpg" width="150px" height="150px" class="img-fluid rounded-circle grayscale"/>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-xs-12 center text-center">
-                    <h1 class="display-5 name">Anindya Dutta</h1>
-                    <p class="lead center">Engineering Manager</p>
-                </div>
-            </div>
-          </div>
-      </div>
-      
-      
-      <nav id="mainnav" class="navbar navbar-toggleable-md navbar-light bg-faded sticky-top navbar-expand-sm">
-          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-         
-          
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="navbar-nav center navbar">
-              <a class="navbar-brand" href="#">Anindya Dutta</a>
-              <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-              <a class="nav-item nav-link" href="#experience">Experience</a>
-              <a class="nav-item nav-link" href="#education">Education</a>
-              <a class="nav-item nav-link" href="#projects">Projects</a>
-              <a class="nav-item nav-link" href="#contact">Contact</a>
-            </div>
-          </div>
-      </nav>
-      
-      <div id="home" class="container">
-          
-          <div class="container connect">
-              <div class="row">
-                  <div class="col text-center">
-                     Let's get in touch
-                  </div>
-              </div>
+        body.dark-mode {
+            --primary: #0a0e27;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light-bg: #1a1f3a;
+            --white: #1e2639;
+            --text-dark: #ecf0f1;
+            --text-light: #b8c5d6;
+        }
 
-              <div class="social row">
-                  <div class="col text-center">
-                      <a target="_blank" href="http://www.linkedin.com/in/dutta14"> <i class="fa fa-linkedin" aria-hidden="true"></i> </a>
-                      <a target="_blank" href="https://angel.co/dutta14"><i class="fa fa-angellist" aria-hidden="true"></i></a>
-                      <a href="mailto:anindya.dutta22@gmail.com"> <i class="fa fa-envelope-o" aria-hidden="true"></i> </a>
-                      <a target="_blank" href="http://www.github.com/dutta14"> <i class="fa fa-github" aria-hidden="true"></i> </a>
-                      <a target="_blank" href="https://stackoverflow.com/users/3993371/anindya-dutta">   <i class="fa fa-stack-overflow" aria-hidden="true"></i> </a>
-                  </div>
-              </div>
-          </div>
-          
-      </div> 
-      
-      <div id="experience" class="container">
-          <div class="row">
-              <div class="col">
-                  <h1 class="display-5 text-center">Experience</h1>
-              </div>
-          </div>
-	
+        * {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text-dark);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        /* Header / Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .hero-text .bio {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.85;
+            max-width: 500px;
+        }
+
+        .hero-image {
+            flex-shrink: 0;
+        }
+
+        .hero-image img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            object-fit: cover;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--white) !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary) !important;
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        body.dark-mode .navbar-brand {
+            color: #ecf0f1 !important;
+        }
+
+        .navbar-brand.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary) !important;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            transition: color 0.3s;
+            border: none;
+            background: none;
+            padding: 5px;
+        }
+
+        .theme-toggle:hover {
+            color: var(--secondary);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        section.alt-bg {
+            background-color: var(--light-bg);
+        }
+
+        body.dark-mode section.alt-bg h2 {
+            color: #ecf0f1;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        body.dark-mode .cta-section {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+        }
+
+        .cta-section h2 {
+            color: var(--text-dark);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            border: none;
+        }
+
+        body.dark-mode .cta-section h2 {
+            color: #ecf0f1;
+        }
+
+        .cta-section h2::after {
+            display: none;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-light);
+        }
+
+        body.dark-mode .cta-section p {
+            color: #b8c5d6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode .cta-button {
+            background-color: white;
+            color: #2c3e50;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            text-decoration: none;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        body.dark-mode h2 {
+            color: var(--text-dark);
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--secondary);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode .experience-item {
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .experience-item h3 {
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        body.dark-mode .experience-item h3 {
+            color: #fff;
+        }
+
+        .experience-item .company {
+            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        body.dark-mode .experience-item .company {
+            color: var(--secondary);
+        }
+
+        body.dark-mode .experience-item .company i {
+            margin-right: 8px;
+        }
+
+        .experience-item .duration {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        body.dark-mode .experience-item .duration {
+            color: #3498db;
+        }
+
+        .experience-item p {
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* Education Section */
+        .education-card {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        body.dark-mode .education-card {
+            background-color: var(--white);
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .education-card h3 {
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        body.dark-mode .education-card h3 {
+            color: #fff;
+        }
+
+        .education-card p {
+            color: var(--text-light);
+            margin: 5px 0;
+        }
+
+        body.dark-mode .education-card p {
+            color: var(--text-dark);
+        }
+
+        body.dark-mode .education-card p.fw-bold {
+            color: var(--secondary);
+            font-weight: 700 !important;
+        }
+
+        body.dark-mode .education-card p:nth-of-type(3) {
+            color: var(--secondary);
+        }
+
+        /* Skills Section */
+        .skill-badge {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            margin: 8px;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        body.dark-mode footer {
+            background-color: #0a0e27;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.5rem;
+            transition: opacity 0.3s;
+        }
+
+        footer a:hover {
+            opacity: 0.8;
+        }
+
+        footer p {
+            margin-top: 20px;
+            opacity: 1;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        body.dark-mode footer p {
+            color: #ecf0f1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-image img {
+                width: 200px;
+                height: 200px;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-                <ul class="timeline" id="fte">
-                  <li class="timeline-inverted">
-                    <div class="timeline-badge"><i class="fab fa-microsoft"></i></div>
-                    <div class="timeline-panel">
-                      <div class="timeline-heading">
-                          <h4 class="timeline-title">Principal Software Engineering Manager <small class="text-muted">Microsoft</small></h4>
-                          <span><small class="text-muted"><i class="fa fa-map-marker"></i>&nbsp;Redmond, Washington</small></span><span></span>&nbsp;&nbsp;
-                        <span><small class="text-muted"><i class="fa fa-calendar"></i>&nbsp;January 2025 - present</small></span>
-                      </div>
-                      <div class="timeline-body">
-                          Leading the M365 Copilot experiences team to build client experiences on M365 apps like Outlook, Teams and Office, that can interact with AI systems using M365 Copilot.
-                        </div>
-                    </div>
-                  </li>
-                  <li>
-                    <li>
-                        <div class="timeline-badge"><i class="fa-brands fa-meta"></i></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4 class="timeline-title">Staff Software Engineer <small class="text-muted">Meta</small></h4>
-                                <span><small class="text-muted"><i class="fa fa-map-marker"></i>&nbsp;Bellevue, Washington</small></span><span></span>&nbsp;&nbsp;
-                                <span><small class="text-muted"><i class="fa fa-calendar"></i>&nbsp;January 2024 - December 2024</small></span>
-                            </div>
-                            <div class="timeline-body">
-                                Led the Mixed Reality Device Access Platform team to build a world-class authentication system that empowered our users to safely and securely connect with each other in virtual spaces.
-                            </div>
-                        </div>
+            <span class="navbar-brand" id="scrollBrand">Anindya Dutta</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item">
+                        <button class="theme-toggle" id="themeToggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
                     </li>
-                    <li class="timeline-inverted">
-                      <div class="timeline-badge"><i class="fab fa-microsoft"></i></div>
-                      <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <h4 class="timeline-title">Principal Software Engineering Manager <small class="text-muted">Microsoft</small></h4>
-                            <span><small class="text-muted"><i class="fa fa-map-marker"></i>&nbsp;Redmond, Washington</small></span><span></span>&nbsp;&nbsp;
-                          <span><small class="text-muted"><i class="fa fa-calendar"></i>&nbsp;March 2020 - January 2024</small></span>
-                        </div>
-                        <div class="timeline-body">
-                            Led the M365 Copilot mobile experiences team to build client experiences on M365 apps like Outlook, Teams and Office, that can interact with AI systems using M365 Copilot.
-                          </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="timeline-badge"><i class="fab fa-amazon"></i></div>
-                      <div class="timeline-panel">
-                        <div class="timeline-heading">
-                          <h4 class="timeline-title">Software Engineer 2 <small class="text-muted">Amazon</small></h4>
-                            <span><small class="text-muted"><i class="fa fa-map-marker"></i>&nbsp;Seattle, Washington</small></span><span></span>&nbsp;&nbsp;
-                          <span><small class="text-muted"><i class="fa fa-calendar"></i>&nbsp;June 2018 - March 2020</small></span>
-                        </div>
-                        <div class="timeline-body">
-                            Technical lead for releasing Alexa Hands-Free on Android which introduced the new Hands-free experience in India, scaling to 5 millions customers.
-                          </div>
-                      </div>
-                    </li>
-                    <li class="timeline-inverted">
-                      <div class="timeline-badge"><i class="fa fa-building-columns"></i></div>
-                      <div class="timeline-panel">
-                        <div class="timeline-heading">
-                          <h4 class="timeline-title">Android Developer <small class="text-muted">U. of Southern California</small></h4>
-                          <span><small class="text-muted"><i class="fa fa-map-marker"></i>&nbsp;Los Angeles, California</small></span><span></span>&nbsp;&nbsp;
-                          <span><small class="text-muted"><i class="fa fa-calendar"></i>&nbsp;May 2017 - January 2018</small></span>
-                        </div>
-                        <div class="timeline-body">
-                             Led a team of 4 developers to design and deliver an Android app to test cognitive abilities of patients for the American Institutes for Research, that targets 9000 customers.
-                            <section class="demo">
-                              <a target="_blank" href="http://dutta14.github.io/Cognitive-Measures"><i class="fa fa-github" aria-hidden="true"></i></a>
-                            </section>
-                          </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="timeline-badge"><i class="fa-solid fa-mobile-screen"></i></div>
-                      <div class="timeline-panel">
-                        <div class="timeline-heading">
-                          <h4 class="timeline-title">Software Engineer <small class="text-muted">Samsung R&amp;D</small></h4>
-                            <span><small class="text-muted"><i class="fa fa-map-marker"></i>&nbsp;Noida, India</small></span><span></span>&nbsp;&nbsp;
-                          <span><small class="text-muted"><i class="fa fa-calendar"></i>&nbsp;June 2014 - June 2016</small></span>      
-                        </div>
-                        <div class="timeline-body">
-                            Developer of <i>Smart Notifications </i> - an <b>
-                            <a class="explink" href="https://patentimages.storage.googleapis.com/0d/6f/94/ce226c26b73697/US20180188935A1.pdf" target="_blank">A1 patent</a></b> 
-                            simplifying the lives of users by intelligently displaying Android notifications based on user preferences.                         
-                          </div>
-                      </div>
-                    </li>
-                    <li class="timeline-inverted">
-                      <div class="timeline-badge"><i class="fa-solid fa-mobile-screen"></i></div>
-                      <div class="timeline-panel">
-                        <div class="timeline-heading">
-                          <h4 class="timeline-title">Intern  <small class="text-muted">Samsung R&amp;D</small></h4>
-                            <span><small class="text-muted"><i class="fa fa-map-marker"></i>&nbsp;Noida, India</small></span><span></span>&nbsp;&nbsp;
-                          <span><small class="text-muted"><i class="fa fa-calendar"></i>&nbsp;January 2014 - May 2014</small></span>
-                        </div>
-                        <div class="timeline-body">
-                         Created an app to share locations among friends, family and groups, manage events and track trips. User could choose to share between one-time and real-time as per requirement.
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="timeline-badge"><i class="fa fa-building-columns"></i></div>
-                      <div class="timeline-panel">
-                        <div class="timeline-heading">
-                          <h4 class="timeline-title">Intern  <small class="text-muted">Hochschule Emden/Leer</small></h4>
-                            <span><small class="text-muted"><i class="fa fa-map-marker"></i>&nbsp;Emden, Germany</small></span><span></span>&nbsp;&nbsp;
-                          <span><small class="text-muted"><i class="fa fa-calendar"></i>&nbsp;June 2013 - July 2013</small></span>
-                        </div>
-                        <div class="timeline-body">
-                         Developed an Android app for tablets that plots mathematical functions using <code>androidplot-core-0.5.2</code> on graphs and analyze them. The tool was developed for educational purposes.
-                          </div>
-                        <section class="demo">
-                                <a target="_blank" href="http://github.com/dutta14/RationalFunctions"><i class="fa fa-github" aria-hidden="true"></i></a>
-                            </section>
-                      </div>
-                    </li>
-                    <li>
                 </ul>
             </div>
+        </div>
+    </nav>
 
-      </div>
-      
-        <div id="education" class="container">
-           <div class="row">
-                  <div class="col">
-                      <h1 class="display-5 text-center">Education</h1>
-                  </div>
-            </div>
-          <div class="row">
-              <div class="col-xs-12 col-sm-6">
-                     <div class="card">
-                          <div class="card-body">
-                            <h4 class="card-title">Master of Science, Computer Science</h4>
-                            <h6 class="card-subtitle mb-2 text-muted">University of Southern California</h6>
-                            <h6 class="card-subtitle mb-2 text-muted">2016 - 2018</h6>
-                          </div>
-                     </div>
-              </div>
-              <div class="col-xs-12 col-sm-6">
-                     <div class="card">
-                          <div class="card-body">
-                            <h4 class="card-title">B.E., Computer Science and Engineering</h4>
-                            <h6 class="card-subtitle mb-2 text-muted">Manipal University</h6>
-                            <h6 class="card-subtitle mb-2 text-muted">2010 - 2014</h6>
-                           </div>
-                     </div>
-              </div>
-          </div>
-      </div>
-      
-      <div id="projects" class="container">
-          <div class="row">
-              <div class="col">
-                  <h1 id="projects" class="display-5 text-center">Academic Projects</h1>
-              </div>
-          </div>
-          <div class="row">
-              <div class="col-xs-12 col-sm-6 col-md-4">
-                 <div class="card">
-                      <img class="card-img-top" src="img/fbapi.jpg">
-                      <div class="card-body">
-
-                        <h4 class="card-title">Facebook Search</h4>
-                        <h6 class="card-subtitle mb-2 text-muted">FB SDK on Android</h6>
-                        <p class="card-text">Search for users, pages, places and content using the FB SDK for Android. Save favorite people and events.</p>
-                        <a target="_blank" href="https://github.com/dutta14/FB-API-Android" class="card-link">GitHub</a>
-                      </div>
-                 </div>
-              </div>
-              
-          <div class="col-xs-12 col-sm-6 col-md-4">
-                 <div class="card" >
-                      <img class="card-img-top" src="img/zappos.jpg" alt="Card image cap">
-                      <div class="card-body">
-
-                        <h4 class="card-title">Online Market</h4>
-                        <h6 class="card-subtitle mb-2 text-muted">Zappos API on Android</h6>
-                        <p class="card-text">Search for items, add to cart, compare discounts and almost shop with Zappos!</p>
-                        <a target="_blank" href="https://github.com/dutta14/ILoveZappos" class="card-link">GitHub</a>
-                      </div>
-                 </div>
-          </div>
-              
-          <div class="col-xs-12 col-sm-6 col-md-4">
-                 <div class="card">
-                      <img class="card-img-top" src="img/h4h.jpg" alt="Card image cap">
-                      <div class="card-body">
-
-                        <h4 class="card-title">Cancer Social App</h4>
-                        <h6 class="card-subtitle mb-2 text-muted">Android Social Network</h6>
-                        <p class="card-text">One-on-one chats, group discussions and forums for people afflicted with cancer.</p>
-                        <a target="_blank" href="https://github.com/dutta14/HackForHealth" class="card-link">GitHub</a>
-                      </div>
-                 </div>
-          </div>
-              
-              
-        <div class="col-xs-12 col-sm-6 col-md-4">
-                 <div class="card">
-                      <img class="card-img-top" src="img/responsive.PNG">
-                      <div class="card-body">
-
-                        <h4 class="card-title">Responsive Web Design</h4>
-                        <h6 class="card-subtitle mb-2 text-muted">FB SDK with Angular and Bootstrap</h6>
-                        <p class="card-text">Perform Graph API calls and display data asynchronously to users about places, events, locations. Save favorites.</p>
-                        <a target="_blank" href="https://github.com/dutta14/FB-API-Responsive" class="card-link">GitHub</a>
-                      </div>
-                 </div>
-          </div>
-              
-        <div class="col-xs-12 col-sm-6 col-md-4">
-                 <div class="card">
-                      <img class="card-img-top" src="img/guten.PNG">
-                      <div class="card-body">
-
-                        <h4 class="card-title">Sentiment Analysis</h4>
-                        <h6 class="card-subtitle mb-2 text-muted">Multi-class classification using NLTK</h6>
-                        <p class="card-text">Use a combination of unsupervised and supervised algorithms to classify novels into different emotions.</p>
-                        <a target="_blank" href="https://github.com/aarushi-goel/GutenbergSentiment" class="card-link">GitHub</a>
-                      </div>
-                 </div>
-          </div>
-              
-          <div class="col-xs-12 col-sm-6 col-md-4">
-                 <div class="card">
-                      <img class="card-img-top" src="img/mysearchengine.JPG" alt="Card image cap">
-                      <div class="card-body">
-
-                        <h4 class="card-title">Mini Search Engine</h4>
-                        <h6 class="card-subtitle mb-2 text-muted">Indexing and Searching a web site</h6>
-                        <p class="card-text">Created a link extractor, page-rank calculator, Tika parser and website to search a set of pages indexed with Solr.</p>
-                        <a target="_blank" href="https://github.com/dutta14/web-indexer" class="card-link">GitHub</a>
-                      </div>
-                 </div>
-          </div>
-                    
-          </div>
-      </div>
-      
-      <div id="contact" class="container end"> 
-          <div class="row">
-                  <div class="col text-center touch">
-                     Let's get in touch
-                  </div>
-              </div>
-
-              <div class="social row">
-                  <div class="col text-center">
-                      <a target="_blank" href="http://www.linkedin.com/in/dutta14"> <i class="fa fa-linkedin" aria-hidden="true"></i> </a>
-                      <a target="_blank" href="https://angel.co/dutta14"><i class="fa fa-angellist" aria-hidden="true"></i></a>
-                      <a href="mailto:anindya.dutta22@gmail.com"> <i class="fa fa-envelope-o" aria-hidden="true"></i> </a>
-                      <a target="_blank" href="http://www.github.com/dutta14"> <i class="fa fa-github" aria-hidden="true"></i> </a>
-                      <a target="_blank" href="https://stackoverflow.com/users/3993371/anindya-dutta">   <i class="fa fa-stack-overflow" aria-hidden="true"></i> </a>
-                  </div>
-              </div>
-      
-      </div>
-      
-      <div class="container-fluid footer">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
         <div class="container">
-          <div class="row credit">
-            Designed by Anindya Dutta.
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Anindya Dutta</h1>
+                    <p class="subtitle">Principal Software Engineering Manager</p>
+                    <p class="bio">
+                        Experienced engineering leader at Microsoft, specializing in building world-class teams and delivering high-impact solutions. Passionate about driving innovation across mobile, cloud, and AI platforms.
+                    </p>
+                </div>
+                <div class="hero-image">
+                    <img src="img/me.png" alt="Anindya Dutta">
+                </div>
             </div>
-          
-          </div>
-      </div>
+        </div>
+    </section>
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-    <!-- Add textfit before script -->
-     <script src="scripts/smoothscroll.js"></script>
-    <script src="scripts/textFit.min.js"></script>
-     <script src="scripts/script.js"></script>
-  </body>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <p>Interested in discussing leadership, engineering strategy, or exploring career growth? I'd love to chat.</p>
+            <a href="https://calendar.app.google/UeHBbGhSZYHaBGMC9" class="cta-button" target="_blank">Book an Appointment</a>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2>Experience</h2>
+            <div class="row mt-5">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="experience-item">
+                        <h3>Principal Software Engineering Manager</h3>
+                        <div class="company"><i class="fas fa-building"></i> Microsoft</div>
+                        <div class="duration"><i class="fas fa-calendar"></i> January 2025 - Present</div>
+                        <p>Leading the M365 Copilot experiences team. Building client experiences on Outlook, Teams, and Office that interact with AI systems using M365 Copilot.</p>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>Staff Software Engineer</h3>
+                        <div class="company"><i class="fas fa-building"></i> Meta</div>
+                        <div class="duration"><i class="fas fa-calendar"></i> January 2024 - December 2024</div>
+                        <p>Led the Mixed Reality Device Access Platform team. Built world-class authentication systems empowering users to safely and securely connect in virtual spaces.</p>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>Principal Software Engineering Manager</h3>
+                        <div class="company"><i class="fas fa-building"></i> Microsoft</div>
+                        <div class="duration"><i class="fas fa-calendar"></i> March 2020 - January 2024</div>
+                        <p>Led the M365 Copilot mobile experiences team. Managed cross-functional team to deliver AI-integrated experiences on M365 applications.</p>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>Software Engineer 2</h3>
+                        <div class="company"><i class="fas fa-building"></i> Amazon</div>
+                        <div class="duration"><i class="fas fa-calendar"></i> June 2018 - March 2020</div>
+                        <p>Technical lead for Alexa Hands-Free on Android. Introduced hands-free experience in India, scaling to 5 million+ customers.</p>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>Software Engineer</h3>
+                        <div class="company"><i class="fas fa-building"></i> Samsung R&D</div>
+                        <div class="duration"><i class="fas fa-calendar"></i> June 2014 - June 2016</div>
+                        <p>Developed Smart Notifications (A1 patent). Intelligent Android notification system that analyzes user preferences to optimize notification delivery.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="alt-bg" id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <div class="education-card">
+                        <h3>Master of Science</h3>
+                        <p class="fw-bold">Computer Science</p>
+                        <p>University of Southern California</p>
+                        <p class="text-muted">2016 - 2018</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="education-card">
+                        <h3>Bachelor of Engineering</h3>
+                        <p class="fw-bold">Computer Science and Engineering</p>
+                        <p>Manipal University</p>
+                        <p class="text-muted">2010 - 2014</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>Skills & Expertise</h2>
+            <div class="row mt-5">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="skill-badge">Leadership</div>
+                    <div class="skill-badge">Product Strategy</div>
+                    <div class="skill-badge">Software Design</div>
+                    <div class="skill-badge">AI Product Engineering</div>
+                    <div class="skill-badge">Conversational AI Architecture</div>
+                    <div class="skill-badge">AI Platform Scalability</div>
+                    <div class="skill-badge">Human-Centered AI UX</div>
+                    <div class="skill-badge">Engineering Leadership</div>
+                    <div class="skill-badge">Technical Strategy & Execution</div>
+                    <div class="skill-badge">Cross-Org Technical Alignment</div>
+                    <div class="skill-badge">Zero-to-One Product Development</div>
+                    <div class="skill-badge">High-Performance Team Building</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="alt-bg" id="contact">
+        <div class="container text-center">
+            <h2>Get In Touch</h2>
+            <p class="mt-4" style="font-size: 1.1rem; line-height: 1.8;">
+                I'm always interested in connecting with fellow engineers, leaders, and innovators. Feel free to reach out!
+            </p>
+            <footer style="background: none; padding: 40px 0; border-top: 1px solid var(--light-bg);">
+                <a href="http://linkedin.com/in/dutta14" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="http://github.com/dutta14" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:anindya.dutta22@gmail.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://stackoverflow.com/users/3993371/anindya-dutta" target="_blank" title="Stack Overflow">
+                    <i class="fab fa-stack-overflow"></i>
+                </a>
+                <p style="margin-top: 30px; font-size: 0.9rem;">© 2026 Anindya Dutta. All rights reserved.</p>
+            </footer>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Dark mode toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        
+        // Check for saved theme preference or default to off
+        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+        if (isDarkMode) {
+            body.classList.add('dark-mode');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        }
+
+        // Toggle theme on click
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDark);
+            themeToggle.innerHTML = isDark ? 
+                '<i class="fas fa-sun"></i>' : 
+                '<i class="fas fa-moon"></i>';
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Show navbar brand when hero is out of view
+        const scrollBrand = document.getElementById('scrollBrand');
+        const heroSection = document.getElementById('home');
+
+        window.addEventListener('scroll', () => {
+            const heroRect = heroSection.getBoundingClientRect();
+            if (heroRect.bottom < 0) {
+                scrollBrand.classList.add('show');
+            } else {
+                scrollBrand.classList.remove('show');
+            }
+        });
+    </script>
+</body>
 </html>
