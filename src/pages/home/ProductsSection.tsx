@@ -1,4 +1,3 @@
-import Carousel from 'react-bootstrap/Carousel';
 import { products } from '../../data/portfolioData';
 import '../../styles/ProductsSection.css';
 
@@ -7,22 +6,18 @@ const ProductsSection = () => (
     <div className="container">
       <h2>Featured Products</h2>
       <div className="row mt-5">
-        <div className="col-lg-8 offset-lg-2">
-          <Carousel>
+        <div className="col-lg-10 offset-lg-1">
+          <div className="products-grid">
             {products.map((product, i) => (
-              <Carousel.Item key={i}>
-                <img
-                  className="d-block w-100"
-                  src={product.image}
-                  alt={product.alt}
-                />
-                <div className="product-caption">
-                  <h5>{product.title}</h5>
+              <div className="product-card" key={i}>
+                <img src={product.image} alt={product.alt} />
+                <div className="product-card-body">
+                  <h3>{product.title}</h3>
                   <p>{product.description}</p>
                 </div>
-              </Carousel.Item>
+              </div>
             ))}
-          </Carousel>
+          </div>
         </div>
       </div>
     </div>
