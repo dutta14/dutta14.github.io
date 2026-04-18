@@ -2,7 +2,7 @@ import { socialLinks } from '../../data/portfolioData';
 import '../../styles/ContactSection.css';
 
 const ContactSection = () => (
-  <section className="alt-bg contact-section" id="contact">
+  <section className="contact-section" id="contact">
     <div className="container text-center">
       <h2>Get In Touch</h2>
       <p className="mt-4 contact-intro">

@@ -8,23 +8,32 @@ Hero, CTA (Book appointment), Experience (5 roles), Products (react-bootstrap Ca
 
 ## Design Tokens
 
+LinkedIn-inspired, light pastel palette with white surfaces on warm off-white canvas.
+
 Light mode:
 ```
---primary: #2c3e50
---secondary: #3498db
---accent: #e74c3c
---light-bg: #ecf0f1
---text-dark: #2c3e50
---text-light: #7f8c8d
+--primary: #1b1f23
+--secondary: #0a66c2
+--accent: #e7a0ae
+--surface: #ffffff
+--page-bg: #f4f2ee
+--text-dark: #191919
+--text-light: #666666
+--text-muted: #00000099
+--border-color: #e0e0e0
 ```
 
 Dark mode (`body.dark-mode`):
 ```
---primary: #0a0e27
---light-bg: #1a1f3a
---white: #1e2639
---text-dark: #ecf0f1
---text-light: #b8c5d6
+--primary: #e8e8e8
+--secondary: #70b5f9
+--accent: #f5b8c4
+--surface: #1d2226
+--page-bg: #000000
+--text-dark: #e8e8e8
+--text-light: #ffffffb3
+--text-muted: #ffffff66
+--border-color: #38434f
 ```
 
 ## Key Behaviors
@@ -34,6 +43,9 @@ Dark mode (`body.dark-mode`):
 - Smooth scroll via CSS `scroll-behavior: smooth`
 - Bootstrap carousel for products section (react-bootstrap)
 - Responsive breakpoint at 768px (hero stacks, headings shrink)
+- No colored backgrounds — white surfaces on warm off-white canvas
+- Thin borders as dividers between sections and list items (no alternating backgrounds)
+- Outlined skill badges, no card shadows on list items
 
 ## Data
 

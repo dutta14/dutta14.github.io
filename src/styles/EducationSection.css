@@ -1,46 +1,25 @@
 .education-card {
-  background-color: var(--white);
-  padding: 25px;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: var(--surface);
+  padding: 20px 0;
+  border-radius: 0;
+  text-align: left;
+  box-shadow: none;
+  border-bottom: 1px solid var(--border-color);
 }
 
-body.dark-mode .education-card {
-  background-color: var(--white);
-}
-
-.education-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+.education-card:last-child {
+  border-bottom: none;
 }
 
 .education-card h3 {
-  color: var(--secondary);
-  font-weight: 700;
-  margin-bottom: 10px;
-  font-size: 1.3rem;
-}
-
-body.dark-mode .education-card h3 {
-  color: #fff;
+  color: var(--text-dark);
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-size: 1rem;
 }
 
 .education-card p {
   color: var(--text-light);
-  margin: 5px 0;
-}
-
-body.dark-mode .education-card p {
-  color: var(--text-dark);
-}
-
-body.dark-mode .education-card p.fw-bold {
-  color: var(--secondary);
-  font-weight: 700 !important;
-}
-
-body.dark-mode .education-card .school-name {
-  color: var(--secondary);
+  font-size: 0.875rem;
+  margin: 2px 0;
 }
