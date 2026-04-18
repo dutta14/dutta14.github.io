@@ -1,0 +1,34 @@
+.contact-section footer {
+  background: none;
+  padding: 40px 0;
+  border-top: 1px solid var(--light-bg);
+}
+
+.contact-section .contact-intro {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.contact-section footer a {
+  color: var(--secondary);
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 1.5rem;
+  transition: opacity 0.3s;
+}
+
+.contact-section footer a:hover {
+  opacity: 0.8;
+}
+
+.contact-section footer p {
+  margin-top: 20px;
+  opacity: 1;
+  font-weight: 500;
+  color: var(--primary);
+  font-size: 0.9rem;
+}
+
+body.dark-mode .contact-section footer p {
+  color: #ecf0f1;
+}

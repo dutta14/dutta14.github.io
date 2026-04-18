@@ -1,0 +1,55 @@
+* {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+  margin: 0;
+  background-color: var(--white);
+  color: var(--text-dark);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  padding: 80px 0;
+}
+
+section.alt-bg {
+  background-color: var(--light-bg);
+}
+
+body.dark-mode section.alt-bg h2 {
+  color: #ecf0f1;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: var(--primary);
+  position: relative;
+  display: inline-block;
+}
+
+body.dark-mode h2 {
+  color: var(--text-dark);
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background-color: var(--secondary);
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 2rem;
+  }
+}
