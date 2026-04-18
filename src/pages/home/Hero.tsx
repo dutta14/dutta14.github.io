@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { heroData } from '../../data/portfolioData';
+import { heroData, heroStats } from '../../data/portfolioData';
 import '../../styles/Hero.css';
 
 const Hero = forwardRef<HTMLElement>((_props, ref) => (
@@ -12,6 +12,14 @@ const Hero = forwardRef<HTMLElement>((_props, ref) => (
               <h1>{heroData.name}</h1>
               <p className="subtitle">{heroData.subtitle}</p>
               <p className="bio">{heroData.bio}</p>
+              <div className="hero-stats">
+                {heroStats.map((stat) => (
+                  <div className="hero-stat" key={stat.label}>
+                    <span className="hero-stat-value">{stat.value}</span>
+                    <span className="hero-stat-label">{stat.label}</span>
+                  </div>
+                ))}
+              </div>
             </div>
             <div className="hero-image">
               <img src={heroData.image} alt={heroData.name} />

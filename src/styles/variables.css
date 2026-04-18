@@ -1,6 +1,8 @@
 :root {
   --primary: #1b1f23;
-  --secondary: #0a66c2;
+  --secondary: #0f766e;
+  --secondary-hover: #0d6159;
+  --secondary-tint: rgba(15, 118, 110, 0.05);
   --accent: #e7a0ae;
   --light-bg: #ffffff;
   --white: #ffffff;
@@ -17,7 +19,9 @@
 
 body.dark-mode {
   --primary: #e8e8e8;
-  --secondary: #70b5f9;
+  --secondary: #14b8a6;
+  --secondary-hover: #2dd4bf;
+  --secondary-tint: rgba(20, 184, 166, 0.08);
   --accent: #f5b8c4;
   --light-bg: #1d2226;
   --white: #1d2226;

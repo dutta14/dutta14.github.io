@@ -1,0 +1,53 @@
+.writing-section--hidden {
+  display: none;
+}
+
+.writing-subheading {
+  font-size: 0.9375rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.writing-posts {
+  display: flex;
+  flex-direction: column;
+}
+
+.writing-post-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-color-subtle);
+  text-decoration: none;
+  color: var(--text-dark);
+  transition: color 0.2s;
+}
+
+.writing-post-card:last-child {
+  border-bottom: none;
+}
+
+.writing-post-card:hover {
+  color: var(--secondary);
+}
+
+.writing-post-title {
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.writing-post-arrow {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  display: inline-block;
+  transition: color 0.2s, transform 0.2s;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.writing-post-card:hover .writing-post-arrow {
+  color: var(--secondary);
+  transform: translateX(4px);
+}

@@ -79,11 +79,11 @@
 }
 
 .booking-link:hover {
-  background-color: #004182;
+  background-color: var(--secondary-hover);
   color: #ffffff;
 }
 
 body.dark-mode .booking-link:hover {
-  background-color: #a8d4ff;
-  color: #1d2226;
+  background-color: var(--secondary-hover);
+  color: var(--surface);
 }

@@ -6,8 +6,8 @@ describe('SkillsSection', () => {
   it('renders all 12 skill badges', () => {
     render(<SkillsSection />);
     expect(screen.getByText('Skills & Expertise')).toBeInTheDocument();
-    expect(screen.getByText('Leadership')).toBeInTheDocument();
-    expect(screen.getByText('AI Product Engineering')).toBeInTheDocument();
-    expect(screen.getByText('High-Performance Team Building')).toBeInTheDocument();
+    expect(screen.getByText('Engineering Management (IC to GM track)')).toBeInTheDocument();
+    expect(screen.getByText('AI products shipped at scale')).toBeInTheDocument();
+    expect(screen.getByText('U.S. Patent holder (Android systems)')).toBeInTheDocument();
   });
 });

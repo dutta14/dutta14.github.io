@@ -9,6 +9,7 @@ interface NavbarProps {
 
 const navLinks = [
   { href: '#home', label: 'Home' },
+  { href: '#products', label: 'Work' },
   { href: '#experience', label: 'Experience' },
   { href: '#education', label: 'Education' },
   { href: '#skills', label: 'Skills' },
@@ -52,7 +53,7 @@ const Navbar = ({ isDark, onToggleTheme, brandVisible, onBooking }: NavbarProps)
           ))}
         </ul>
         <button className="nav-cta" onClick={onBooking}>
-          Book an Appointment
+          Book 30 Minutes
         </button>
       </div>
     </div>

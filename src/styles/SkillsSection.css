@@ -14,9 +14,9 @@
 
 .skill-badge:hover {
   border-color: var(--secondary);
-  background-color: rgba(10, 102, 194, 0.04);
+  background-color: var(--secondary-tint);
 }
 
 body.dark-mode .skill-badge:hover {
-  background-color: rgba(112, 181, 249, 0.08);
+  background-color: var(--secondary-tint);
 }

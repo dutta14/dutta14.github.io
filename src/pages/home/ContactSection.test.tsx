@@ -7,9 +7,9 @@ describe('ContactSection', () => {
 
   it('renders heading and booking button', () => {
     render(<ContactSection onBooking={noop} />);
-    expect(screen.getByText('Get In Touch')).toBeInTheDocument();
-    expect(screen.getByText(/Interested in discussing/)).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Book an Appointment' })).toBeInTheDocument();
+    expect(screen.getByText("Let's Talk")).toBeInTheDocument();
+    expect(screen.getByText(/career move/)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Book 30 Minutes' })).toBeInTheDocument();
   });
 
   it('renders all 4 social links with correct hrefs', () => {

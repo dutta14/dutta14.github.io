@@ -3,6 +3,7 @@ import Hero from './Hero';
 import ExperienceSection from './ExperienceSection';
 import ProductsSection from './ProductsSection';
 import EducationSection from './EducationSection';
+import WritingSection from './WritingSection';
 import SkillsSection from './SkillsSection';
 import ContactSection from './ContactSection';
 
@@ -13,9 +14,10 @@ interface HomeProps {
 const Home = forwardRef<HTMLElement, HomeProps>(({ onBooking }, ref) => (
   <>
     <Hero ref={ref} />
-    <ExperienceSection />
     <ProductsSection />
+    <ExperienceSection />
     <EducationSection />
+    <WritingSection />
     <SkillsSection />
     <ContactSection onBooking={onBooking} />
   </>

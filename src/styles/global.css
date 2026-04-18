@@ -30,6 +30,16 @@ h2 {
   display: inline-block;
 }
 
+h2::after {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--secondary);
+  margin-top: 6px;
+  border-radius: 2px;
+}
+
 @media (max-width: 768px) {
   h2 {
     font-size: 1.25rem;

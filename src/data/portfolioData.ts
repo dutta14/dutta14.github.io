@@ -1,4 +1,4 @@
-import { Experience, Education, Product, SocialLink } from '../types';
+import { Experience, Education, Product, SocialLink, WritingPost } from '../types';
 
 export const experiences: Experience[] = [
   {
@@ -6,35 +6,35 @@ export const experiences: Experience[] = [
     company: 'Microsoft',
     duration: 'January 2025 - Present',
     description:
-      'Leading the M365 Copilot experiences team. Building client experiences on Outlook, Teams, and Office that interact with AI systems using M365 Copilot.',
+      'Leading the M365 Copilot experiences team. My team owns how Copilot shows up in Outlook, Teams, and Office. I set the product direction, shape the technical architecture, and work across orgs to ship AI features that enterprise customers actually use.',
   },
   {
     title: 'Staff Software Engineer',
     company: 'Meta',
     duration: 'January 2024 - December 2024',
     description:
-      'Led the Mixed Reality Device Access Platform team. Built world-class authentication systems empowering users to safely and securely connect in virtual spaces.',
+      'Led the Mixed Reality Device Access Platform team at Meta Reality Labs. Built the authentication layer that lets people safely connect across virtual spaces. Harder than it sounds when there is no keyboard.',
   },
   {
     title: 'Principal Software Engineering Manager',
     company: 'Microsoft',
     duration: 'March 2020 - January 2024',
     description:
-      'Led the M365 Copilot mobile experiences team. Managed cross-functional team to deliver AI-integrated experiences on M365 applications.',
+      'Led the M365 Copilot mobile experiences team during the earliest phase of Microsoft\'s AI push. Built and grew the team that shipped the first Copilot features on Outlook and Teams mobile, before most people had heard the word Copilot.',
   },
   {
     title: 'Software Engineer 2',
     company: 'Amazon',
     duration: 'June 2018 - March 2020',
     description:
-      'Technical lead for Alexa Hands-Free on Android. Introduced hands-free experience in India, scaling to 5 million+ customers.',
+      'Technical lead for Alexa Hands-Free on Android. Redesigned the wake-word pipeline, coordinated hardware partner integrations, and shipped the first hands-free Alexa experience in India. It reached 5M+ customers in under a year.',
   },
   {
     title: 'Software Engineer',
     company: 'Samsung R&D',
     duration: 'June 2014 - June 2016',
     description:
-      'Developed Smart Notifications (A1 patent). Intelligent Android notification system that analyzes user preferences to optimize notification delivery.',
+      'Built Smart Notifications, an on-device Android system that learned which notifications to surface, when, and at what priority based on how you actually used your phone. The work earned a U.S. patent (A1) for adaptive notification delivery.',
   },
 ];
 
@@ -58,38 +58,41 @@ export const products: Product[] = [
     image: '/img/alexa-handsfree.png',
     alt: 'Alexa Hands-Free',
     title: 'Alexa Hands-Free',
+    scale: '5M+ users',
     description:
-      'Introduced hands-free experience in India, scaling to 5M+ customers on Android.',
+      'The first hands-free Alexa experience on Android in India. Built from scratch, shipped in under a year, reached 5M+ customers. Getting there meant redesigning the wake-word pipeline, coordinating hardware partners, and making voice activation work reliably across patchy mobile networks.',
   },
   {
     image: '/img/semantic-machines.png',
     alt: 'Semantic Machines Voice Assistant',
     title: 'Voice Assistant in Outlook',
+    scale: 'First LLM feature in M365',
     description:
-      'Intelligent voice-enabled assistant integrated into Outlook for seamless communication.',
+      'One of the first production LLM features inside a Microsoft 365 app. A voice assistant built into Outlook that let people dictate emails, search their calendar, and navigate their inbox by talking. It became the foundation for what is now M365 Copilot.',
   },
   {
     image: '/img/m365-copilot.png',
     alt: 'Microsoft 365 Copilot Chat',
     title: 'Microsoft 365 Copilot',
+    scale: 'Enterprise · 400M+ seat platform',
     description:
-      'AI-integrated chat and experiences across Outlook, Teams, and Office applications.',
+      'The AI built into Outlook, Teams, and Office. It drafts emails, summarizes meetings, and answers questions using your actual work data. I ship the Copilot chat experiences and in-app AI features that enterprise customers use every day.',
   },
 ];
 
 export const skills: string[] = [
-  'Leadership',
-  'Product Strategy',
-  'Software Design',
-  'AI Product Engineering',
-  'Conversational AI Architecture',
-  'AI Platform Scalability',
-  'Human-Centered AI UX',
-  'Engineering Leadership',
-  'Technical Strategy & Execution',
-  'Cross-Org Technical Alignment',
-  'Zero-to-One Product Development',
-  'High-Performance Team Building',
+  'Engineering Management (IC to GM track)',
+  'AI products shipped at scale',
+  'U.S. Patent holder (Android systems)',
+  'Built for 5M+ users (Alexa Android)',
+  'Conversational AI and LLM products',
+  'Mobile platform architecture (Android and iOS)',
+  'Mixed Reality authentication systems',
+  '0-to-1 product launches',
+  'Cross-functional team leadership',
+  'M365 Copilot experiences',
+  'SDK and developer platform design',
+  'Technical recruiting and org scaling',
 ];
 
 export const socialLinks: SocialLink[] = [
@@ -122,14 +125,41 @@ export const socialLinks: SocialLink[] = [
 export const heroData = {
   name: 'Anindya Dutta',
   subtitle: 'Principal Software Engineering Manager',
-  bio: 'Experienced engineering leader at Microsoft, specializing in building world-class teams and delivering high-impact solutions. Passionate about driving innovation across mobile, cloud, and AI platforms.',
+  bio: 'I build AI products that real people use every day. At Microsoft, I lead the team that ships M365 Copilot in Outlook, Teams, and Office. Before that: Alexa Hands-Free for 5M+ Android users in India, mixed reality auth at Meta, and a patented notification system at Samsung.',
   image: '/img/me.png',
 };
 
+export const heroStats: { value: string; label: string }[] = [
+  { value: '10+', label: 'Years in industry' },
+  { value: '4', label: 'Companies' },
+  { value: '5M+', label: 'Users shipped' },
+  { value: '1', label: 'U.S. Patent' },
+];
+
 export const ctaData = {
-  heading: 'Get In Touch',
+  heading: "Let's Talk",
   description:
-    "Interested in discussing leadership, engineering strategy, or exploring career growth? I'd love to chat.",
-  buttonText: 'Book an Appointment',
+    "Thinking through a career move, working on an AI product, or trying to build a team that ships? I'm happy to talk. 30 minutes, no agenda, real opinions.",
+  buttonText: 'Book 30 Minutes',
   buttonHref: 'https://calendar.app.google/UeHBbGhSZYHaBGMC9',
+};
+
+export const writingData: { heading: string; subheading: string; posts: WritingPost[] } = {
+  heading: 'Writing',
+  subheading:
+    'Occasional thoughts on engineering leadership, AI product development, and building teams that ship.',
+  posts: [
+    {
+      title: 'On Building Teams That Actually Ship',
+      href: 'https://dutta14.github.io/blog',
+    },
+    {
+      title: 'What Alexa Taught Me About Shipping at Scale',
+      href: 'https://dutta14.github.io/blog',
+    },
+    {
+      title: "The Engineering Manager's Dilemma",
+      href: 'https://dutta14.github.io/blog',
+    },
+  ],
 };

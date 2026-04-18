@@ -16,6 +16,7 @@ export interface Product {
   image: string;
   alt: string;
   title: string;
+  scale: string;
   description: string;
 }
 
@@ -24,4 +25,9 @@ export interface SocialLink {
   icon: string;
   title: string;
   external: boolean;
+}
+
+export interface WritingPost {
+  title: string;
+  href: string;
 }

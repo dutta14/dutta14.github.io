@@ -37,13 +37,13 @@
 }
 
 .cta-button:hover {
-  background-color: #004182;
+  background-color: var(--secondary-hover);
   text-decoration: none;
 }
 
 body.dark-mode .cta-button:hover {
-  background-color: #a8d4ff;
-  color: #1d2226;
+  background-color: var(--secondary-hover);
+  color: var(--surface);
 }
 
 .contact-section footer {

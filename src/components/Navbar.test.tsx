@@ -11,6 +11,7 @@ describe('Navbar', () => {
   it('renders all nav links', () => {
     render(<Navbar isDark={false} onToggleTheme={() => {}} brandVisible={false} onBooking={() => {}} />);
     expect(screen.getByText('Home')).toBeInTheDocument();
+    expect(screen.getByText('Work')).toBeInTheDocument();
     expect(screen.getByText('Experience')).toBeInTheDocument();
     expect(screen.getByText('Education')).toBeInTheDocument();
     expect(screen.getByText('Skills')).toBeInTheDocument();

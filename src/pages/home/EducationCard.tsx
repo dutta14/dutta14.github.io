@@ -1,10 +1,8 @@
-import { ComponentType } from 'react';
 import { Education } from '../../types';
-import { USCLogo, ManipalLogo } from '../../assets/logos';
 
-const schoolLogos: Record<string, ComponentType<{ className?: string }>> = {
-  'University of Southern California': USCLogo,
-  'Manipal University': ManipalLogo,
+const schoolLogos: Record<string, string> = {
+  'University of Southern California': '/logos/usc.svg',
+  'Manipal University': '/logos/manipal.svg',
 };
 
 function extractStartYear(years: string): string {
@@ -17,7 +15,7 @@ interface EducationCardProps {
 }
 
 const EducationCard = ({ education }: EducationCardProps) => {
-  const Logo = schoolLogos[education.school];
+  const logoSrc = schoolLogos[education.school];
   return (
     <div className="education-card">
       <div className="education-year">{extractStartYear(education.years)}</div>
@@ -25,7 +23,13 @@ const EducationCard = ({ education }: EducationCardProps) => {
         <h3>{education.degree}</h3>
         <p className="fw-bold">{education.field}</p>
         <p className="school-name company-logo">
-          {Logo && <Logo className="logo-icon" />}
+          {logoSrc && (
+            <img
+              src={logoSrc}
+              alt={`${education.school} logo`}
+              className="logo-icon"
+            />
+          )}
           {education.school}
         </p>
         <p className="text-muted">{education.years}</p>
