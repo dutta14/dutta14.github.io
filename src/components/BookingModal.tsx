@@ -45,11 +45,20 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
         >
           <i className="fas fa-times"></i>
         </button>
-        <iframe
-          src={ctaData.buttonHref}
-          title="Book an Appointment"
-          className="booking-iframe"
-        />
+        <div className="booking-body">
+          <i className="fas fa-calendar-check booking-icon"></i>
+          <h3>{ctaData.heading}</h3>
+          <p>{ctaData.description}</p>
+          <a
+            href={ctaData.buttonHref}
+            className="booking-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={onClose}
+          >
+            {ctaData.buttonText}
+          </a>
+        </div>
       </div>
     </div>
   );
