@@ -8,9 +8,11 @@ const EducationSection = () => (
       <h2>Education</h2>
       <div className="row mt-4">
         <div className="col-lg-8 offset-lg-2">
-          {educations.map((edu, i) => (
-            <EducationCard key={i} education={edu} />
-          ))}
+          <div className="education-list">
+            {educations.map((edu, i) => (
+              <EducationCard key={i} education={edu} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

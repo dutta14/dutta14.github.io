@@ -7,6 +7,11 @@ const schoolLogos: Record<string, ComponentType<{ className?: string }>> = {
   'Manipal University': ManipalLogo,
 };
 
+function extractStartYear(years: string): string {
+  const match = years.match(/\d{4}/);
+  return match ? match[0] : '';
+}
+
 interface EducationCardProps {
   education: Education;
 }
@@ -15,13 +20,16 @@ const EducationCard = ({ education }: EducationCardProps) => {
   const Logo = schoolLogos[education.school];
   return (
     <div className="education-card">
-      <h3>{education.degree}</h3>
-      <p className="fw-bold">{education.field}</p>
-      <p className="school-name company-logo">
-        {Logo && <Logo className="logo-icon" />}
-        {education.school}
-      </p>
-      <p className="text-muted">{education.years}</p>
+      <div className="education-year">{extractStartYear(education.years)}</div>
+      <div className="education-content">
+        <h3>{education.degree}</h3>
+        <p className="fw-bold">{education.field}</p>
+        <p className="school-name company-logo">
+          {Logo && <Logo className="logo-icon" />}
+          {education.school}
+        </p>
+        <p className="text-muted">{education.years}</p>
+      </div>
     </div>
   );
 };

@@ -1,24 +1,68 @@
+/* Timeline wrapper — spine runs between year and content columns */
+.education-list {
+  position: relative;
+}
+
+.education-list::before {
+  content: '';
+  position: absolute;
+  left: 76px;
+  top: 28px;
+  bottom: 28px;
+  width: 1px;
+  background: var(--border-color);
+}
+
+/* Each card is a two-column flex row */
 .education-card {
-  background-color: var(--surface);
+  display: flex;
+  gap: 24px;
+  position: relative;
   padding: 20px 0;
+  background-color: transparent;
+  border-bottom: none;
   border-radius: 0;
   text-align: left;
   box-shadow: none;
-  border-bottom: 1px solid var(--border-color);
 }
 
-.education-card:last-child {
-  border-bottom: none;
+/* Dot on the spine */
+.education-card::before {
+  content: '';
+  position: absolute;
+  left: 73px;
+  top: 24px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--secondary);
+  z-index: 1;
 }
 
-.education-card h3 {
+/* Year column */
+.education-year {
+  flex: 0 0 64px;
+  text-align: right;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding-top: 2px;
+}
+
+/* Content column */
+.education-content {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.education-content h3 {
   color: var(--text-dark);
   font-weight: 600;
   margin-bottom: 4px;
   font-size: 1rem;
 }
 
-.education-card p {
+.education-content p {
   color: var(--text-light);
   font-size: 0.875rem;
   margin: 2px 0;
@@ -34,4 +78,32 @@
   width: 20px;
   height: 20px;
   flex-shrink: 0;
+}
+
+/* Mobile: collapse to single column */
+@media (max-width: 768px) {
+  .education-list::before {
+    display: none;
+  }
+
+  .education-card {
+    flex-direction: column;
+    gap: 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .education-card:last-child {
+    border-bottom: none;
+  }
+
+  .education-card::before {
+    display: none;
+  }
+
+  .education-year {
+    text-align: left;
+    flex: none;
+    margin-bottom: 4px;
+    font-size: 0.75rem;
+  }
 }
