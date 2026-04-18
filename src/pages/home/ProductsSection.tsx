@@ -6,7 +6,7 @@ const ProductsSection = () => (
     <div className="container">
       <h2>Featured Products</h2>
       <div className="row mt-5">
-        <div className="col-lg-10 offset-lg-1">
+        <div className="col-lg-8 offset-lg-2">
           <div className="products-grid">
             {products.map((product, i) => (
               <div className="product-card" key={i}>

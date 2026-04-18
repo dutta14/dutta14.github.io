@@ -8,27 +8,31 @@ interface ContactSectionProps {
 const ContactSection = ({ onBooking }: ContactSectionProps) => (
   <section className="contact-section" id="contact">
     <div className="container text-center">
-      <h2>{ctaData.heading}</h2>
-      <p className="mt-3 contact-intro">{ctaData.description}</p>
-      <button className="cta-button" onClick={onBooking}>
-        {ctaData.buttonText}
-      </button>
-      <footer>
-        {socialLinks.map((link) => (
-          <a
-            key={link.title}
-            href={link.href}
-            title={link.title}
-            aria-label={link.title}
-            {...(link.external
-              ? { target: '_blank', rel: 'noopener noreferrer' }
-              : {})}
-          >
-            <i className={link.icon}></i>
-          </a>
-        ))}
-        <p>&copy; 2026 Anindya Dutta. All rights reserved.</p>
-      </footer>
+      <div className="row">
+        <div className="col-lg-8 offset-lg-2">
+          <h2>{ctaData.heading}</h2>
+          <p className="mt-3 contact-intro">{ctaData.description}</p>
+          <button className="cta-button" onClick={onBooking}>
+            {ctaData.buttonText}
+          </button>
+          <footer>
+            {socialLinks.map((link) => (
+              <a
+                key={link.title}
+                href={link.href}
+                title={link.title}
+                aria-label={link.title}
+                {...(link.external
+                  ? { target: '_blank', rel: 'noopener noreferrer' }
+                  : {})}
+              >
+                <i className={link.icon}></i>
+              </a>
+            ))}
+            <p>&copy; 2026 Anindya Dutta. All rights reserved.</p>
+          </footer>
+        </div>
+      </div>
     </div>
   </section>
 );

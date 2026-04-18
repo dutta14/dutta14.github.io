@@ -14,7 +14,6 @@
 
 .hero-text {
   flex: 1 1 0;
-  max-width: 560px;
 }
 
 .hero-text h1 {
@@ -36,7 +35,6 @@
   font-size: 0.9375rem;
   line-height: 1.6;
   color: var(--text-light);
-  max-width: 500px;
 }
 
 .hero-image {
