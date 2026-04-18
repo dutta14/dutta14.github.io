@@ -3,17 +3,17 @@ import { describe, it, expect } from 'vitest';
 import ContactSection from './ContactSection';
 
 describe('ContactSection', () => {
-  it('renders heading and booking link', () => {
-    render(<ContactSection />);
+  const noop = () => {};
+
+  it('renders heading and booking button', () => {
+    render(<ContactSection onBooking={noop} />);
     expect(screen.getByText('Get In Touch')).toBeInTheDocument();
     expect(screen.getByText(/Interested in discussing/)).toBeInTheDocument();
-    const link = screen.getByRole('link', { name: 'Book an Appointment' });
-    expect(link).toHaveAttribute('href', 'https://calendar.app.google/UeHBbGhSZYHaBGMC9');
-    expect(link).toHaveAttribute('target', '_blank');
+    expect(screen.getByRole('button', { name: 'Book an Appointment' })).toBeInTheDocument();
   });
 
   it('renders all 4 social links with correct hrefs', () => {
-    render(<ContactSection />);
+    render(<ContactSection onBooking={noop} />);
     const linkedin = screen.getByRole('link', { name: 'LinkedIn' });
     expect(linkedin).toHaveAttribute('href', 'http://linkedin.com/in/dutta14');
     expect(linkedin).toHaveAttribute('target', '_blank');
@@ -29,7 +29,7 @@ describe('ContactSection', () => {
   });
 
   it('renders copyright', () => {
-    render(<ContactSection />);
+    render(<ContactSection onBooking={noop} />);
     expect(screen.getByText(/© 2026 Anindya Dutta/)).toBeInTheDocument();
   });
 });

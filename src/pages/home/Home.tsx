@@ -6,14 +6,18 @@ import EducationSection from './EducationSection';
 import SkillsSection from './SkillsSection';
 import ContactSection from './ContactSection';
 
-const Home = forwardRef<HTMLElement>((_props, ref) => (
+interface HomeProps {
+  onBooking: () => void;
+}
+
+const Home = forwardRef<HTMLElement, HomeProps>(({ onBooking }, ref) => (
   <>
     <Hero ref={ref} />
     <ExperienceSection />
     <ProductsSection />
     <EducationSection />
     <SkillsSection />
-    <ContactSection />
+    <ContactSection onBooking={onBooking} />
   </>
 ));
 

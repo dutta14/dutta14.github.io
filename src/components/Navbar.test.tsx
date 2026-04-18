@@ -9,7 +9,7 @@ describe('Navbar', () => {
   });
 
   it('renders all nav links', () => {
-    render(<Navbar isDark={false} onToggleTheme={() => {}} brandVisible={false} />);
+    render(<Navbar isDark={false} onToggleTheme={() => {}} brandVisible={false} onBooking={() => {}} />);
     expect(screen.getByText('Home')).toBeInTheDocument();
     expect(screen.getByText('Experience')).toBeInTheDocument();
     expect(screen.getByText('Education')).toBeInTheDocument();
@@ -19,7 +19,7 @@ describe('Navbar', () => {
 
   it('shows brand when brandVisible is true', () => {
     const { container } = render(
-      <Navbar isDark={false} onToggleTheme={() => {}} brandVisible={true} />
+      <Navbar isDark={false} onToggleTheme={() => {}} brandVisible={true} onBooking={() => {}} />
     );
     const brand = container.querySelector('.navbar-brand');
     expect(brand?.classList.contains('show')).toBe(true);
@@ -27,7 +27,7 @@ describe('Navbar', () => {
 
   it('hides brand when brandVisible is false', () => {
     const { container } = render(
-      <Navbar isDark={false} onToggleTheme={() => {}} brandVisible={false} />
+      <Navbar isDark={false} onToggleTheme={() => {}} brandVisible={false} onBooking={() => {}} />
     );
     const brand = container.querySelector('.navbar-brand');
     expect(brand?.classList.contains('show')).toBe(false);
@@ -37,7 +37,7 @@ describe('Navbar', () => {
     const user = userEvent.setup();
     let called = false;
     render(
-      <Navbar isDark={false} onToggleTheme={() => { called = true; }} brandVisible={false} />
+      <Navbar isDark={false} onToggleTheme={() => { called = true; }} brandVisible={false} onBooking={() => {}} />
     );
     await user.click(screen.getByRole('button', { name: /switch to dark mode/i }));
     expect(called).toBe(true);
@@ -45,11 +45,11 @@ describe('Navbar', () => {
 
   it('shows sun icon in dark mode and moon icon in light mode', () => {
     const { rerender } = render(
-      <Navbar isDark={true} onToggleTheme={() => {}} brandVisible={false} />
+      <Navbar isDark={true} onToggleTheme={() => {}} brandVisible={false} onBooking={() => {}} />
     );
     expect(screen.getByRole('button', { name: /switch to light mode/i })).toBeInTheDocument();
 
-    rerender(<Navbar isDark={false} onToggleTheme={() => {}} brandVisible={false} />);
+    rerender(<Navbar isDark={false} onToggleTheme={() => {}} brandVisible={false} onBooking={() => {}} />);
     expect(screen.getByRole('button', { name: /switch to dark mode/i })).toBeInTheDocument();
   });
 });

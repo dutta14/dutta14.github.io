@@ -1,19 +1,18 @@
 import { socialLinks, ctaData } from '../../data/portfolioData';
 import '../../styles/ContactSection.css';
 
-const ContactSection = () => (
+interface ContactSectionProps {
+  onBooking: () => void;
+}
+
+const ContactSection = ({ onBooking }: ContactSectionProps) => (
   <section className="contact-section" id="contact">
     <div className="container text-center">
       <h2>{ctaData.heading}</h2>
       <p className="mt-3 contact-intro">{ctaData.description}</p>
-      <a
-        href={ctaData.buttonHref}
-        className="cta-button"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <button className="cta-button" onClick={onBooking}>
         {ctaData.buttonText}
-      </a>
+      </button>
       <footer>
         {socialLinks.map((link) => (
           <a

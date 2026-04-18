@@ -1,10 +1,10 @@
-import { ctaData } from '../data/portfolioData';
 import '../styles/Navbar.css';
 
 interface NavbarProps {
   isDark: boolean;
   onToggleTheme: () => void;
   brandVisible: boolean;
+  onBooking: () => void;
 }
 
 const navLinks = [
@@ -15,7 +15,7 @@ const navLinks = [
   { href: '#contact', label: 'Contact' },
 ];
 
-const Navbar = ({ isDark, onToggleTheme, brandVisible }: NavbarProps) => (
+const Navbar = ({ isDark, onToggleTheme, brandVisible, onBooking }: NavbarProps) => (
   <nav className="navbar navbar-expand-lg sticky-top">
     <div className="container">
       <span className={`navbar-brand${brandVisible ? ' show' : ''}`}>
@@ -51,14 +51,9 @@ const Navbar = ({ isDark, onToggleTheme, brandVisible }: NavbarProps) => (
             </li>
           ))}
         </ul>
-        <a
-          href={ctaData.buttonHref}
-          className="nav-cta"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {ctaData.buttonText}
-        </a>
+        <button className="nav-cta" onClick={onBooking}>
+          Book an Appointment
+        </button>
       </div>
     </div>
   </nav>

@@ -63,6 +63,8 @@
   margin-left: 12px;
   text-decoration: none;
   white-space: nowrap;
+  background: none;
+  cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
 }
 
