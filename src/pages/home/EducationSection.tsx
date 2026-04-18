@@ -5,10 +5,10 @@ import '../../styles/EducationSection.css';
 const EducationSection = () => (
   <section id="education">
     <div className="container">
-      <h2>Education</h2>
-      <div className="row mt-4">
+      <div className="row">
         <div className="col-lg-8 offset-lg-2">
-          <div className="education-list">
+          <h2>Education</h2>
+          <div className="education-list mt-4">
             {educations.map((edu, i) => (
               <EducationCard key={i} education={edu} />
             ))}

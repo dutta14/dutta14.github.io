@@ -4,10 +4,10 @@ import '../../styles/ProductsSection.css';
 const ProductsSection = () => (
   <section id="products">
     <div className="container">
-      <h2>Featured Products</h2>
-      <div className="row mt-5">
+      <div className="row">
         <div className="col-lg-8 offset-lg-2">
-          <div className="products-grid">
+          <h2>Featured Products</h2>
+          <div className="products-grid mt-5">
             {products.map((product, i) => (
               <div className="product-card" key={i}>
                 <img src={product.image} alt={product.alt} />

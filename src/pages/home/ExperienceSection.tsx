@@ -5,10 +5,10 @@ import '../../styles/ExperienceSection.css';
 const ExperienceSection = () => (
   <section id="experience">
     <div className="container">
-      <h2>Experience</h2>
-      <div className="row mt-5">
+      <div className="row">
         <div className="col-lg-8 offset-lg-2">
-          <div className="experience-list">
+          <h2>Experience</h2>
+          <div className="experience-list mt-5">
             {experiences.map((exp, i) => (
               <ExperienceItem key={i} experience={exp} />
             ))}
