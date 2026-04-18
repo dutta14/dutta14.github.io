@@ -3,7 +3,7 @@ import '../../styles/WritingSection.css';
 
 // TODO: unhide when blog content is ready
 const WritingSection = () => (
-  <section id="writing" className="writing-section writing-section--hidden">
+  <section id="writing" className="writing-section">
     <div className="container">
       <div className="row">
         <div className="col-lg-8 offset-lg-2">

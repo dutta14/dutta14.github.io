@@ -150,16 +150,16 @@ export const writingData: { heading: string; subheading: string; posts: WritingP
     'Occasional thoughts on engineering leadership, AI product development, and building teams that ship.',
   posts: [
     {
-      title: 'On Building Teams That Actually Ship',
-      href: 'https://dutta14.github.io/blog',
+      title: 'Samsung, Amazon, Microsoft, Meta, Microsoft again',
+      href: 'https://dutta14.github.io/blog/post/samsung-amazon-microsoft-meta-microsoft-again',
     },
     {
-      title: 'What Alexa Taught Me About Shipping at Scale',
-      href: 'https://dutta14.github.io/blog',
+      title: 'The first Copilot feature nobody saw',
+      href: 'https://dutta14.github.io/blog/post/the-first-copilot-feature-nobody-saw',
     },
     {
-      title: "The Engineering Manager's Dilemma",
-      href: 'https://dutta14.github.io/blog',
+      title: 'What it felt like to ship to five million people',
+      href: 'https://dutta14.github.io/blog/post/what-it-felt-like-to-ship-to-five-million-people',
     },
   ],
 };
