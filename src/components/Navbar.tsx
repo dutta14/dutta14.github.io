@@ -21,7 +21,7 @@ const Navbar = ({ isDark, onToggleTheme, brandVisible }: NavbarProps) => (
       <span className={`navbar-brand${brandVisible ? ' show' : ''}`}>
         Anindya Dutta
       </span>
-      <div className="d-flex gap-2 align-items-center order-lg-last">
+      <div className="d-flex gap-2 align-items-center order-lg-last navbar-actions">
         <button
           className="navbar-toggler"
           type="button"

@@ -49,6 +49,10 @@
   color: var(--text-dark);
 }
 
+.navbar-actions {
+  margin-left: 16px;
+}
+
 .nav-cta {
   font-size: 0.8125rem;
   font-weight: 600;
