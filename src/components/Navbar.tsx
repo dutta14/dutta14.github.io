@@ -1,3 +1,4 @@
+import { ctaData } from '../data/portfolioData';
 import '../styles/Navbar.css';
 
 interface NavbarProps {
@@ -50,6 +51,14 @@ const Navbar = ({ isDark, onToggleTheme, brandVisible }: NavbarProps) => (
             </li>
           ))}
         </ul>
+        <a
+          href={ctaData.buttonHref}
+          className="nav-cta"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {ctaData.buttonText}
+        </a>
       </div>
     </div>
   </nav>
