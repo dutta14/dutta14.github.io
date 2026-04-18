@@ -47,7 +47,16 @@
   margin-left: 16px;
 }
 
-.writing-post-card:hover .writing-post-arrow {
+.writing-see-all {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-size: 0.875rem;
   color: var(--secondary);
-  transform: translateX(4px);
+  text-decoration: none;
+  transition: color 0.2s;
 }
+
+.writing-see-all:hover {
+  color: var(--secondary-hover);
+}
+
