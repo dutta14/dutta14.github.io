@@ -9,7 +9,12 @@
   display: flex;
   align-items: center;
   gap: 32px;
-  justify-content: flex-start;
+  justify-content: space-between;
+}
+
+.hero-text {
+  flex: 1 1 0;
+  max-width: 560px;
 }
 
 .hero-text h1 {
@@ -39,8 +44,8 @@
 }
 
 .hero-image img {
-  width: 160px;
-  height: 160px;
+  width: 176px;
+  height: 176px;
   border-radius: 50%;
   border: 3px solid var(--border-color);
   object-fit: cover;
@@ -52,8 +57,16 @@
     text-align: center;
   }
 
+  .hero-text {
+    max-width: none;
+  }
+
   .hero-text h1 {
     font-size: 1.75rem;
+  }
+
+  .hero-image {
+    order: -1;
   }
 
   .hero-image img {
