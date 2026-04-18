@@ -1,14 +1,19 @@
-import { socialLinks } from '../../data/portfolioData';
+import { socialLinks, ctaData } from '../../data/portfolioData';
 import '../../styles/ContactSection.css';
 
 const ContactSection = () => (
   <section className="contact-section" id="contact">
     <div className="container text-center">
-      <h2>Get In Touch</h2>
-      <p className="mt-4 contact-intro">
-        I&apos;m always interested in connecting with fellow engineers, leaders,
-        and innovators. Feel free to reach out!
-      </p>
+      <h2>{ctaData.heading}</h2>
+      <p className="mt-3 contact-intro">{ctaData.description}</p>
+      <a
+        href={ctaData.buttonHref}
+        className="cta-button"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {ctaData.buttonText}
+      </a>
       <footer>
         {socialLinks.map((link) => (
           <a

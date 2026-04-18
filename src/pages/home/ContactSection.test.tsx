@@ -3,10 +3,13 @@ import { describe, it, expect } from 'vitest';
 import ContactSection from './ContactSection';
 
 describe('ContactSection', () => {
-  it('renders heading and social links', () => {
+  it('renders heading and booking link', () => {
     render(<ContactSection />);
     expect(screen.getByText('Get In Touch')).toBeInTheDocument();
-    expect(screen.getByText(/always interested in connecting/)).toBeInTheDocument();
+    expect(screen.getByText(/Interested in discussing/)).toBeInTheDocument();
+    const link = screen.getByRole('link', { name: 'Book an Appointment' });
+    expect(link).toHaveAttribute('href', 'https://calendar.app.google/UeHBbGhSZYHaBGMC9');
+    expect(link).toHaveAttribute('target', '_blank');
   });
 
   it('renders all 4 social links with correct hrefs', () => {

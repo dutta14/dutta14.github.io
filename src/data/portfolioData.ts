@@ -127,7 +127,7 @@ export const heroData = {
 };
 
 export const ctaData = {
-  heading: "Let's Connect",
+  heading: 'Get In Touch',
   description:
     "Interested in discussing leadership, engineering strategy, or exploring career growth? I'd love to chat.",
   buttonText: 'Book an Appointment',
