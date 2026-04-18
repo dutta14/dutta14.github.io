@@ -47,8 +47,11 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
         </button>
         <div className="booking-body">
           <i className="fas fa-calendar-check booking-icon"></i>
-          <h3>{ctaData.heading}</h3>
-          <p>{ctaData.description}</p>
+          <h3>Let's Find a Time</h3>
+          <p>
+            You'll be taken to Google Calendar to pick a slot that works for
+            you. It only takes a minute.
+          </p>
           <a
             href={ctaData.buttonHref}
             className="booking-link"
@@ -56,7 +59,7 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
             rel="noopener noreferrer"
             onClick={onClose}
           >
-            {ctaData.buttonText}
+            Open Google Calendar
           </a>
         </div>
       </div>
