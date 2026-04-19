@@ -53,4 +53,17 @@ export interface CaseStudy {
   year: string;
   impact: string;
   sections: CaseStudySection[];
+  relatedBlogPosts?: { title: string; slug: string }[];
+}
+
+export interface TalkTopic {
+  title: string;
+  description: string;
+  audience: string;
+}
+
+export interface SpeakerBio {
+  label: string;
+  wordCount: number;
+  text: string;
 }

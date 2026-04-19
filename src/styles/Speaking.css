@@ -1,0 +1,192 @@
+/* ── Speaking Page ── */
+
+.speaking-page {
+  background: var(--surface);
+  padding-bottom: 0;
+}
+
+/* ── Intro ── */
+.speaking-intro {
+  padding: 64px 0 48px;
+  border-bottom: 1px solid var(--border-color-subtle);
+}
+
+.speaking-intro-text {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--text-light);
+  margin: 0;
+  max-width: 640px;
+}
+
+/* ── Talk Topics ── */
+.speaking-topics {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--border-color-subtle);
+}
+
+.speaking-topics h2::after {
+  display: none;
+}
+
+.speaking-topics-label {
+  display: block;
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.speaking-topics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.speaking-topic-card {
+  padding: 24px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: border-color 0.2s;
+}
+
+.speaking-topic-card:hover {
+  border-color: var(--secondary);
+}
+
+.speaking-topic-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0 0 10px;
+  line-height: 1.4;
+}
+
+.speaking-topic-desc {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--text-light);
+  margin: 0 0 12px;
+}
+
+.speaking-topic-audience {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--secondary);
+  margin: 0;
+}
+
+/* ── Bio Kit ── */
+.speaking-bios {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--border-color-subtle);
+}
+
+.speaking-bios-label {
+  display: block;
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.speaking-bio-card {
+  margin-bottom: 24px;
+  padding: 24px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.speaking-bio-card:last-child {
+  margin-bottom: 0;
+}
+
+.speaking-bio-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.speaking-bio-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.speaking-bio-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.speaking-bio-copy:hover {
+  color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.speaking-bio-copy--copied {
+  color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.speaking-bio-text {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--text-light);
+  margin: 0;
+  white-space: pre-line;
+}
+
+/* ── CTA ── */
+.speaking-cta {
+  padding: 48px 0;
+  text-align: center;
+}
+
+.speaking-cta h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+
+.speaking-cta h2::after {
+  display: none;
+}
+
+.speaking-cta-desc {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .speaking-intro {
+    padding: 48px 0 36px;
+  }
+
+  .speaking-topics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .speaking-topics,
+  .speaking-bios {
+    padding: 36px 0;
+  }
+}

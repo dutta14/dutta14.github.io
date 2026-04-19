@@ -32,6 +32,10 @@ export const caseStudies: CaseStudy[] = [
         body: 'We shipped the first hands-free Alexa experience on Android in India. It reached 5M+ customers in under a year. The wake-word detection ran at under 2% battery drain per hour. The audio handoff latency was under 200ms. The program expanded to twelve device partners across India and Southeast Asia. It was the first time I built something that millions of people used without knowing my name, which is a specific feeling that I did not expect.',
       },
     ],
+    relatedBlogPosts: [
+      { title: 'What it felt like to ship to five million people', slug: 'what-it-felt-like-to-ship-to-five-million-people' },
+      { title: 'Building for India from Seattle', slug: 'building-for-india-from-seattle' },
+    ],
   },
   {
     slug: 'voice-assistant-outlook',
@@ -60,6 +64,9 @@ export const caseStudies: CaseStudy[] = [
         body: 'The voice assistant shipped as a feature in Outlook mobile and was used by early adopters inside Microsoft before a broader rollout. More importantly, the integration patterns we built, the Graph entity resolution, the multi-turn context management, the response generation pipeline, became the foundation for what is now M365 Copilot. When the company decided to go all-in on AI in late 2022, the infrastructure was already there because we had built it two years earlier for a voice assistant that most people never heard of.',
       },
     ],
+    relatedBlogPosts: [
+      { title: 'The first Copilot feature nobody saw', slug: 'the-first-copilot-feature-nobody-saw' },
+    ],
   },
   {
     slug: 'm365-copilot',
@@ -87,6 +94,10 @@ export const caseStudies: CaseStudy[] = [
         heading: 'What I do',
         body: 'I set the technical direction, run the team, and work across the organization to unblock the work. That means I am in architecture reviews on Monday, sprint planning on Tuesday, a partner team sync on Wednesday, a customer escalation on Thursday, and a hiring debrief on Friday. The job is context-switching at a pace that would have overwhelmed me five years ago.\n\nThe part I find most interesting is the gap between what the model can do and what the product should do. The model can generate a five-paragraph email in two seconds. The question is whether it should, or whether a three-sentence draft with the right tone is more useful. Those product decisions, the ones where the technology is not the constraint but the judgment is, are where I spend most of my thinking time.',
       },
+    ],
+    relatedBlogPosts: [
+      { title: 'The ChatGPT moment from inside Microsoft', slug: 'the-chatgpt-moment-from-inside-microsoft' },
+      { title: 'What Copilot is becoming', slug: 'what-copilot-is-becoming' },
     ],
   },
 ];

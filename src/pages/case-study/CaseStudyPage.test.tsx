@@ -89,4 +89,50 @@ describe('CaseStudyPage', () => {
     expect(screen.getByText('Case study not found')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /Back to home/ })).toBeInTheDocument();
   });
+
+  /* ── "From the blog" section ────────────────────────────── */
+
+  it('renders "From the blog" section on the Alexa case study with 2 blog post links', () => {
+    renderWithSlug('alexa-hands-free');
+    expect(screen.getByText('From the blog')).toBeInTheDocument();
+    const alexaPosts = caseStudies[0].relatedBlogPosts!;
+    alexaPosts.forEach((post) => {
+      expect(screen.getByRole('link', { name: new RegExp(post.title) })).toBeInTheDocument();
+    });
+  });
+
+  it('blog post links point to the correct external blog URLs', () => {
+    renderWithSlug('alexa-hands-free');
+    const alexaPosts = caseStudies[0].relatedBlogPosts!;
+    alexaPosts.forEach((post) => {
+      const link = screen.getByRole('link', { name: new RegExp(post.title) });
+      expect(link).toHaveAttribute('href', `https://anindya.dev/blog/post/${post.slug}`);
+    });
+  });
+
+  it('blog post links open in a new tab with noopener noreferrer', () => {
+    renderWithSlug('alexa-hands-free');
+    const alexaPosts = caseStudies[0].relatedBlogPosts!;
+    alexaPosts.forEach((post) => {
+      const link = screen.getByRole('link', { name: new RegExp(post.title) });
+      expect(link).toHaveAttribute('target', '_blank');
+      expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+    });
+  });
+
+  it('renders "From the blog" on M365 Copilot case study with 2 blog post links', () => {
+    renderWithSlug('m365-copilot');
+    expect(screen.getByText('From the blog')).toBeInTheDocument();
+    const m365Posts = caseStudies[2].relatedBlogPosts!;
+    m365Posts.forEach((post) => {
+      expect(screen.getByRole('link', { name: new RegExp(post.title) })).toBeInTheDocument();
+    });
+  });
+
+  it('renders "From the blog" on Voice Assistant case study with 1 blog post link', () => {
+    renderWithSlug('voice-assistant-outlook');
+    expect(screen.getByText('From the blog')).toBeInTheDocument();
+    const outlookPosts = caseStudies[1].relatedBlogPosts!;
+    expect(screen.getByRole('link', { name: new RegExp(outlookPosts[0].title) })).toBeInTheDocument();
+  });
 });

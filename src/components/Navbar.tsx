@@ -9,12 +9,13 @@ interface NavbarProps {
   onBooking: () => void;
 }
 
-const navLinks = [
+const navLinks: { href: string; label: string; isRoute?: boolean }[] = [
   { href: '#home', label: 'Home' },
   { href: '#products', label: 'Work' },
   { href: '#experience', label: 'Experience' },
   { href: '#education', label: 'Education' },
   { href: '#writing', label: 'Writing' },
+  { href: '/speaking', label: 'Speaking', isRoute: true },
   { href: '#skills', label: 'Skills' },
   { href: '#contact', label: 'Contact' },
 ];
@@ -52,7 +53,11 @@ const Navbar = ({ isDark, onToggleTheme, brandVisible, onBooking }: NavbarProps)
           <ul className="navbar-nav ms-auto">
             {navLinks.map((link) => (
               <li className="nav-item" key={link.href}>
-                {isHome ? (
+                {link.isRoute ? (
+                  <Link className="nav-link" to={link.href} onClick={() => setMenuOpen(false)}>
+                    {link.label}
+                  </Link>
+                ) : isHome ? (
                   <a className="nav-link" href={link.href} onClick={() => setMenuOpen(false)}>
                     {link.label}
                   </a>

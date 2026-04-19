@@ -8,6 +8,8 @@ const readingTime = (sections: { body: string }[]) => {
   return Math.max(1, Math.round(words / 230));
 };
 
+const BLOG_BASE = 'https://anindya.dev/blog/post';
+
 const CaseStudyPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const study = caseStudies.find((cs) => cs.slug === slug);
@@ -145,6 +147,27 @@ const CaseStudyPage = () => {
                   </section>
                 ))}
               </div>
+
+              {/* From the blog */}
+              {study.relatedBlogPosts && study.relatedBlogPosts.length > 0 && (
+                <div className="cs-blog">
+                  <span className="cs-blog-label">From the blog</span>
+                  <div className="cs-blog-posts">
+                    {study.relatedBlogPosts.map((post) => (
+                      <a
+                        key={post.slug}
+                        className="cs-blog-link"
+                        href={`${BLOG_BASE}/${post.slug}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <span className="cs-blog-title">{post.title}</span>
+                        <span className="cs-blog-arrow" aria-hidden="true">&#8594;</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Next case study */}
               {nextStudy && nextStudy.slug !== study.slug && (

@@ -271,6 +271,66 @@
   margin-bottom: 0;
 }
 
+/* ── From the blog ── */
+.cs-blog {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border-color-subtle);
+}
+
+.cs-blog-label {
+  display: block;
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.cs-blog-posts {
+  display: flex;
+  flex-direction: column;
+}
+
+.cs-blog-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-color-subtle);
+  text-decoration: none;
+  color: var(--text-dark);
+  transition: color 0.2s;
+}
+
+.cs-blog-link:last-child {
+  border-bottom: none;
+}
+
+.cs-blog-link:hover {
+  color: var(--secondary);
+}
+
+.cs-blog-title {
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.cs-blog-arrow {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  display: inline-block;
+  transition: color 0.2s, transform 0.2s;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.cs-blog-link:hover .cs-blog-arrow {
+  color: var(--secondary);
+  transform: translateX(4px);
+}
+
 /* ── Next case study ── */
 .cs-next {
   margin-top: 56px;

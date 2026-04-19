@@ -1,4 +1,4 @@
-import { Experience, Education, Product, SocialLink, WritingPost, SkillPillar } from '../types';
+import { Experience, Education, Product, SocialLink, WritingPost, SkillPillar, TalkTopic, SpeakerBio } from '../types';
 
 export const experiences: Experience[] = [
   {
@@ -195,4 +195,59 @@ export const writingData: { heading: string; subheading: string; posts: WritingP
       href: 'https://dutta14.github.io/blog/post/what-it-felt-like-to-ship-to-five-million-people',
     },
   ],
+};
+
+export const speakingIntro =
+  "I've built AI products used by hundreds of millions of people and led teams that shipped to unfamiliar markets on tight timelines. I talk about what I've actually seen work: scaling enterprise AI, entering new markets from zero, and the real mechanics of engineering leadership. I prefer specific stories over frameworks.";
+
+export const talkTopics: TalkTopic[] = [
+  {
+    title: 'What 400M Seats Teaches You About AI Products',
+    description:
+      'Building AI features for M365 Copilot means every design choice hits hundreds of millions of users. I cover what changes when you ship AI at enterprise scale: the tradeoffs that don\u2019t exist in demos, and the decisions that only matter at volume.',
+    audience: 'Product leaders, engineering teams',
+  },
+  {
+    title: '5 Million Users in a Market You Don\u2019t Know',
+    description:
+      'I led the Alexa Hands-Free launch in India and grew it to 5M+ users in under a year. This talk covers how to ship in a market where your assumptions are wrong, your playbook doesn\u2019t apply, and speed matters more than polish.',
+    audience: 'Product managers, growth teams',
+  },
+  {
+    title: 'The Things Nobody Tells You About Managing Engineers',
+    description:
+      'I\u2019ve been an IC at four companies and a manager at two. The transition is harder than people admit and different than the books describe. I talk about what actually changes, what you lose, what you gain, and when to switch back.',
+    audience: 'Senior engineers, new managers',
+  },
+  {
+    title: 'Why Enterprise Software Is Harder Than You Think',
+    description:
+      'Consumer products get the glamour. Enterprise platforms carry the complexity. After years on M365, I share what makes enterprise software genuinely difficult: the coordination costs, the backwards compatibility constraints, the politics of platform teams, and what it takes to ship anyway.',
+    audience: 'Engineering leaders, platform teams',
+  },
+];
+
+export const speakerBios: SpeakerBio[] = [
+  {
+    label: '50 words',
+    wordCount: 50,
+    text: 'Anindya Dutta is a Principal SWE Manager at Microsoft, where he works on M365 Copilot. Previously, he led the Alexa Hands-Free team at Amazon (5M+ users in India) and worked at Meta Reality Labs and Samsung. He writes about engineering leadership, AI products, and career decisions.',
+  },
+  {
+    label: '150 words',
+    wordCount: 150,
+    text: 'Anindya Dutta is a Principal Software Engineering Manager at Microsoft, working on M365 Copilot, the AI assistant built into a platform with 400M+ seats. He leads teams building AI product experiences at enterprise scale.\n\nBefore Microsoft, Anindya was a tech lead at Amazon, where he led the Alexa Hands-Free launch in India and grew it to 5M+ users in under a year. He also worked as a Staff Software Engineer at Meta Reality Labs and started his career at Samsung.\n\nAcross five companies and 10+ years in the industry, he has shipped products at every stage: from zero-to-one launches to features serving hundreds of millions. He holds a U.S. patent (US20180188935A1) for adaptive notification delivery.\n\nAnindya writes regularly on his blog, where he has published 40+ essays on engineering leadership, building AI products, and the career decisions that don\u2019t have obvious answers.',
+  },
+  {
+    label: '300 words',
+    wordCount: 300,
+    text: 'Anindya Dutta is a Principal Software Engineering Manager at Microsoft, working on M365 Copilot. His team builds AI product experiences on top of a platform that reaches 400M+ seats. It\u2019s the kind of scale where small decisions have large consequences, and he thinks a lot about how to make the right ones.\n\nBefore his current role, Anindya was at Meta, working as a Staff Software Engineer on Reality Labs. Before that, he was a tech lead at Amazon, where he led the launch of Alexa Hands-Free in India. That product went from zero to 5M+ users in under a year, in a market the team was learning as they shipped. He started his career at Samsung, building mobile experiences early enough to see the entire smartphone platform era take shape.\n\nAcross five companies and over a decade in the industry, Anindya has done both: the individual contributor work of writing code and designing systems, and the management work of building teams, setting direction, and making tradeoffs. He has shipped consumer products and enterprise platforms, worked in the U.S. and on products built for international markets, and navigated organizations that range from startup-speed teams to 100,000+ person companies. He holds a U.S. patent (US20180188935A1) for adaptive notification delivery.\n\nAnindya writes regularly on his blog, where he has published 40+ essays on engineering leadership, AI products, and career decisions. His writing is direct and specific. He writes about what he has actually experienced, not what sounds good in a conference abstract. Topics include the real mechanics of managing engineers, what changes when AI products hit enterprise scale, and the career tradeoffs that nobody warns you about.\n\nHe is available for speaking engagements, podcast appearances, and panel discussions.',
+  },
+];
+
+export const speakingCtaData = {
+  heading: 'Interested in having me speak?',
+  description:
+    'I\u2019m available for conferences, podcasts, panels, and internal engineering talks.',
+  buttonText: 'Book a speaking engagement',
 };
