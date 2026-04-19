@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { products } from '../../data/portfolioData';
 import '../../styles/ProductsSection.css';
 
@@ -17,6 +18,9 @@ const ProductsSection = () => (
                   <h3>{product.title}</h3>
                   <span className="product-scale-pill">{product.scale}</span>
                   <p>{product.description}</p>
+                  <Link to={`/case-study/${product.slug}`} className="product-case-study-link">
+                    Read case study &rarr;
+                  </Link>
                 </div>
               </div>
             ))}

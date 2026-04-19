@@ -18,4 +18,27 @@ describe('Hero', () => {
     expect(screen.getByText('Years in industry')).toBeInTheDocument();
     expect(screen.getByText('U.S. Patent')).toBeInTheDocument();
   });
+
+  it('patent stat renders as a clickable link with correct href', () => {
+    render(<Hero />);
+    const patentLinks = screen.getAllByRole('link', { name: 'U.S. Patent' });
+    expect(patentLinks.length).toBeGreaterThanOrEqual(1);
+    expect(patentLinks[0]).toHaveAttribute(
+      'href',
+      'https://patents.google.com/patent/US20180188935A1'
+    );
+  });
+
+  it('patent link opens in new tab', () => {
+    render(<Hero />);
+    const patentLinks = screen.getAllByRole('link', { name: 'U.S. Patent' });
+    expect(patentLinks[0]).toHaveAttribute('target', '_blank');
+  });
+
+  it('other stats render as plain text, not links', () => {
+    render(<Hero />);
+    expect(screen.getByText('Years in industry')).toBeInTheDocument();
+    expect(screen.getByText('Companies')).toBeInTheDocument();
+    expect(screen.getByText('Users shipped')).toBeInTheDocument();
+  });
 });

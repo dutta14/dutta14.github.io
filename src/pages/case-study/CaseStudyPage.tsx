@@ -1,0 +1,172 @@
+import { useParams, Link } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { caseStudies } from '../../data/caseStudies';
+import '../../styles/CaseStudy.css';
+
+const readingTime = (sections: { body: string }[]) => {
+  const words = sections.reduce((n, s) => n + s.body.split(/\s+/).length, 0);
+  return Math.max(1, Math.round(words / 230));
+};
+
+const CaseStudyPage = () => {
+  const { slug } = useParams<{ slug: string }>();
+  const study = caseStudies.find((cs) => cs.slug === slug);
+  const currentIdx = caseStudies.findIndex((cs) => cs.slug === slug);
+  const nextStudy = caseStudies[(currentIdx + 1) % caseStudies.length];
+
+  const [activeSection, setActiveSection] = useState(0);
+  const sectionRefs = useRef<(HTMLElement | null)[]>([]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
+
+  useEffect(() => {
+    if (!study) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idx = sectionRefs.current.indexOf(entry.target as HTMLElement);
+            if (idx !== -1) setActiveSection(idx);
+          }
+        });
+      },
+      { rootMargin: '-20% 0px -60% 0px' }
+    );
+    sectionRefs.current.forEach((el) => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, [study, slug]);
+
+  if (!study) {
+    return (
+      <div className="cs-not-found">
+        <h1>Case study not found</h1>
+        <Link to="/" className="cs-back-link">← Back to home</Link>
+      </div>
+    );
+  }
+
+  const minutes = readingTime(study.sections);
+
+  return (
+    <article className="cs">
+      {/* Full-width hero */}
+      <div className="cs-hero">
+        <div className="cs-hero-overlay" />
+        <img src={study.image} alt="" className="cs-hero-bg" />
+        <div className="container cs-hero-content">
+          <div className="row">
+            <div className="col-lg-10 offset-lg-1">
+              <Link to="/#products" className="cs-back-link cs-back-link--hero">
+                ← Back to projects
+              </Link>
+              <div className="cs-hero-meta">
+                <span className="cs-pill">{study.company}</span>
+                <span className="cs-hero-year">{study.year}</span>
+                <span className="cs-hero-dot">·</span>
+                <span className="cs-hero-read">{minutes} min read</span>
+              </div>
+              <h1 className="cs-hero-title">{study.title}</h1>
+              <p className="cs-hero-subtitle">{study.subtitle}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Stats bar */}
+      <div className="cs-stats-bar">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-10 offset-lg-1">
+              <div className="cs-stats">
+                <div className="cs-stat">
+                  <span className="cs-stat-label">Role</span>
+                  <span className="cs-stat-value">{study.role}</span>
+                </div>
+                <div className="cs-stat-divider" />
+                <div className="cs-stat">
+                  <span className="cs-stat-label">Timeline</span>
+                  <span className="cs-stat-value">{study.year}</span>
+                </div>
+                <div className="cs-stat-divider" />
+                <div className="cs-stat">
+                  <span className="cs-stat-label">Impact</span>
+                  <span className="cs-stat-value">{study.impact}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Body */}
+      <div className="cs-body-wrap">
+        <div className="container">
+          <div className="row">
+            {/* Table of contents - sticky sidebar */}
+            <div className="col-lg-3 offset-lg-1 cs-toc-col">
+              <nav className="cs-toc">
+                <span className="cs-toc-label">Contents</span>
+                <ol className="cs-toc-list">
+                  {study.sections.map((section, i) => (
+                    <li key={i}>
+                      <a
+                        href={`#section-${i}`}
+                        className={`cs-toc-link${activeSection === i ? ' cs-toc-link--active' : ''}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          sectionRefs.current[i]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }}
+                      >
+                        {section.heading}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+            </div>
+
+            {/* Main content */}
+            <div className="col-lg-7 cs-content-col">
+              <div className="cs-content">
+                {study.sections.map((section, i) => (
+                  <section
+                    className="cs-section"
+                    key={i}
+                    id={`section-${i}`}
+                    ref={(el) => { sectionRefs.current[i] = el; }}
+                  >
+                    <div className="cs-section-num">{String(i + 1).padStart(2, '0')}</div>
+                    <h2 className="cs-section-heading">{section.heading}</h2>
+                    {section.body.split('\n\n').map((para, j) => (
+                      <p key={j}>{para}</p>
+                    ))}
+                  </section>
+                ))}
+              </div>
+
+              {/* Next case study */}
+              {nextStudy && nextStudy.slug !== study.slug && (
+                <div className="cs-next">
+                  <span className="cs-next-label">Next case study</span>
+                  <Link to={`/case-study/${nextStudy.slug}`} className="cs-next-link">
+                    <span className="cs-next-title">{nextStudy.title}</span>
+                    <span className="cs-next-arrow">→</span>
+                  </Link>
+                </div>
+              )}
+
+              {/* Footer */}
+              <footer className="cs-footer">
+                <Link to="/#products" className="cs-back-link">← All projects</Link>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+};
+
+export default CaseStudyPage;

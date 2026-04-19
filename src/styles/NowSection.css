@@ -1,0 +1,91 @@
+.now-section {
+  padding: 48px 0;
+  border-top: 1px solid var(--border-color-subtle);
+}
+
+.now-section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: var(--text-dark);
+}
+
+.now-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.now-card {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color-subtle);
+  background: var(--surface);
+}
+
+.now-card-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--secondary);
+  color: #fff;
+  font-size: 1.125rem;
+}
+
+.now-card-book-cover {
+  width: 48px;
+  height: 72px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.now-card-book-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.now-card-content h3 {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.now-card-content p {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.now-card-content a {
+  color: var(--secondary);
+  text-decoration: none;
+}
+
+.now-card-content a:hover {
+  text-decoration: underline;
+}
+
+.now-goodreads-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.8125rem;
+  color: var(--text-muted) !important;
+}
+
+@media (max-width: 768px) {
+  .now-grid {
+    grid-template-columns: 1fr;
+  }
+}

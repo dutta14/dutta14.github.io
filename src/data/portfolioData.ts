@@ -59,6 +59,7 @@ export const products: Product[] = [
     alt: 'Alexa Hands-Free',
     title: 'Alexa Hands-Free',
     scale: '5M+ users',
+    slug: 'alexa-hands-free',
     description:
       'The first hands-free Alexa experience on Android in India. Built from scratch, shipped in under a year, reached 5M+ customers. Getting there meant redesigning the wake-word pipeline, coordinating hardware partners, and making voice activation work reliably across patchy mobile networks.',
   },
@@ -67,6 +68,7 @@ export const products: Product[] = [
     alt: 'Semantic Machines Voice Assistant',
     title: 'Voice Assistant in Outlook',
     scale: 'First LLM feature in M365',
+    slug: 'voice-assistant-outlook',
     description:
       'One of the first production LLM features inside a Microsoft 365 app. A voice assistant built into Outlook that let people dictate emails, search their calendar, and navigate their inbox by talking. It became the foundation for what is now M365 Copilot.',
   },
@@ -75,6 +77,7 @@ export const products: Product[] = [
     alt: 'Microsoft 365 Copilot Chat',
     title: 'Microsoft 365 Copilot',
     scale: 'Enterprise · 400M+ seat platform',
+    slug: 'm365-copilot',
     description:
       'The AI built into Outlook, Teams, and Office. It drafts emails, summarizes meetings, and answers questions using your actual work data. I ship the Copilot chat experiences and in-app AI features that enterprise customers use every day.',
   },
@@ -129,12 +132,23 @@ export const heroData = {
   image: '/img/me.png',
 };
 
-export const heroStats: { value: string; label: string }[] = [
+export const heroStats: { value: string; label: string; href?: string }[] = [
   { value: '10+', label: 'Years in industry' },
   { value: '4', label: 'Companies' },
   { value: '5M+', label: 'Users shipped' },
-  { value: '1', label: 'U.S. Patent' },
+  { value: '1', label: 'U.S. Patent', href: 'https://patents.google.com/patent/US20180188935A1' },
 ];
+
+export const nowData = {
+  work: 'Building M365 Copilot chat experiences: navigation pane improvements, session retrieval, and session search.',
+  reading: {
+    title: 'The Burnout Epidemic',
+    author: 'Jennifer Moss',
+    cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1621369315l/58090428._SX318_.jpg',
+    goodreadsUrl: 'https://www.goodreads.com/book/show/58090428-the-burnout-epidemic',
+    profileUrl: 'https://www.goodreads.com/user/show/48507088-anindya',
+  },
+};
 
 export const ctaData = {
   heading: "Let's Talk",

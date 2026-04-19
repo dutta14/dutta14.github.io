@@ -15,8 +15,24 @@ const Hero = forwardRef<HTMLElement>((_props, ref) => (
               <div className="hero-stats">
                 {heroStats.map((stat) => (
                   <div className="hero-stat" key={stat.label}>
-                    <span className="hero-stat-value">{stat.value}</span>
-                    <span className="hero-stat-label">{stat.label}</span>
+                    <span className="hero-stat-value">
+                      {stat.href ? (
+                        <a href={stat.href} target="_blank" rel="noopener noreferrer" className="hero-stat-link">
+                          {stat.value}
+                        </a>
+                      ) : (
+                        stat.value
+                      )}
+                    </span>
+                    <span className="hero-stat-label">
+                      {stat.href ? (
+                        <a href={stat.href} target="_blank" rel="noopener noreferrer" className="hero-stat-link">
+                          {stat.label}
+                        </a>
+                      ) : (
+                        stat.label
+                      )}
+                    </span>
                   </div>
                 ))}
               </div>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import '../styles/Navbar.css';
 
 interface NavbarProps {
@@ -19,13 +20,15 @@ const navLinks = [
 
 const Navbar = ({ isDark, onToggleTheme, brandVisible, onBooking }: NavbarProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === '/';
 
   return (
     <nav className="navbar navbar-expand-lg sticky-top">
       <div className="container">
-        <span className={`navbar-brand${brandVisible ? ' show' : ''}`}>
+        <Link to="/" className={`navbar-brand${brandVisible ? ' show' : ''}`}>
           Anindya Dutta
-        </span>
+        </Link>
         <div className="d-flex gap-2 align-items-center order-lg-last navbar-actions">
           <button
             className="navbar-toggler"
@@ -48,9 +51,15 @@ const Navbar = ({ isDark, onToggleTheme, brandVisible, onBooking }: NavbarProps)
           <ul className="navbar-nav ms-auto">
             {navLinks.map((link) => (
               <li className="nav-item" key={link.href}>
-                <a className="nav-link" href={link.href} onClick={() => setMenuOpen(false)}>
-                  {link.label}
-                </a>
+                {isHome ? (
+                  <a className="nav-link" href={link.href} onClick={() => setMenuOpen(false)}>
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link className="nav-link" to={`/${link.href}`} onClick={() => setMenuOpen(false)}>
+                    {link.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>

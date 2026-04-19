@@ -17,6 +17,7 @@ export interface Product {
   alt: string;
   title: string;
   scale: string;
+  slug: string;
   description: string;
 }
 
@@ -30,4 +31,21 @@ export interface SocialLink {
 export interface WritingPost {
   title: string;
   href: string;
+}
+
+export interface CaseStudySection {
+  heading: string;
+  body: string;
+}
+
+export interface CaseStudy {
+  slug: string;
+  title: string;
+  subtitle: string;
+  image: string;
+  role: string;
+  company: string;
+  year: string;
+  impact: string;
+  sections: CaseStudySection[];
 }
