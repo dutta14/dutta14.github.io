@@ -33,6 +33,11 @@ export interface WritingPost {
   href: string;
 }
 
+export interface SkillPillar {
+  title: string;
+  evidence: string;
+}
+
 export interface CaseStudySection {
   heading: string;
   body: string;

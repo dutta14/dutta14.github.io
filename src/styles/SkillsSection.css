@@ -1,22 +1,37 @@
-.skill-badge {
-  display: inline-block;
-  background-color: transparent;
-  color: var(--text-dark);
-  padding: 6px 16px;
-  border-radius: 16px;
+.skill-pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.skill-pillar {
+  text-align: left;
+  padding: 20px 24px;
   border: 1px solid var(--border-color);
-  margin: 4px;
-  font-weight: 500;
-  font-size: 0.8125rem;
-  line-height: 1;
-  transition: border-color 0.2s, background-color 0.2s;
+  border-radius: 8px;
+  transition: border-color 0.2s;
 }
 
-.skill-badge:hover {
+.skill-pillar:hover {
   border-color: var(--secondary);
-  background-color: var(--secondary-tint);
 }
 
-body.dark-mode .skill-badge:hover {
-  background-color: var(--secondary-tint);
+.skill-pillar-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--secondary);
+  margin-bottom: 8px;
+}
+
+.skill-pillar-evidence {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .skill-pillars {
+    grid-template-columns: 1fr;
+  }
 }

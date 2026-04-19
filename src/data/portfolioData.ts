@@ -1,4 +1,4 @@
-import { Experience, Education, Product, SocialLink, WritingPost } from '../types';
+import { Experience, Education, Product, SocialLink, WritingPost, SkillPillar } from '../types';
 
 export const experiences: Experience[] = [
   {
@@ -96,6 +96,25 @@ export const skills: string[] = [
   'M365 Copilot experiences',
   'SDK and developer platform design',
   'Technical recruiting and org scaling',
+];
+
+export const skillPillars: SkillPillar[] = [
+  {
+    title: 'AI Product Engineering',
+    evidence: 'M365 Copilot, Alexa Hands-Free, Voice Assistant in Outlook, Patent US20180188935A1',
+  },
+  {
+    title: 'Zero-to-One Builds',
+    evidence: 'Alexa Hands-Free India launch (0 → 5M users), Outlook voice assistant, Copilot mobile experiences',
+  },
+  {
+    title: 'Engineering Leadership',
+    evidence: 'Teams of 15-20 across 5 companies, cross-org alignment at Microsoft, mixed reality platform at Meta',
+  },
+  {
+    title: 'Writing and Thinking',
+    evidence: '40 essays on engineering leadership, Amazon six-pager discipline, Microsoft growth mindset culture',
+  },
 ];
 
 export const socialLinks: SocialLink[] = [
