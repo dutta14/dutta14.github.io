@@ -5,11 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && node scripts/generate-og-images.js && node scripts/prerender-og.js",
     "preview": "vite preview",
     "test": "vitest",
     "test:run": "vitest run",
-    "predeploy": "vitest run && vite build && touch dist/.nojekyll",
+    "predeploy": "vitest run && vite build && node scripts/generate-og-images.js && node scripts/prerender-og.js && touch dist/.nojekyll",
     "deploy": "gh-pages -d dist --dotfiles",
     "prepare": "husky"
   },
@@ -43,6 +43,7 @@
     "gh-pages": "^6.3.0",
     "husky": "^9.1.7",
     "jsdom": "^29.0.2",
+    "satori": "^0.26.0",
     "sharp": "^0.34.5",
     "typescript": "^5.9.3",
     "vite": "^8.0.8",

@@ -35,13 +35,14 @@ const BookingModal = ({ open, onClose, context = 'conversation' }: BookingModalP
       previousFocusRef.current = document.activeElement as HTMLElement;
       document.body.style.overflow = 'hidden';
       requestAnimationFrame(() => closeButtonRef.current?.focus());
+      window.umami?.track('booking-modal-open', { context });
     } else {
       document.body.style.overflow = '';
     }
     return () => {
       document.body.style.overflow = '';
     };
-  }, [open]);
+  }, [open, context]);
 
   // Restore focus on close
   useEffect(() => {
@@ -117,7 +118,10 @@ const BookingModal = ({ open, onClose, context = 'conversation' }: BookingModalP
             className="booking-action"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={onClose}
+            onClick={() => {
+              window.umami?.track('booking-calendar-click', { context });
+              onClose();
+            }}
           >
             {copy.cta}
           </a>

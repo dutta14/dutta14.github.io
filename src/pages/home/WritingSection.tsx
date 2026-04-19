@@ -40,6 +40,7 @@ const WritingSection = () => {
                   href={post.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => window.umami?.track('writing-post-click', { title: post.title })}
                 >
                   <span className="writing-post-title">{post.title}</span>
                   <span className="visually-hidden"> (opens in new tab)</span>
@@ -47,9 +48,20 @@ const WritingSection = () => {
                 </a>
               ))}
             </div>
-            <a href={BLOG_BASE} className="writing-see-all" target="_blank" rel="noopener noreferrer">
-              All posts →<span className="visually-hidden"> (opens in new tab)</span>
-            </a>
+            <div className="writing-links">
+              <a href={BLOG_BASE} className="writing-see-all" target="_blank" rel="noopener noreferrer">
+                All posts →<span className="visually-hidden"> (opens in new tab)</span>
+              </a>
+              <a
+                href="https://anindya.dev/blog/subscribe"
+                className="writing-subscribe-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => window.umami?.track('newsletter-subscribe', { location: 'portfolio-writing' })}
+              >
+                Subscribe to new essays<span className="visually-hidden"> (opens in new tab)</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

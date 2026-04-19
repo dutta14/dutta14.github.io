@@ -34,6 +34,10 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => (
                     className="contact-channel-action"
                     href={channel.action.href}
                     {...(channel.id === 'blog' ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    onClick={() => {
+                      if (channel.id === 'email') window.umami?.track('email-link-click');
+                      if (channel.id === 'blog') window.umami?.track('blog-link-click');
+                    }}
                   >
                     {channel.action.label}
                     {channel.id === 'blog' && <span className="visually-hidden"> (opens in new tab)</span>}
@@ -57,6 +61,7 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => (
                 aria-label={link.title}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => window.umami?.track('social-link-click', { platform: link.title.toLowerCase() })}
               >
                 <i className={link.icon}></i>
                 <span className="visually-hidden"> (opens in new tab)</span>

@@ -24,6 +24,12 @@ const CaseStudyPage = () => {
   }, [slug]);
 
   useEffect(() => {
+    if (study && slug) {
+      window.umami?.track('case-study-view', { slug });
+    }
+  }, [study, slug]);
+
+  useEffect(() => {
     if (!study) return;
     const observer = new IntersectionObserver(
       (entries) => {

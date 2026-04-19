@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import SpeakingPage from './SpeakingPage';
 import {
   speakingIntro,
@@ -135,5 +135,45 @@ describe('SpeakingPage', () => {
   it('renders the "Speaker bio" section label', () => {
     renderPage();
     expect(screen.getByText('Speaker bio')).toBeInTheDocument();
+  });
+});
+
+/* ── Analytics: umami tracking ──────────────────────────── */
+
+describe('SpeakingPage — analytics tracking', () => {
+  afterEach(() => {
+    delete (window as Record<string, unknown>).umami;
+  });
+
+  it('calls window.umami.track with "speaking-page-view" on mount', () => {
+    const trackFn = vi.fn();
+    window.umami = { track: trackFn };
+
+    renderPage();
+
+    expect(trackFn).toHaveBeenCalledWith('speaking-page-view');
+  });
+
+  it('does not throw when window.umami is undefined on mount', () => {
+    expect(window.umami).toBeUndefined();
+    expect(() => renderPage()).not.toThrow();
+  });
+
+  it('calls track with "speaker-bio-copy" when a bio copy button is clicked', async () => {
+    const trackFn = vi.fn();
+    window.umami = { track: trackFn };
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, 'clipboard', {
+      value: { writeText },
+      writable: true,
+      configurable: true,
+    });
+    const user = userEvent.setup();
+
+    renderPage();
+
+    await user.click(screen.getByRole('button', { name: `Copy ${speakerBios[0].label} bio` }));
+
+    expect(trackFn).toHaveBeenCalledWith('speaker-bio-copy', { length: '50' });
   });
 });

@@ -17,6 +17,7 @@ const SpeakingPage = ({ onBooking }: SpeakingPageProps) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    window.umami?.track('speaking-page-view');
   }, []);
 
   useEffect(() => {
@@ -43,6 +44,8 @@ const SpeakingPage = ({ onBooking }: SpeakingPageProps) => {
     try {
       await navigator.clipboard.writeText(text);
       setCopiedIdx(idx);
+      const bioLengths = ['50', '150', '300'] as const;
+      window.umami?.track('speaker-bio-copy', { length: bioLengths[idx] ?? String(idx) });
       setTimeout(() => setCopiedIdx(null), 2000);
     } catch {
       /* clipboard unavailable — silent fail */

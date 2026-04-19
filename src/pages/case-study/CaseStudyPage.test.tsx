@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
-import { describe, it, expect, beforeAll } from 'vitest';
+import { describe, it, expect, beforeAll, vi, afterEach } from 'vitest';
 import CaseStudyPage from './CaseStudyPage';
 import { caseStudies } from '../../data/caseStudies';
 
@@ -134,5 +134,36 @@ describe('CaseStudyPage', () => {
     expect(screen.getByText('From the blog')).toBeInTheDocument();
     const outlookPosts = caseStudies[1].relatedBlogPosts!;
     expect(screen.getByRole('link', { name: new RegExp(outlookPosts[0].title) })).toBeInTheDocument();
+  });
+});
+
+/* ── Analytics: umami tracking ──────────────────────────── */
+
+describe('CaseStudyPage — analytics tracking', () => {
+  afterEach(() => {
+    delete (window as Record<string, unknown>).umami;
+  });
+
+  it('calls window.umami.track with "case-study-view" and slug on mount', () => {
+    const trackFn = vi.fn();
+    window.umami = { track: trackFn };
+
+    renderWithSlug('alexa-hands-free');
+
+    expect(trackFn).toHaveBeenCalledWith('case-study-view', { slug: 'alexa-hands-free' });
+  });
+
+  it('does not throw when window.umami is undefined', () => {
+    expect(window.umami).toBeUndefined();
+    expect(() => renderWithSlug('alexa-hands-free')).not.toThrow();
+  });
+
+  it('does not call track for an invalid slug (case study not found)', () => {
+    const trackFn = vi.fn();
+    window.umami = { track: trackFn };
+
+    renderWithSlug('nonexistent-slug');
+
+    expect(trackFn).not.toHaveBeenCalled();
   });
 });

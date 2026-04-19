@@ -19,6 +19,7 @@ section {
   padding: 48px 0;
   background-color: var(--surface);
   border-bottom: 1px solid var(--border-color-subtle);
+  scroll-margin-top: 60px;
 }
 
 h2 {
