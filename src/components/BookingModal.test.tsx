@@ -9,7 +9,7 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-  delete (window as Record<string, unknown>).umami;
+  delete (window as unknown as Record<string, unknown>).umami;
   vi.restoreAllMocks();
 });
 

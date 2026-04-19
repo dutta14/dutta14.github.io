@@ -141,7 +141,7 @@ describe('CaseStudyPage', () => {
 
 describe('CaseStudyPage — analytics tracking', () => {
   afterEach(() => {
-    delete (window as Record<string, unknown>).umami;
+    delete (window as unknown as Record<string, unknown>).umami;
   });
 
   it('calls window.umami.track with "case-study-view" and slug on mount', () => {

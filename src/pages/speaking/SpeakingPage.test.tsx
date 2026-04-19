@@ -142,7 +142,7 @@ describe('SpeakingPage', () => {
 
 describe('SpeakingPage — analytics tracking', () => {
   afterEach(() => {
-    delete (window as Record<string, unknown>).umami;
+    delete (window as unknown as Record<string, unknown>).umami;
   });
 
   it('calls window.umami.track with "speaking-page-view" on mount', () => {
