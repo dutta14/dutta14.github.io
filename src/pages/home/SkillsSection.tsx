@@ -7,7 +7,7 @@ const SkillsSection = () => (
       <div className="row">
         <div className="col-lg-8 offset-lg-2">
           <h2>What I Bring</h2>
-          <div className="skill-pillars mt-5">
+          <div className="skill-pillars mt-4">
             {skillPillars.map((pillar) => (
               <div className="skill-pillar" key={pillar.title}>
                 <h3 className="skill-pillar-title">{pillar.title}</h3>

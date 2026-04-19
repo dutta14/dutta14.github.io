@@ -6,9 +6,9 @@ describe('Hero', () => {
   it('renders name, title, bio, and image', () => {
     render(<Hero />);
     expect(screen.getByText('Anindya Dutta')).toBeInTheDocument();
-    expect(screen.getByText('Principal Software Engineering Manager')).toBeInTheDocument();
+    expect(screen.getByText('Engineering leader. AI product builder.')).toBeInTheDocument();
     expect(screen.getByText(/I build AI products that real people/)).toBeInTheDocument();
-    expect(screen.getByAltText('Anindya Dutta')).toBeInTheDocument();
+    expect(screen.getByAltText('Portrait of Anindya Dutta')).toBeInTheDocument();
   });
 
   it('renders hero stats', () => {
@@ -21,7 +21,7 @@ describe('Hero', () => {
 
   it('patent stat renders as a clickable link with correct href', () => {
     render(<Hero />);
-    const patentLinks = screen.getAllByRole('link', { name: 'U.S. Patent' });
+    const patentLinks = screen.getAllByRole('link', { name: /U\.S\. Patent/ });
     expect(patentLinks.length).toBeGreaterThanOrEqual(1);
     expect(patentLinks[0]).toHaveAttribute(
       'href',
@@ -31,7 +31,7 @@ describe('Hero', () => {
 
   it('patent link opens in new tab', () => {
     render(<Hero />);
-    const patentLinks = screen.getAllByRole('link', { name: 'U.S. Patent' });
+    const patentLinks = screen.getAllByRole('link', { name: /U\.S\. Patent/ });
     expect(patentLinks[0]).toHaveAttribute('target', '_blank');
   });
 

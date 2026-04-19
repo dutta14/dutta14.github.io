@@ -13,7 +13,6 @@ const navLinks: { href: string; label: string; isRoute?: boolean }[] = [
   { href: '#home', label: 'Home' },
   { href: '#products', label: 'Work' },
   { href: '#experience', label: 'Experience' },
-  { href: '#education', label: 'Education' },
   { href: '#writing', label: 'Writing' },
   { href: '/speaking', label: 'Speaking', isRoute: true },
   { href: '#skills', label: 'Skills' },
@@ -26,9 +25,14 @@ const Navbar = ({ isDark, onToggleTheme, brandVisible, onBooking }: NavbarProps)
   const isHome = location.pathname === '/';
 
   return (
-    <nav className="navbar navbar-expand-lg sticky-top">
+    <nav className="navbar navbar-expand-lg sticky-top" aria-label="Main">
       <div className="container">
-        <Link to="/" className={`navbar-brand${brandVisible ? ' show' : ''}`}>
+        <Link
+          to="/"
+          className={`navbar-brand${brandVisible ? ' show' : ''}`}
+          tabIndex={brandVisible ? 0 : -1}
+          aria-hidden={!brandVisible}
+        >
           Anindya Dutta
         </Link>
         <div className="d-flex gap-2 align-items-center order-lg-last navbar-actions">
@@ -37,6 +41,7 @@ const Navbar = ({ isDark, onToggleTheme, brandVisible, onBooking }: NavbarProps)
             type="button"
             aria-expanded={menuOpen}
             aria-label="Toggle navigation"
+            aria-controls="navbarNav"
             onClick={() => setMenuOpen(o => !o)}
           >
             <span className="navbar-toggler-icon"></span>

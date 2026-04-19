@@ -7,6 +7,7 @@ import CaseStudyPage from './pages/case-study/CaseStudyPage';
 import SpeakingPage from './pages/speaking/SpeakingPage';
 import useDarkMode from './hooks/useDarkMode';
 import useScrollPastElement from './hooks/useScrollPastElement';
+import type { BookingContext } from './components/BookingModal';
 
 function ScrollToHash() {
   const { pathname, hash } = useLocation();
@@ -36,21 +37,28 @@ const App = () => {
   const { isDark, toggle } = useDarkMode();
   const brandVisible = useScrollPastElement(heroRef);
   const [bookingOpen, setBookingOpen] = useState(false);
-  const openBooking = useCallback(() => setBookingOpen(true), []);
+  const [bookingContext, setBookingContext] = useState<BookingContext>('conversation');
+  const openBooking = useCallback((context: BookingContext = 'conversation') => {
+    setBookingContext(context);
+    setBookingOpen(true);
+  }, []);
   const closeBooking = useCallback(() => setBookingOpen(false), []);
 
   return (
     <BrowserRouter>
       <ScrollToHash />
-      <Navbar isDark={isDark} onToggleTheme={toggle} brandVisible={brandVisible} onBooking={openBooking} />
-      <Routes>
-        <Route path="/" element={<Home ref={heroRef} onBooking={openBooking} />} />
-        <Route path="/speaking" element={<SpeakingPage onBooking={openBooking} />} />
-        <Route path="/case-study/:slug" element={<CaseStudyPage />} />
-        <Route path="/case-study" element={<Navigate to="/#products" replace />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-      <BookingModal open={bookingOpen} onClose={closeBooking} />
+      <a href="#main-content" className="skip-link">Skip to main content</a>
+      <Navbar isDark={isDark} onToggleTheme={toggle} brandVisible={brandVisible} onBooking={() => openBooking('conversation')} />
+      <main id="main-content">
+        <Routes>
+          <Route path="/" element={<Home ref={heroRef} onBooking={openBooking} />} />
+          <Route path="/speaking" element={<SpeakingPage onBooking={openBooking} />} />
+          <Route path="/case-study/:slug" element={<CaseStudyPage />} />
+          <Route path="/case-study" element={<Navigate to="/#products" replace />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </main>
+      <BookingModal open={bookingOpen} onClose={closeBooking} context={bookingContext} />
     </BrowserRouter>
   );
 };

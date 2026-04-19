@@ -116,9 +116,6 @@
   }
 
   .experience-year {
-    text-align: left;
-    flex: none;
-    margin-bottom: 4px;
-    font-size: 0.75rem;
+    display: none;
   }
 }

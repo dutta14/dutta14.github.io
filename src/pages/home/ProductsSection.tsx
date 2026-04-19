@@ -8,7 +8,7 @@ const ProductsSection = () => (
       <div className="row">
         <div className="col-lg-8 offset-lg-2">
           <h2>What I've Shipped</h2>
-          <div className="products-grid mt-5">
+          <div className="products-grid mt-4">
             {products.map((product, i) => (
               <div className="product-card" key={i}>
                 <div className="product-card-img-wrap">
@@ -19,7 +19,7 @@ const ProductsSection = () => (
                   <span className="product-scale-pill">{product.scale}</span>
                   <p>{product.description}</p>
                   <Link to={`/case-study/${product.slug}`} className="product-case-study-link">
-                    Read case study &rarr;
+                    Read case study<span className="visually-hidden">: {product.title}</span> &rarr;
                   </Link>
                 </div>
               </div>

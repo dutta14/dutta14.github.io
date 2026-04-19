@@ -42,12 +42,13 @@ const WritingSection = () => {
                   rel="noopener noreferrer"
                 >
                   <span className="writing-post-title">{post.title}</span>
+                  <span className="visually-hidden"> (opens in new tab)</span>
                   <span className="writing-post-arrow" aria-hidden="true">&#8594;</span>
                 </a>
               ))}
             </div>
             <a href={BLOG_BASE} className="writing-see-all" target="_blank" rel="noopener noreferrer">
-              All posts →
+              All posts →<span className="visually-hidden"> (opens in new tab)</span>
             </a>
           </div>
         </div>

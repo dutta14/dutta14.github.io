@@ -8,7 +8,7 @@ const ExperienceSection = () => (
       <div className="row">
         <div className="col-lg-8 offset-lg-2">
           <h2>Experience</h2>
-          <div className="experience-list mt-5">
+          <div className="experience-list mt-4">
             {experiences.map((exp, i) => (
               <ExperienceItem key={i} experience={exp} />
             ))}

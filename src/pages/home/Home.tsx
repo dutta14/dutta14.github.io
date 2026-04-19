@@ -2,14 +2,15 @@ import { forwardRef } from 'react';
 import Hero from './Hero';
 import ExperienceSection from './ExperienceSection';
 import ProductsSection from './ProductsSection';
-import EducationSection from './EducationSection';
+import CredentialsBar from './CredentialsBar';
 import WritingSection from './WritingSection';
 import NowSection from './NowSection';
 import SkillsSection from './SkillsSection';
 import ContactSection from './ContactSection';
+import type { BookingContext } from '../../components/BookingModal';
 
 interface HomeProps {
-  onBooking: () => void;
+  onBooking: (context?: BookingContext) => void;
 }
 
 const Home = forwardRef<HTMLElement, HomeProps>(({ onBooking }, ref) => (
@@ -17,7 +18,7 @@ const Home = forwardRef<HTMLElement, HomeProps>(({ onBooking }, ref) => (
     <Hero ref={ref} />
     <ProductsSection />
     <ExperienceSection />
-    <EducationSection />
+    <CredentialsBar />
     <NowSection />
     <WritingSection />
     <SkillsSection />

@@ -21,7 +21,7 @@ const NowSection = () => (
               <div className="now-card-icon now-card-book-cover">
                 <img
                   src={nowData.reading.cover}
-                  alt={nowData.reading.title}
+                  alt={`Book cover: ${nowData.reading.title}`}
                 />
               </div>
               <div className="now-card-content">
@@ -33,6 +33,7 @@ const NowSection = () => (
                     rel="noopener noreferrer"
                   >
                     {nowData.reading.title}
+                    <span className="visually-hidden"> (opens in new tab)</span>
                   </a>
                   {' '}by {nowData.reading.author}
                 </p>
@@ -43,6 +44,7 @@ const NowSection = () => (
                   className="now-goodreads-link"
                 >
                   See all on Goodreads &rarr;
+                  <span className="visually-hidden"> (opens in new tab)</span>
                 </a>
               </div>
             </div>

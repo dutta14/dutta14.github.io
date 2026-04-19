@@ -46,7 +46,12 @@ body.dark-mode .navbar-toggler-icon {
   transition: color 0.2s;
   border: none;
   background: none;
-  padding: 3px;
+  padding: 12px;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .theme-toggle:hover {
@@ -81,5 +86,11 @@ body.dark-mode .navbar-toggler-icon {
   .nav-cta {
     margin: 8px 0 4px;
     display: inline-block;
+  }
+
+  .nav-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
   }
 }

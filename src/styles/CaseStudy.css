@@ -248,7 +248,7 @@
 }
 
 .cs-section-heading {
-  font-size: 1.375rem;
+  font-size: var(--type-section);
   font-weight: 600;
   color: var(--text-dark);
   margin: 0 0 16px;
@@ -437,7 +437,7 @@
   }
 
   .cs-section-heading {
-    font-size: 1.1875rem;
+    font-size: 1.25rem;
   }
 
   .cs-next {

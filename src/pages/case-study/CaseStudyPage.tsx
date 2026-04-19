@@ -108,7 +108,7 @@ const CaseStudyPage = () => {
           <div className="row">
             {/* Table of contents - sticky sidebar */}
             <div className="col-lg-3 offset-lg-1 cs-toc-col">
-              <nav className="cs-toc">
+              <nav className="cs-toc" aria-label="Table of contents">
                 <span className="cs-toc-label">Contents</span>
                 <ol className="cs-toc-list">
                   {study.sections.map((section, i) => (
@@ -138,9 +138,10 @@ const CaseStudyPage = () => {
                     key={i}
                     id={`section-${i}`}
                     ref={(el) => { sectionRefs.current[i] = el; }}
+                    aria-labelledby={`section-heading-${i}`}
                   >
                     <div className="cs-section-num">{String(i + 1).padStart(2, '0')}</div>
-                    <h2 className="cs-section-heading">{section.heading}</h2>
+                    <h2 className="cs-section-heading" id={`section-heading-${i}`}>{section.heading}</h2>
                     {section.body.split('\n\n').map((para, j) => (
                       <p key={j}>{para}</p>
                     ))}
@@ -162,6 +163,7 @@ const CaseStudyPage = () => {
                         rel="noopener noreferrer"
                       >
                         <span className="cs-blog-title">{post.title}</span>
+                        <span className="visually-hidden"> (opens in new tab)</span>
                         <span className="cs-blog-arrow" aria-hidden="true">&#8594;</span>
                       </a>
                     ))}

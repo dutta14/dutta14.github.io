@@ -6,9 +6,10 @@ import {
   speakingCtaData,
 } from '../../data/portfolioData';
 import '../../styles/Speaking.css';
+import type { BookingContext } from '../../components/BookingModal';
 
 interface SpeakingPageProps {
-  onBooking: () => void;
+  onBooking: (context?: BookingContext) => void;
 }
 
 const SpeakingPage = ({ onBooking }: SpeakingPageProps) => {
@@ -55,7 +56,7 @@ const SpeakingPage = ({ onBooking }: SpeakingPageProps) => {
         <div className="container">
           <div className="row">
             <div className="col-lg-8 offset-lg-2">
-              <h1 className="visually-hidden">Speaking &amp; Availability</h1>
+              <h1 className="speaking-heading">Speaking &amp; Availability</h1>
               <p className="speaking-intro-text">{speakingIntro}</p>
             </div>
           </div>
@@ -67,7 +68,7 @@ const SpeakingPage = ({ onBooking }: SpeakingPageProps) => {
         <div className="container">
           <div className="row">
             <div className="col-lg-8 offset-lg-2">
-              <span className="speaking-topics-label">Talk topics</span>
+              <h2 className="speaking-topics-label">Talk topics</h2>
               <div className="speaking-topics-grid">
                 {talkTopics.map((topic) => (
                   <div className="speaking-topic-card" key={topic.title}>
@@ -87,7 +88,7 @@ const SpeakingPage = ({ onBooking }: SpeakingPageProps) => {
         <div className="container">
           <div className="row">
             <div className="col-lg-8 offset-lg-2">
-              <span className="speaking-bios-label">Speaker bio</span>
+              <h2 className="speaking-bios-label">Speaker bio</h2>
               {speakerBios.map((bio, i) => (
                 <div className="speaking-bio-card" key={bio.label}>
                   <div className="speaking-bio-header">
@@ -98,7 +99,7 @@ const SpeakingPage = ({ onBooking }: SpeakingPageProps) => {
                       aria-label={`Copy ${bio.label} bio`}
                     >
                       <i className={copiedIdx === i ? 'fas fa-check' : 'fas fa-copy'} aria-hidden="true"></i>
-                      {copiedIdx === i ? 'Copied' : 'Copy'}
+                      <span aria-live="polite">{copiedIdx === i ? 'Copied' : 'Copy'}</span>
                     </button>
                   </div>
                   <p className="speaking-bio-text">{bio.text}</p>
@@ -116,7 +117,7 @@ const SpeakingPage = ({ onBooking }: SpeakingPageProps) => {
             <div className="col-lg-8 offset-lg-2">
               <h2>{speakingCtaData.heading}</h2>
               <p className="speaking-cta-desc">{speakingCtaData.description}</p>
-              <button className="cta-button" onClick={onBooking}>
+              <button className="cta-button" onClick={() => onBooking('speaking')}>
                 {speakingCtaData.buttonText}
               </button>
             </div>

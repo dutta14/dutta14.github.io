@@ -15,11 +15,22 @@
   --card-shadow-hover: 0 2px 8px rgba(0, 0, 0, 0.12);
   --surface: #ffffff;
   --page-bg: #f4f2ee;
+
+  /* ── Typography ── */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  --type-display: 2.5rem;
+  --type-section: 1.5rem;
+  --type-subsection: 1rem;
+  --type-body: 0.9375rem;
+  --type-small: 0.875rem;
+  --type-caption: 0.8125rem;
+  --type-label: 0.625rem;
 }
 
 body.dark-mode {
   --primary: #e8e8e8;
-  --secondary: #14b8a6;
+  --secondary: #0d9488;
   --secondary-hover: #2dd4bf;
   --secondary-tint: rgba(20, 184, 166, 0.08);
   --accent: #f5b8c4;
@@ -27,7 +38,7 @@ body.dark-mode {
   --white: #1d2226;
   --text-dark: #e8e8e8;
   --text-light: #ffffffb3;
-  --text-muted: #ffffff66;
+  --text-muted: #ffffff99;
   --border-color: #38434f;
   --border-color-subtle: #2e3a44;
   --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);

@@ -19,6 +19,7 @@ const Hero = forwardRef<HTMLElement>((_props, ref) => (
                       {stat.href ? (
                         <a href={stat.href} target="_blank" rel="noopener noreferrer" className="hero-stat-link">
                           {stat.value}
+                          <span className="visually-hidden"> (opens in new tab)</span>
                         </a>
                       ) : (
                         stat.value
@@ -28,6 +29,7 @@ const Hero = forwardRef<HTMLElement>((_props, ref) => (
                       {stat.href ? (
                         <a href={stat.href} target="_blank" rel="noopener noreferrer" className="hero-stat-link">
                           {stat.label}
+                          <span className="visually-hidden"> (opens in new tab)</span>
                         </a>
                       ) : (
                         stat.label
@@ -38,7 +40,7 @@ const Hero = forwardRef<HTMLElement>((_props, ref) => (
               </div>
             </div>
             <div className="hero-image">
-              <img src={heroData.image} alt={heroData.name} />
+              <img src={heroData.image} alt="Portrait of Anindya Dutta" />
             </div>
           </div>
         </div>

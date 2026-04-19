@@ -119,34 +119,28 @@ export const skillPillars: SkillPillar[] = [
 
 export const socialLinks: SocialLink[] = [
   {
-    href: 'http://linkedin.com/in/dutta14',
+    href: 'https://linkedin.com/in/dutta14',
     icon: 'fab fa-linkedin',
     title: 'LinkedIn',
     external: true,
   },
   {
-    href: 'http://github.com/dutta14',
+    href: 'https://github.com/dutta14',
     icon: 'fab fa-github',
     title: 'GitHub',
     external: true,
   },
   {
-    href: 'mailto:hello@anindya.dev',
-    icon: 'fas fa-envelope',
-    title: 'Email',
-    external: false,
-  },
-  {
-    href: 'https://stackoverflow.com/users/3993371/anindya-dutta',
-    icon: 'fab fa-stack-overflow',
-    title: 'Stack Overflow',
+    href: 'https://anindya.dev/blog/feed.xml',
+    icon: 'fas fa-rss',
+    title: 'RSS',
     external: true,
   },
 ];
 
 export const heroData = {
   name: 'Anindya Dutta',
-  subtitle: 'Principal Software Engineering Manager',
+  subtitle: 'Engineering leader. AI product builder.',
   bio: 'I build AI products that real people use every day. At Microsoft, I lead the team that ships M365 Copilot in Outlook, Teams, and Office. Before that: Alexa Hands-Free for 5M+ Android users in India, mixed reality auth at Meta, and a patented notification system at Samsung.',
   image: '/img/me.png',
 };
@@ -171,10 +165,32 @@ export const nowData = {
 
 export const ctaData = {
   heading: "Let's Talk",
-  description:
-    "Thinking through a career move, working on an AI product, or trying to build a team that ships? I'm happy to talk. 30 minutes, no agenda, real opinions.",
-  buttonText: 'Book 30 Minutes',
-  buttonHref: 'https://calendar.app.google/UeHBbGhSZYHaBGMC9',
+  subheading:
+    "I'm currently open to speaking engagements, mentorship conversations, and interesting problems in AI product engineering.",
+  channels: [
+    {
+      id: 'book',
+      icon: 'fas fa-calendar',
+      title: 'Book a conversation',
+      description: 'Career moves, AI products, team building. 30 minutes, no agenda, real opinions.',
+      action: { label: 'Book 30 Minutes', href: 'https://calendar.app.google/UeHBbGhSZYHaBGMC9' },
+    },
+    {
+      id: 'email',
+      icon: 'fas fa-envelope',
+      title: 'Professional inquiries',
+      description: 'Speaking, advisory, podcasts, or press.',
+      action: { label: 'hello@anindya.dev', href: 'mailto:hello@anindya.dev' },
+    },
+    {
+      id: 'blog',
+      icon: 'fas fa-pen-nib',
+      title: 'Read the blog',
+      description: '40+ essays on engineering leadership and building AI products.',
+      action: { label: 'Read essays', href: 'https://anindya.dev/blog' },
+    },
+  ],
+  responseTime: 'I typically respond within 48 hours.',
 };
 
 export const writingData: { heading: string; subheading: string; posts: WritingPost[] } = {
