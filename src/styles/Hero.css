@@ -77,14 +77,24 @@
 }
 
 .hero-stat-link {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
   color: inherit;
   text-decoration: none;
+  transition: color 0.15s;
+}
+
+.hero-stat-link .hero-stat-label {
   border-bottom: 1px dashed var(--text-muted);
-  transition: color 0.15s, border-color 0.15s;
+  transition: border-color 0.15s;
 }
 
 .hero-stat-link:hover {
   color: var(--secondary);
+}
+
+.hero-stat-link:hover .hero-stat-label {
   border-color: var(--secondary);
 }
 

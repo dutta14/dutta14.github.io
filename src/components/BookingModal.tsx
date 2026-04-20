@@ -124,6 +124,7 @@ const BookingModal = ({ open, onClose, context = 'conversation' }: BookingModalP
             }}
           >
             {copy.cta}
+            <span className="visually-hidden"> (opens in new tab)</span>
           </a>
         </div>
       </div>
