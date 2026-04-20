@@ -41,4 +41,9 @@ describe('Hero', () => {
     expect(screen.getByText('Companies')).toBeInTheDocument();
     expect(screen.getByText('Users shipped')).toBeInTheDocument();
   });
+
+  it('hero subtitle shows "Engineering leader. Building M365 Copilot."', () => {
+    render(<Hero />);
+    expect(screen.getByText('Engineering leader. Building M365 Copilot.')).toBeInTheDocument();
+  });
 });

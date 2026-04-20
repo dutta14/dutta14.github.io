@@ -177,3 +177,33 @@ describe('SpeakingPage — analytics tracking', () => {
     expect(trackFn).toHaveBeenCalledWith('speaker-bio-copy', { length: '50' });
   });
 });
+
+/* ── JSON-LD structured data ───────────────────────────── */
+
+describe('SpeakingPage — JSON-LD structured data', () => {
+  afterEach(() => {
+    delete (window as unknown as Record<string, unknown>).umami;
+    document.head.querySelectorAll('script[type="application/ld+json"]').forEach((s) => s.remove());
+  });
+
+  it('JSON-LD Person data with knowsAbout is present', () => {
+    renderPage();
+    const scripts = document.head.querySelectorAll('script[type="application/ld+json"]');
+    const contents = Array.from(scripts).map((s) => s.textContent ?? '');
+    const hasPerson = contents.some(
+      (c) => c.includes('"Person"') && c.includes('knowsAbout')
+    );
+    expect(hasPerson).toBe(true);
+  });
+
+  it('JSON-LD knowsAbout includes talk topic titles', () => {
+    renderPage();
+    const scripts = document.head.querySelectorAll('script[type="application/ld+json"]');
+    const contents = Array.from(scripts).map((s) => s.textContent ?? '');
+    const personContent = contents.find((c) => c.includes('knowsAbout'));
+    expect(personContent).toBeDefined();
+    talkTopics.forEach((topic) => {
+      expect(personContent).toContain(topic.title);
+    });
+  });
+});

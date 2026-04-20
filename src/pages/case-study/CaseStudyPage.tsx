@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useMemo } from 'react';
+import useJsonLd from '../../hooks/useJsonLd';
 import { caseStudies } from '../../data/caseStudies';
 import '../../styles/CaseStudy.css';
 
@@ -56,6 +57,31 @@ const CaseStudyPage = () => {
   }
 
   const minutes = readingTime(study.sections);
+
+  const articleJsonLd = useMemo(() => ({
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: study.title,
+    description: study.subtitle,
+    image: `https://anindya.dev${study.image}`,
+    author: {
+      '@type': 'Person',
+      name: 'Anindya Dutta',
+      url: 'https://anindya.dev',
+      jobTitle: 'Principal SWE Manager',
+      worksFor: { '@type': 'Organization', name: 'Microsoft' },
+    },
+    publisher: { '@type': 'Person', name: 'Anindya Dutta', url: 'https://anindya.dev' },
+    mainEntityOfPage: `https://anindya.dev/case-study/${study.slug}`,
+    about: {
+      '@type': 'Organization',
+      name: study.company,
+    },
+    url: `https://anindya.dev/case-study/${study.slug}`,
+    timeRequired: `PT${minutes}M`,
+  }), [study, minutes]);
+
+  useJsonLd(articleJsonLd);
 
   return (
     <article className="cs">

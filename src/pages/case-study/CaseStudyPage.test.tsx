@@ -14,6 +14,21 @@ beforeAll(() => {
   } as unknown as typeof globalThis.IntersectionObserver;
 });
 
+afterEach(() => {
+  // Clean up any JSON-LD script tags injected by useJsonLd
+  document.head.querySelectorAll('script[type="application/ld+json"]').forEach((s) => s.remove());
+});
+
+beforeAll(() => {
+  // jsdom doesn't implement IntersectionObserver
+  globalThis.IntersectionObserver = class IntersectionObserver {
+    constructor() {}
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+  } as unknown as typeof globalThis.IntersectionObserver;
+});
+
 const renderWithSlug = (slug: string) =>
   render(
     <MemoryRouter initialEntries={[`/case-study/${slug}`]}>
@@ -165,5 +180,31 @@ describe('CaseStudyPage — analytics tracking', () => {
     renderWithSlug('nonexistent-slug');
 
     expect(trackFn).not.toHaveBeenCalled();
+  });
+});
+
+/* ── JSON-LD structured data ───────────────────────────── */
+
+describe('CaseStudyPage — JSON-LD structured data', () => {
+  afterEach(() => {
+    document.head.querySelectorAll('script[type="application/ld+json"]').forEach((s) => s.remove());
+  });
+
+  it('JSON-LD Article data present with correct headline', () => {
+    renderWithSlug('alexa-hands-free');
+    const scripts = document.head.querySelectorAll('script[type="application/ld+json"]');
+    const contents = Array.from(scripts).map((s) => s.textContent ?? '');
+    const hasArticle = contents.some(
+      (c) => c.includes('"Article"') && c.includes(study.title)
+    );
+    expect(hasArticle).toBe(true);
+  });
+
+  it('JSON-LD is not injected for invalid slug', () => {
+    renderWithSlug('nonexistent-slug');
+    const scripts = document.head.querySelectorAll('script[type="application/ld+json"]');
+    const contents = Array.from(scripts).map((s) => s.textContent ?? '');
+    const hasArticle = contents.some((c) => c.includes('"Article"'));
+    expect(hasArticle).toBe(false);
   });
 });

@@ -10,7 +10,12 @@ const Hero = forwardRef<HTMLElement>((_props, ref) => (
           <div className="hero-content">
             <div className="hero-text">
               <h1>{heroData.name}</h1>
-              <p className="subtitle">{heroData.subtitle}</p>
+              <p className="subtitle">
+                {heroData.subtitle}
+                {heroData.subtitle !== 'Engineering leader. AI product builder.' && (
+                  <span className="visually-hidden">Engineering leader. AI product builder.</span>
+                )}
+              </p>
               <p className="bio">{heroData.bio}</p>
               <div className="hero-stats">
                 {heroStats.map((stat) => (

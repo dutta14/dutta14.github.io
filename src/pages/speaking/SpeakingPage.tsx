@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import useJsonLd from '../../hooks/useJsonLd';
 import {
   speakingIntro,
   talkTopics,
@@ -7,6 +8,21 @@ import {
 } from '../../data/portfolioData';
 import '../../styles/Speaking.css';
 import type { BookingContext } from '../../components/BookingModal';
+
+const speakingPersonJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Anindya Dutta',
+  url: 'https://anindya.dev',
+  jobTitle: 'Principal SWE Manager',
+  worksFor: { '@type': 'Organization', name: 'Microsoft' },
+  knowsAbout: talkTopics.map((t) => t.title),
+  sameAs: [
+    'https://linkedin.com/in/dutta14',
+    'https://github.com/dutta14',
+    'https://anindya.dev/blog',
+  ],
+};
 
 interface SpeakingPageProps {
   onBooking: (context?: BookingContext) => void;
@@ -51,6 +67,8 @@ const SpeakingPage = ({ onBooking }: SpeakingPageProps) => {
       /* clipboard unavailable — silent fail */
     }
   };
+
+  useJsonLd(speakingPersonJsonLd);
 
   return (
     <div className="speaking-page">
