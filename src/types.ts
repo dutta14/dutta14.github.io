@@ -33,6 +33,13 @@ export interface WritingPost {
   href: string;
 }
 
+export interface BlogPost {
+  slug: string;
+  title: string;
+  date?: string;
+  excerpt?: string;
+}
+
 export interface SkillPillar {
   title: string;
   evidence: string;
