@@ -61,19 +61,19 @@ const WritingSection = () => {
                         onClick={() => window.umami?.track('writing-post-click', { title: post.title })}
                       >
                         <div className="writing-post-content">
+                          <h3 className="writing-post-title">{post.title}</h3>
                           {post.date && (
                             <time className="writing-post-date" dateTime={toISODate(post.date)}>
                               {post.date}
                             </time>
                           )}
-                          <h3 className="writing-post-title">{post.title}</h3>
                           {post.excerpt && (
                             <p className="writing-post-excerpt">
                               {truncateExcerpt(post.excerpt)}
                             </p>
                           )}
                         </div>
-                        <span className="writing-post-arrow" aria-hidden="true">&#8594;</span>
+                        <span className="writing-read-cta" aria-hidden="true">Read &#8594;</span>
                         <span className="visually-hidden"> (opens in new tab)</span>
                       </a>
                     </li>

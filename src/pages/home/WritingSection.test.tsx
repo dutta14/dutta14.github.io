@@ -186,16 +186,16 @@ describe('WritingSection — Edge Cases', () => {
 });
 
 describe('WritingSection — Accessibility', () => {
-  it('arrow has aria-hidden="true"', async () => {
+  it('read CTA has aria-hidden="true"', async () => {
     mockFetchSuccess(fakePosts);
     const { container } = render(<WritingSection />);
 
     await screen.findByText(fakePosts[0].title);
 
-    const arrows = container.querySelectorAll('.writing-post-arrow');
-    expect(arrows.length).toBeGreaterThan(0);
-    arrows.forEach((arrow) => {
-      expect(arrow.getAttribute('aria-hidden')).toBe('true');
+    const ctas = container.querySelectorAll('.writing-read-cta');
+    expect(ctas.length).toBeGreaterThan(0);
+    ctas.forEach((cta) => {
+      expect(cta.getAttribute('aria-hidden')).toBe('true');
     });
   });
 
