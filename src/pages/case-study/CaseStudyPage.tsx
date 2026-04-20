@@ -2,7 +2,11 @@ import { useParams, Link } from 'react-router-dom';
 import { useEffect, useRef, useState, useMemo } from 'react';
 import useJsonLd from '../../hooks/useJsonLd';
 import { caseStudies } from '../../data/caseStudies';
+import AlexaDiagram from '../../components/diagrams/AlexaDiagram';
+import VoiceAssistantDiagram from '../../components/diagrams/VoiceAssistantDiagram';
+import CopilotDiagram from '../../components/diagrams/CopilotDiagram';
 import '../../styles/CaseStudy.css';
+import '../../styles/Diagram.css';
 
 const readingTime = (sections: { body: string }[]) => {
   const words = sections.reduce((n, s) => n + s.body.split(/\s+/).length, 0);
@@ -55,6 +59,12 @@ const CaseStudyPage = () => {
       </div>
     );
   }
+
+  const diagramMap: Record<string, React.ReactNode> = {
+    'alexa-hands-free': <AlexaDiagram />,
+    'voice-assistant-outlook': <VoiceAssistantDiagram />,
+    'm365-copilot': <CopilotDiagram />,
+  };
 
   const minutes = readingTime(study.sections);
 
@@ -142,7 +152,7 @@ const CaseStudyPage = () => {
             <div className="col-lg-3 offset-lg-1 cs-toc-col">
               <nav className="cs-toc" aria-label="Table of contents">
                 <span className="cs-toc-label">Contents</span>
-                <ol className="cs-toc-list">
+                <ol className="cs-toc-list" role="list">
                   {study.sections.map((section, i) => (
                     <li key={i}>
                       <a
@@ -164,6 +174,9 @@ const CaseStudyPage = () => {
             {/* Main content */}
             <div className="col-lg-7 cs-content-col">
               <div className="cs-content">
+                {diagramMap[study.slug] && (
+                  <div className="cs-diagram">{diagramMap[study.slug]}</div>
+                )}
                 {study.sections.map((section, i) => (
                   <section
                     className="cs-section"

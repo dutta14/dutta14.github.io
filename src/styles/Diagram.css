@@ -1,0 +1,74 @@
+/* ── Architecture Diagram ── */
+
+.diagram-wrap {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto 32px;
+  padding: 0;
+}
+
+.cs-diagram {
+  margin-bottom: 40px;
+}
+
+.diagram-wrap svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ── Caption ── */
+.diagram-caption {
+  text-align: center;
+  font-size: var(--type-caption);
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-top: 12px;
+  line-height: 1.4;
+}
+
+/* ── Node hover ── */
+.diagram-node rect,
+.diagram-node text {
+  transition: stroke 150ms ease-out, stroke-width 150ms ease-out,
+    fill 150ms ease-out;
+}
+
+.diagram-node:hover rect {
+  stroke: var(--secondary);
+  stroke-width: 2;
+}
+
+.diagram-node:hover text {
+  fill: var(--secondary);
+}
+
+.diagram-node {
+  cursor: default;
+}
+
+/* ── Responsive: horizontal scroll below 480px ── */
+@media (max-width: 480px) {
+  .diagram-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .diagram-wrap:focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .diagram-wrap svg {
+    min-width: 480px;
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .diagram-node rect,
+  .diagram-node text {
+    transition: none;
+  }
+}
