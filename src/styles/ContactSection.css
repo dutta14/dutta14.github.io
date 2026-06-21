@@ -11,8 +11,12 @@
 }
 
 .contact-heading {
-  /* Inherits global h2: 1.5rem, 600wt, teal bar */
+  /* Inherits global h2: 1.5rem, 600wt, accent bar */
   margin-bottom: 16px;
+}
+
+.contact-heading::after {
+  margin: 6px auto 0;
 }
 
 .contact-subheading {

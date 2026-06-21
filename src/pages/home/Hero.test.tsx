@@ -7,7 +7,7 @@ describe('Hero', () => {
     render(<Hero />);
     expect(screen.getByText('Anindya Dutta')).toBeInTheDocument();
     expect(screen.getByText('Engineering leader. AI product builder.')).toBeInTheDocument();
-    expect(screen.getByText(/I build AI products that real people/)).toBeInTheDocument();
+    expect(screen.getByText(/I build AI products that millions of people/)).toBeInTheDocument();
     expect(screen.getByAltText('Portrait of Anindya Dutta')).toBeInTheDocument();
   });
 
