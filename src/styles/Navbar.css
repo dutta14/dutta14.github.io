@@ -37,8 +37,10 @@
   transition: color 0.2s;
 }
 
-.nav-item:first-child .nav-link {
-  margin-left: 0;
+@media (min-width: 992px) {
+  .nav-item:first-child .nav-link {
+    margin-left: 0;
+  }
 }
 
 .nav-link:hover {
