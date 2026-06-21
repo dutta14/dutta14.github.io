@@ -1,0 +1,135 @@
+name: Feature Issue
+description: Full-spec feature issue with all required layers
+title: "[M] "
+labels: ["feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 👥 Staffing
+        | Role | Assigned |
+        |------|----------|
+        | Feature Dev | **TBD** |
+        | Unit Tests | **Ellis** |
+        | E2E Tests | **Quinn** |
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Feature Description
+      description: User stories, acceptance criteria, scope (in/out)
+      placeholder: |
+        **Goal:** One sentence on what this achieves for the user.
+
+        **User stories:**
+        - As a [user], I want [action], so that [outcome]
+
+        **Acceptance criteria:**
+        1. ...
+
+        **In scope:** ...
+        **Out of scope:** ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: design-spec
+    attributes:
+      label: "📐 Design Spec"
+      description: "Owner: Kai · Reviewer: Jordan"
+      placeholder: |
+        Component hierarchy, visual spec (spacing, colors, typography using CSS variables),
+        states (default/hover/focus/active/disabled/loading/empty/error),
+        responsive behavior (<768px), dark mode notes.
+    validations:
+      required: true
+
+  - type: textarea
+    id: a11y-spec
+    attributes:
+      label: "♿ A11y Spec"
+      description: "Owner: Sasha · Reviewer: Jordan"
+      placeholder: |
+        WCAG criteria cited, ARIA roles/labels, keyboard navigation (tab order, shortcuts),
+        focus management (modal open/close, route change), contrast ratios, screen reader
+        announcements, touch targets (44×44px minimum).
+    validations:
+      required: true
+
+  - type: textarea
+    id: motion-spec
+    attributes:
+      label: "🎬 Motion Spec"
+      description: "Owner: Sage · Reviewer: Jordan. Leave blank if no visible state transitions."
+      placeholder: |
+        Per interaction:
+        - Trigger: [what initiates]
+        - Animation: [what moves, property changes]
+        - Duration/Easing: var(--transition-X) var(--ease-X)
+        - Reduced motion: [fallback]
+        - CSS: transition: ...;
+
+  - type: textarea
+    id: engineering-spec
+    attributes:
+      label: "🏗️ Engineering Spec"
+      description: "Owner: Alex · Reviewer: Rowan"
+      placeholder: |
+        **File map:** src/pages/... src/components/... src/hooks/... src/styles/...
+        **TypeScript interfaces:** ...
+        **Dependencies:** #N (hard), #N (soft)
+        **Error handling:** ...
+        **Performance budget:** ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: security-spec
+    attributes:
+      label: "🔒 Security Spec"
+      description: "Owner: Reese"
+      placeholder: |
+        **Threat model:** attacker, asset, vector
+        **Data classification:** what's sensitive
+        **Security requirements:** testable statements
+        **Input validation:** sanitization rules
+        **Secure UX:** auto-lock, blur, no PII in URLs
+    validations:
+      required: true
+
+  - type: textarea
+    id: privacy-spec
+    attributes:
+      label: "🛡️ Privacy Spec"
+      description: "Owner: Dana"
+      placeholder: |
+        **Data inventory:** fields with classification (PII / manager-sensitive / operational)
+        **Visibility matrix:** where each field appears
+        **Privacy controls:** what user can hide/delete
+        **Data lifecycle:** create → retain → delete
+        **Privacy risks:** specific risks and mitigations
+    validations:
+      required: true
+
+  - type: textarea
+    id: test-spec
+    attributes:
+      label: "🧪 Test Spec"
+      description: "Owner: Casey · Implementer: Ellis"
+      placeholder: |
+        Numbered test cases. Test names are complete sentences.
+        1. renders the [component] with [initial state]
+        2. displays empty state when no data exists
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: e2e-spec
+    attributes:
+      label: "🎭 E2E Spec"
+      description: "Owner: Quinn. Leave blank if pure utility/data-layer issue."
+      placeholder: |
+        ### Journey: [Name]
+        **Flow:** step-by-step user actions
+        **Assertions:** what to verify

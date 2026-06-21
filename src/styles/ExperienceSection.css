@@ -32,7 +32,7 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--secondary);
+  background: var(--btn-bg); color: var(--btn-text);
   z-index: 1;
 }
 
@@ -93,6 +93,14 @@
   flex-shrink: 0;
   object-fit: contain;
   border-radius: 3px;
+}
+
+body.dark-mode .logo-icon {
+  filter: brightness(0) invert(1);
+}
+
+body.dark-mode .logo-icon[alt="Microsoft logo"] {
+  filter: none;
 }
 
 /* Mobile: collapse to single column */

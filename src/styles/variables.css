@@ -1,9 +1,12 @@
 :root {
   --primary: #1b1f23;
-  --secondary: #0f766e;
-  --secondary-hover: #0d6159;
-  --secondary-tint: rgba(15, 118, 110, 0.05);
-  --accent: #e7a0ae;
+  --secondary: #242424;
+  --secondary-hover: #3b3b3b;
+  --secondary-tint: rgba(0, 0, 0, 0.04);
+  --accent: #616161;
+  --btn-bg: #242424;
+  --btn-bg-hover: #3b3b3b;
+  --btn-text: #ffffff;
   --light-bg: #ffffff;
   --white: #ffffff;
   --text-dark: #191919;
@@ -30,10 +33,13 @@
 
 body.dark-mode {
   --primary: #e8e8e8;
-  --secondary: #0d9488;
-  --secondary-hover: #2dd4bf;
-  --secondary-tint: rgba(20, 184, 166, 0.08);
-  --accent: #f5b8c4;
+  --secondary: #e0e0e0;
+  --secondary-hover: #ffffff;
+  --secondary-tint: rgba(255, 255, 255, 0.06);
+  --accent: #9e9e9e;
+  --btn-bg: #e8e8e8;
+  --btn-bg-hover: #ffffff;
+  --btn-text: #1b1f23;
   --light-bg: #1d2226;
   --white: #1d2226;
   --text-dark: #e8e8e8;
@@ -44,5 +50,5 @@ body.dark-mode {
   --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   --card-shadow-hover: 0 2px 8px rgba(0, 0, 0, 0.4);
   --surface: #1d2226;
-  --page-bg: #000000;
+  --page-bg: #141414;
 }

@@ -169,8 +169,8 @@ body.dark-mode .contact-social a:hover {
 /* ── Shared CTA button (used by Speaking page) ── */
 .cta-button {
   display: inline-block;
-  background-color: var(--secondary);
-  color: #ffffff;
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
   padding: 14px 32px;
   border-radius: 100px;
   text-decoration: none;
@@ -183,9 +183,10 @@ body.dark-mode .contact-social a:hover {
 }
 
 .cta-button:hover {
-  background-color: var(--secondary-hover);
+  background-color: var(--btn-bg-hover);
+  color: var(--btn-text);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(15, 118, 110, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-decoration: none;
 }
 
@@ -204,9 +205,7 @@ body.dark-mode .cta-button {
 }
 
 body.dark-mode .cta-button:hover {
-  background-color: var(--secondary-hover);
-  color: var(--surface);
-  box-shadow: 0 4px 12px rgba(20, 184, 166, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .contact-copyright {
