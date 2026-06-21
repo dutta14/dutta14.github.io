@@ -27,6 +27,22 @@ const Navbar = ({ isDark, onToggleTheme, brandVisible, onBooking }: NavbarProps)
   return (
     <nav className="navbar navbar-expand-lg sticky-top" aria-label="Main">
       <div className="container">
+        {!menuOpen && (
+          <button
+            className="navbar-toggler"
+            type="button"
+            aria-expanded={menuOpen}
+            aria-label="Open navigation"
+            aria-controls="navbarNav"
+            onClick={() => setMenuOpen(true)}
+          >
+            <svg width="22" height="16" viewBox="0 0 22 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+              <line x1="0" y1="1" x2="16" y2="1" />
+              <line x1="0" y1="8" x2="22" y2="8" />
+              <line x1="0" y1="15" x2="16" y2="15" />
+            </svg>
+          </button>
+        )}
         <Link
           to="/"
           className={`navbar-brand${brandVisible ? ' show' : ''}`}
@@ -36,15 +52,8 @@ const Navbar = ({ isDark, onToggleTheme, brandVisible, onBooking }: NavbarProps)
           Anindya Dutta
         </Link>
         <div className="d-flex gap-2 align-items-center order-lg-last navbar-actions">
-          <button
-            className="navbar-toggler"
-            type="button"
-            aria-expanded={menuOpen}
-            aria-label="Toggle navigation"
-            aria-controls="navbarNav"
-            onClick={() => setMenuOpen(o => !o)}
-          >
-            <span className="navbar-toggler-icon"></span>
+          <button className="nav-cta nav-cta-outer" onClick={onBooking}>
+            Book 30 Minutes
           </button>
           <button
             className="theme-toggle"
@@ -54,8 +63,25 @@ const Navbar = ({ isDark, onToggleTheme, brandVisible, onBooking }: NavbarProps)
             <i className={isDark ? 'fas fa-sun' : 'fas fa-moon'}></i>
           </button>
         </div>
+        {menuOpen && <div className="nav-overlay" onClick={() => setMenuOpen(false)} />}
         <div className={`collapse navbar-collapse${menuOpen ? ' show' : ''}`} id="navbarNav">
-          <ul className="navbar-nav ms-auto">
+          <button
+            className="navbar-toggler sidebar-close"
+            type="button"
+            aria-expanded={menuOpen}
+            aria-label="Close navigation"
+            onClick={() => setMenuOpen(false)}
+          >
+            <svg width="22" height="16" viewBox="0 0 22 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+              <line x1="0" y1="1" x2="16" y2="1" />
+              <line x1="0" y1="8" x2="22" y2="8" />
+              <line x1="0" y1="15" x2="16" y2="15" />
+            </svg>
+          </button>
+          <button className="nav-cta nav-cta-inner" onClick={() => { setMenuOpen(false); onBooking(); }}>
+            Book 30 Minutes
+          </button>
+          <ul className="navbar-nav">
             {navLinks.map((link) => (
               <li className="nav-item" key={link.href}>
                 {link.isRoute ? (
@@ -74,9 +100,6 @@ const Navbar = ({ isDark, onToggleTheme, brandVisible, onBooking }: NavbarProps)
               </li>
             ))}
           </ul>
-          <button className="nav-cta" onClick={() => { setMenuOpen(false); onBooking(); }}>
-            Book 30 Minutes
-          </button>
         </div>
       </div>
     </nav>

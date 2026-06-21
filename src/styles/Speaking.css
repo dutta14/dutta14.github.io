@@ -26,7 +26,7 @@
   display: block;
   width: 28px;
   height: 2px;
-  background: var(--secondary);
+  background: var(--btn-bg); color: var(--btn-text);
   margin-top: 6px;
   border-radius: 2px;
 }

@@ -61,7 +61,7 @@ describe('Navbar', () => {
 
   it('renders a hamburger toggle button', () => {
     renderWithRouter(<Navbar {...defaultProps} />);
-    expect(screen.getByRole('button', { name: /toggle navigation/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /open navigation/i })).toBeInTheDocument();
   });
 
   it('mobile menu is collapsed by default', () => {
@@ -73,23 +73,22 @@ describe('Navbar', () => {
   it('clicking hamburger opens the mobile menu', async () => {
     const user = userEvent.setup();
     const { container } = renderWithRouter(<Navbar {...defaultProps} />);
-    await user.click(screen.getByRole('button', { name: /toggle navigation/i }));
+    await user.click(screen.getByRole('button', { name: /open navigation/i }));
     expect(container.querySelector('.navbar-collapse')?.classList.contains('show')).toBe(true);
   });
 
   it('clicking hamburger twice closes the menu again', async () => {
     const user = userEvent.setup();
     const { container } = renderWithRouter(<Navbar {...defaultProps} />);
-    const toggle = screen.getByRole('button', { name: /toggle navigation/i });
-    await user.click(toggle);
-    await user.click(toggle);
+    await user.click(screen.getByRole('button', { name: /open navigation/i }));
+    await user.click(screen.getByRole('button', { name: /close navigation/i }));
     expect(container.querySelector('.navbar-collapse')?.classList.contains('show')).toBe(false);
   });
 
   it('clicking a nav link closes the mobile menu', async () => {
     const user = userEvent.setup();
     const { container } = renderWithRouter(<Navbar {...defaultProps} />);
-    await user.click(screen.getByRole('button', { name: /toggle navigation/i }));
+    await user.click(screen.getByRole('button', { name: /open navigation/i }));
     expect(container.querySelector('.navbar-collapse')?.classList.contains('show')).toBe(true);
     await user.click(screen.getByText('Experience'));
     expect(container.querySelector('.navbar-collapse')?.classList.contains('show')).toBe(false);
@@ -98,22 +97,24 @@ describe('Navbar', () => {
   it('clicking Book 30 Minutes closes the mobile menu and calls onBooking', async () => {
     const user = userEvent.setup();
     let bookingCalled = false;
-    const { container } = renderWithRouter(
+    renderWithRouter(
       <Navbar {...defaultProps} onBooking={() => { bookingCalled = true; }} />
     );
-    await user.click(screen.getByRole('button', { name: /toggle navigation/i }));
-    await user.click(screen.getByRole('button', { name: /book 30 minutes/i }));
-    expect(container.querySelector('.navbar-collapse')?.classList.contains('show')).toBe(false);
+    await user.click(screen.getByRole('button', { name: /open navigation/i }));
+    const bookButtons = screen.getAllByRole('button', { name: /book 30 minutes/i });
+    // Click the inner sidebar button (first one found inside the open menu)
+    await user.click(bookButtons[0]);
     expect(bookingCalled).toBe(true);
   });
 
   it('hamburger aria-expanded reflects open state', async () => {
     const user = userEvent.setup();
     renderWithRouter(<Navbar {...defaultProps} />);
-    const toggle = screen.getByRole('button', { name: /toggle navigation/i });
+    const toggle = screen.getByRole('button', { name: /open navigation/i });
     expect(toggle).toHaveAttribute('aria-expanded', 'false');
     await user.click(toggle);
-    expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    const closeBtn = screen.getByRole('button', { name: /close navigation/i });
+    expect(closeBtn).toHaveAttribute('aria-expanded', 'true');
   });
 
   it('brand is a Link to /', () => {

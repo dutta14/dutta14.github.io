@@ -119,6 +119,6 @@
 }
 
 .booking-action:hover {
-  background: var(--secondary);
+  background: var(--btn-bg); color: var(--btn-text);
   color: #fff;
 }

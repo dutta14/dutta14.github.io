@@ -86,7 +86,7 @@
 }
 
 .cs-pill {
-  background: var(--secondary);
+  background: var(--btn-bg); color: var(--btn-text);
   color: #fff;
   font-size: 0.6875rem;
   font-weight: 600;
