@@ -63,8 +63,8 @@ const Navbar = ({ isDark, onToggleTheme, brandVisible, onBooking }: NavbarProps)
             <i className={isDark ? 'fas fa-sun' : 'fas fa-moon'}></i>
           </button>
         </div>
-        {menuOpen && <div className="nav-overlay" onClick={() => setMenuOpen(false)} />}
-        <div className={`collapse navbar-collapse${menuOpen ? ' show' : ''}`} id="navbarNav">
+        <div className={`nav-overlay${menuOpen ? ' visible' : ''}`} onClick={() => setMenuOpen(false)} />
+        <div className={`navbar-collapse${menuOpen ? ' show' : ''}`} id="navbarNav">
           <button
             className="navbar-toggler sidebar-close"
             type="button"

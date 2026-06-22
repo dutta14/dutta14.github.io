@@ -41,6 +41,28 @@
   .nav-item:first-child .nav-link {
     margin-left: 0;
   }
+
+  .navbar-collapse {
+    position: static;
+    transform: none;
+    width: auto;
+    height: auto;
+    background: none;
+    border: none;
+    box-shadow: none;
+    overflow: visible;
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .nav-overlay {
+    display: none;
+  }
+
+  .sidebar-close {
+    display: none;
+  }
 }
 
 .nav-link:hover {
@@ -98,11 +120,18 @@
   .nav-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0);
     z-index: 999;
+    transition: background 300ms ease;
+    pointer-events: none;
   }
 
-  .navbar-collapse.show {
+  .nav-overlay.visible {
+    background: rgba(0, 0, 0, 0.4);
+    pointer-events: auto;
+  }
+
+  .navbar-collapse {
     position: fixed;
     top: 0;
     left: 0;
@@ -117,6 +146,12 @@
     display: flex !important;
     flex-direction: column;
     align-items: stretch;
+    transform: translateX(-100%);
+    transition: transform 300ms ease;
+  }
+
+  .navbar-collapse.show {
+    transform: translateX(0);
   }
 
   .sidebar-close {
