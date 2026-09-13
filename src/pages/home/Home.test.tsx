@@ -45,8 +45,10 @@ describe('Home page — JSON-LD structured data', () => {
 });
 
 describe('Home page — Helmet meta', () => {
-  it('renders the page heading name', () => {
+  it('uses the hero subtitle as the single page heading', () => {
     renderHome();
-    expect(screen.getByText('Anindya Dutta')).toBeInTheDocument();
+    const headings = screen.getAllByRole('heading', { level: 1 });
+    expect(headings).toHaveLength(1);
+    expect(headings[0]).toHaveTextContent('Engineering leader at Microsoft. I build AI products, and teams that can build them.');
   });
 });

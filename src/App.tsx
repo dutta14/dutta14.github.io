@@ -1,12 +1,13 @@
-import { useRef, useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import BookingModal from './components/BookingModal';
+import ScrollFade from './components/ScrollFade';
 import Home from './pages/home/Home';
 import CaseStudyPage from './pages/case-study/CaseStudyPage';
 import SpeakingPage from './pages/speaking/SpeakingPage';
 import useDarkMode from './hooks/useDarkMode';
-import useScrollPastElement from './hooks/useScrollPastElement';
+import useScrollEdges from './hooks/useScrollEdges';
 import type { BookingContext } from './components/BookingModal';
 
 function ScrollToHash() {
@@ -33,9 +34,8 @@ function ScrollToHash() {
 }
 
 const App = () => {
-  const heroRef = useRef<HTMLElement>(null);
   const { isDark, toggle } = useDarkMode();
-  const brandVisible = useScrollPastElement(heroRef);
+  const { atTop, atBottom } = useScrollEdges();
   const [bookingOpen, setBookingOpen] = useState(false);
   const [bookingContext, setBookingContext] = useState<BookingContext>('conversation');
   const openBooking = useCallback((context: BookingContext = 'conversation') => {
@@ -48,16 +48,17 @@ const App = () => {
     <BrowserRouter>
       <ScrollToHash />
       <a href="#main-content" className="skip-link">Skip to main content</a>
-      <Navbar isDark={isDark} onToggleTheme={toggle} brandVisible={brandVisible} onBooking={() => openBooking('conversation')} />
+      <Navbar isDark={isDark} onToggleTheme={toggle} onBooking={() => openBooking('conversation')} />
       <main id="main-content">
         <Routes>
-          <Route path="/" element={<Home ref={heroRef} onBooking={openBooking} />} />
+          <Route path="/" element={<Home onBooking={openBooking} />} />
           <Route path="/speaking" element={<SpeakingPage onBooking={openBooking} />} />
           <Route path="/case-study/:slug" element={<CaseStudyPage />} />
           <Route path="/case-study" element={<Navigate to="/#products" replace />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
+      <ScrollFade atTop={atTop} atBottom={atBottom} />
       <BookingModal open={bookingOpen} onClose={closeBooking} context={bookingContext} />
     </BrowserRouter>
   );

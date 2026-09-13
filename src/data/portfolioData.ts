@@ -140,8 +140,9 @@ export const socialLinks: SocialLink[] = [
 
 export const heroData = {
   name: 'Anindya Dutta',
-  subtitle: 'Engineering leader. Building M365 Copilot.',
-  bio: 'I build AI products that millions of people use every day. At Microsoft, I lead the team that ships M365 Copilot in Outlook, Teams, and Office. Before that: Alexa Hands-Free for 5M+ Android users in India, mixed reality auth at Meta, and a patented notification system at Samsung.',
+  subtitle: 'Engineering leader at Microsoft. I build AI products, and teams that can build them.',
+  bio: 'I lead the team building Copilot in Outlook, Teams, and Office, which means most of my week goes to questions that don\u2019t have a precedent yet. Before this I worked on mixed reality authentication at Meta, and at Amazon I led Alexa Hands-Free, where we reached five million people in under a year while we were still learning the market we were shipping into. I started at Samsung, early enough to watch the whole smartphone era take shape, and left with a patent for adaptive notification delivery.',
+  bioClosing: 'I like being early, and I like working with people who are honest about what they don\u2019t know yet.',
   image: '/img/me.png',
 };
 

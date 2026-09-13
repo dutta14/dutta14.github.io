@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  background-color: var(--page-bg);
+  background-color: var(--surface);
   color: var(--text-dark);
   font-family: var(--font-sans);
   font-size: var(--type-body);
@@ -17,11 +17,31 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Vertical left sidebar. The sidebar acts as the left gutter, so main is offset
+   by its width and the content fills the remaining area. The Bootstrap offset
+   that used to center these blocks in a full-width page is now dead space, so
+   it is neutralised on desktop. */
+@media (min-width: 992px) {
+  main {
+    margin-left: var(--nav-width);
+    margin-right: var(--nav-width);
+  }
+
+  main .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  main .col-lg-8.offset-lg-2 {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
 section {
   padding: 48px 0;
   background-color: var(--surface);
   overflow-x: hidden;
-}
   border-bottom: 1px solid var(--border-color-subtle);
   scroll-margin-top: 60px;
 }

@@ -1,7 +1,7 @@
 .hero {
   background: var(--surface);
   color: var(--text-dark);
-  padding: 48px 0 32px;
+  padding: 72px 0 56px;
   border-bottom: 1px solid var(--border-color-subtle);
 }
 
@@ -16,25 +16,27 @@
   flex: 1 1 0;
 }
 
-.hero-text h1 {
-  font-size: var(--type-display);
-  font-weight: 600;
-  margin-bottom: 8px;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-}
-
 .hero-text .subtitle {
-  font-size: 1.125rem;
-  color: var(--text-light);
-  margin-bottom: 16px;
-  font-weight: 400;
+  font-size: 1.0625rem;
+  color: var(--text-dark);
+  margin: 0 0 22px;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.005em;
 }
 
 .hero-text .bio {
-  font-size: 0.9375rem;
-  line-height: 1.6;
+  font-size: 0.875rem;
+  line-height: 1.9;
   color: var(--text-light);
+  max-width: 62ch;
+  margin: 0;
+}
+
+.hero-text .bio-closing {
+  margin-top: 18px;
+  font-style: italic;
+  letter-spacing: 0.005em;
 }
 
 .hero-image {
@@ -52,7 +54,7 @@
 .hero-stats {
   display: flex;
   gap: 28px;
-  margin-top: 24px;
+  margin-top: 36px;
   flex-wrap: wrap;
 }
 
@@ -106,10 +108,6 @@
 
   .hero-text {
     max-width: none;
-  }
-
-  .hero-text h1 {
-    font-size: 1.75rem;
   }
 
   .hero-image {

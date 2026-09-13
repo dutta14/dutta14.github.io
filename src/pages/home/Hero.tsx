@@ -1,22 +1,21 @@
-import { forwardRef } from 'react';
 import { heroData, heroStats } from '../../data/portfolioData';
 import '../../styles/Hero.css';
 
-const Hero = forwardRef<HTMLElement>((_props, ref) => (
-  <section className="hero" id="home" ref={ref}>
+const Hero = () => (
+  <section className="hero" id="home">
     <div className="container">
       <div className="row">
         <div className="col-lg-8 offset-lg-2">
           <div className="hero-content">
             <div className="hero-text">
-              <h1>{heroData.name}</h1>
-              <p className="subtitle">
+              <h1 className="subtitle">
                 {heroData.subtitle}
                 {heroData.subtitle !== 'Engineering leader. AI product builder.' && (
                   <span className="visually-hidden">Engineering leader. AI product builder.</span>
                 )}
-              </p>
+              </h1>
               <p className="bio">{heroData.bio}</p>
+              <p className="bio bio-closing">{heroData.bioClosing}</p>
               <div className="hero-stats">
                 {heroStats.map((stat) => (
                   <div className="hero-stat" key={stat.label}>
@@ -44,8 +43,6 @@ const Hero = forwardRef<HTMLElement>((_props, ref) => (
       </div>
     </div>
   </section>
-));
-
-Hero.displayName = 'Hero';
+);
 
 export default Hero;

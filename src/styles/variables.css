@@ -17,7 +17,10 @@
   --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   --card-shadow-hover: 0 2px 8px rgba(0, 0, 0, 0.12);
   --surface: #ffffff;
+  --surface-fade: rgba(255, 255, 255, 0);
   --page-bg: #ffffff;
+  --nav-width: 248px;
+  --nav-height: 52px;
 
   /* ── Typography ── */
   --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
@@ -50,5 +53,6 @@ body.dark-mode {
   --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   --card-shadow-hover: 0 2px 8px rgba(0, 0, 0, 0.4);
   --surface: #1d2226;
+  --surface-fade: rgba(29, 34, 38, 0);
   --page-bg: #141414;
 }

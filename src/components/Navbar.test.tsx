@@ -1,13 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import Navbar from './Navbar';
 
 const defaultProps = {
   isDark: false,
   onToggleTheme: () => {},
-  brandVisible: false,
   onBooking: () => {},
 };
 
@@ -21,7 +20,7 @@ describe('Navbar', () => {
 
   it('renders all nav links', () => {
     renderWithRouter(<Navbar {...defaultProps} />);
-    expect(screen.getByText('Home')).toBeInTheDocument();
+    expect(screen.getByText('About')).toBeInTheDocument();
     expect(screen.getByText('Work')).toBeInTheDocument();
     expect(screen.getByText('Experience')).toBeInTheDocument();
     expect(screen.getByText('Writing')).toBeInTheDocument();
@@ -30,14 +29,12 @@ describe('Navbar', () => {
     expect(screen.getByText('Contact')).toBeInTheDocument();
   });
 
-  it('shows brand when brandVisible is true', () => {
-    const { container } = renderWithRouter(<Navbar {...defaultProps} brandVisible={true} />);
-    expect(container.querySelector('.navbar-brand')?.classList.contains('show')).toBe(true);
-  });
-
-  it('hides brand when brandVisible is false', () => {
-    const { container } = renderWithRouter(<Navbar {...defaultProps} brandVisible={false} />);
-    expect(container.querySelector('.navbar-brand')?.classList.contains('show')).toBe(false);
+  it('always shows the brand name, reachable by keyboard and assistive tech', () => {
+    const { container } = renderWithRouter(<Navbar {...defaultProps} />);
+    const brand = container.querySelector('.navbar-brand');
+    expect(brand).toHaveTextContent('Anindya Dutta');
+    expect(brand).not.toHaveAttribute('aria-hidden');
+    expect(brand).not.toHaveAttribute('tabindex');
   });
 
   it('calls onToggleTheme when theme button is clicked', async () => {
@@ -118,9 +115,81 @@ describe('Navbar', () => {
   });
 
   it('brand is a Link to /', () => {
-    const { container } = renderWithRouter(<Navbar {...defaultProps} brandVisible={true} />);
+    const { container } = renderWithRouter(<Navbar {...defaultProps} />);
     const brand = container.querySelector('.navbar-brand');
     expect(brand?.tagName).toBe('A');
     expect(brand?.getAttribute('href')).toBe('/');
+  });
+
+  it('exposes a labelled navigation landmark', () => {
+    renderWithRouter(<Navbar {...defaultProps} />);
+    expect(screen.getByRole('navigation', { name: 'Main' })).toBeInTheDocument();
+  });
+
+  describe('active section highlighting', () => {
+    const mountSections = (ids: string[], tops: Record<string, number>) => {
+      Object.defineProperty(window, 'scrollY', { value: 0, configurable: true });
+      Object.defineProperty(window, 'innerHeight', { value: 800, configurable: true });
+      Object.defineProperty(document.documentElement, 'scrollHeight', {
+        value: 5400,
+        configurable: true,
+      });
+      ids.forEach((id) => {
+        const el = document.createElement('section');
+        el.id = id;
+        el.getBoundingClientRect = () => ({ top: tops[id], bottom: tops[id] + 500 }) as DOMRect;
+        document.body.appendChild(el);
+      });
+    };
+
+    const sectionIds = ['home', 'products', 'experience', 'writing', 'skills', 'contact'];
+
+    afterEach(() => {
+      document.querySelectorAll('section').forEach((el) => el.remove());
+    });
+
+    it('marks About as active when the page is scrolled to the top', () => {
+      mountSections(sectionIds, { home: 0, products: 900, experience: 1800, writing: 2700, skills: 3600, contact: 4500 });
+      renderWithRouter(<Navbar {...defaultProps} />);
+      expect(screen.getByText('About')).toHaveClass('active');
+      expect(screen.getByText('Work')).not.toHaveClass('active');
+    });
+
+    it('marks Work as active when the products section is under the navbar', () => {
+      mountSections(sectionIds, { home: -900, products: 0, experience: 900, writing: 1800, skills: 2700, contact: 3600 });
+      renderWithRouter(<Navbar {...defaultProps} />);
+      expect(screen.getByText('Work')).toHaveClass('active');
+      expect(screen.getByText('About')).not.toHaveClass('active');
+    });
+
+    it('marks exactly one nav link active at a time', () => {
+      mountSections(sectionIds, { home: -1800, products: -900, experience: 0, writing: 900, skills: 1800, contact: 2700 });
+      const { container } = renderWithRouter(<Navbar {...defaultProps} />);
+      expect(container.querySelectorAll('.nav-link.active')).toHaveLength(1);
+      expect(screen.getByText('Experience')).toHaveClass('active');
+    });
+
+    it('exposes the active section link to assistive technology with aria-current', () => {
+      mountSections(sectionIds, { home: -900, products: 0, experience: 900, writing: 1800, skills: 2700, contact: 3600 });
+      renderWithRouter(<Navbar {...defaultProps} />);
+      expect(screen.getByText('Work')).toHaveAttribute('aria-current', 'location');
+      expect(screen.getByText('About')).not.toHaveAttribute('aria-current');
+    });
+
+    it('marks Speaking as the current page when on the speaking route', () => {
+      render(
+        <MemoryRouter initialEntries={['/speaking']}><Navbar {...defaultProps} /></MemoryRouter>
+      );
+      expect(screen.getByText('Speaking')).toHaveClass('active');
+      expect(screen.getByText('Speaking')).toHaveAttribute('aria-current', 'page');
+    });
+
+    it('marks no section link active when off the home route', () => {
+      mountSections(sectionIds, { home: 0, products: 900, experience: 1800, writing: 2700, skills: 3600, contact: 4500 });
+      const { container } = render(
+        <MemoryRouter initialEntries={['/case-study/m365-copilot']}><Navbar {...defaultProps} /></MemoryRouter>
+      );
+      expect(container.querySelectorAll('.nav-link.active')).toHaveLength(0);
+    });
   });
 });

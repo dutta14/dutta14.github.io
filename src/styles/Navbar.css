@@ -1,6 +1,5 @@
 .navbar {
   background-color: var(--surface);
-  border-bottom: 1px solid var(--border-color);
   padding: 0.25rem 0;
 }
 
@@ -8,14 +7,6 @@
   font-weight: 600;
   color: var(--text-dark) !important;
   font-size: 1rem;
-  opacity: 0;
-  transition: opacity 0.3s;
-  pointer-events: none;
-}
-
-.navbar-brand.show {
-  opacity: 1;
-  pointer-events: auto;
 }
 
 .navbar-toggler {
@@ -35,6 +26,14 @@
   margin: 0 6px;
   padding: 6px 2px;
   transition: color 0.2s;
+}
+
+.nav-link.active {
+  color: var(--text-dark) !important;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
 }
 
 .nav-item:first-child .nav-link {
@@ -172,5 +171,80 @@
     display: block;
     margin: 4px 20px 12px;
     text-align: center;
+  }
+}
+
+/* ── Vertical left sidebar (desktop) ── */
+@media (min-width: 992px) {
+  .navbar.sticky-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: var(--nav-width);
+    padding: 24px 0;
+    overflow-y: auto;
+  }
+
+  .navbar.navbar-expand-lg > .container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: none;
+    min-height: 100%;
+    padding: 0 20px;
+  }
+
+  .navbar .navbar-toggler {
+    display: none;
+  }
+
+  .navbar .navbar-brand {
+    margin: 0 0 28px;
+    padding: 0 10px;
+    font-size: 1.0625rem;
+  }
+
+  .navbar .navbar-collapse {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .navbar .navbar-nav {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 2px;
+  }
+
+  .navbar .nav-link {
+    display: block;
+    margin: 0;
+    padding: 7px 10px;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+  }
+
+  .navbar .navbar-actions {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    margin: auto 0 0;
+    padding-top: 28px;
+  }
+
+  .navbar .nav-cta {
+    flex: 1 1 auto;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .navbar .theme-toggle {
+    flex: 0 0 auto;
+    padding: 10px;
   }
 }

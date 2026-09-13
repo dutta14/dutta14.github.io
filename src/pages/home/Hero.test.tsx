@@ -3,12 +3,19 @@ import { describe, it, expect } from 'vitest';
 import Hero from './Hero';
 
 describe('Hero', () => {
-  it('renders name, title, bio, and image', () => {
+  it('renders title, bio, and image without a duplicate name heading', () => {
     render(<Hero />);
-    expect(screen.getByText('Anindya Dutta')).toBeInTheDocument();
+    expect(screen.queryByText('Anindya Dutta')).not.toBeInTheDocument();
     expect(screen.getByText('Engineering leader. AI product builder.')).toBeInTheDocument();
-    expect(screen.getByText(/I build AI products that millions of people/)).toBeInTheDocument();
+    expect(screen.getByText(/I lead the team building Copilot in Outlook/)).toBeInTheDocument();
     expect(screen.getByAltText('Portrait of Anindya Dutta')).toBeInTheDocument();
+  });
+
+  it('renders the closing line as its own paragraph so it can be styled apart from the bio', () => {
+    const { container } = render(<Hero />);
+    const closing = container.querySelector('.bio-closing');
+    expect(closing).toHaveTextContent('I like being early');
+    expect(closing?.tagName).toBe('P');
   });
 
   it('renders hero stats', () => {
@@ -42,8 +49,9 @@ describe('Hero', () => {
     expect(screen.getByText('Users shipped')).toBeInTheDocument();
   });
 
-  it('hero subtitle shows "Engineering leader. Building M365 Copilot."', () => {
+  it('hero subtitle is the h1 and leads with the role and company', () => {
     render(<Hero />);
-    expect(screen.getByText('Engineering leader. Building M365 Copilot.')).toBeInTheDocument();
+    const heading = screen.getByRole('heading', { level: 1 });
+    expect(heading).toHaveTextContent('Engineering leader at Microsoft. I build AI products, and teams that can build them.');
   });
 });

@@ -1,0 +1,37 @@
+.scroll-fade {
+  position: fixed;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1010;
+  transition: opacity 0.2s ease-out;
+}
+
+.scroll-fade.show {
+  opacity: 1;
+}
+
+.scroll-fade-top {
+  top: var(--nav-height);
+  height: 48px;
+  background: linear-gradient(to bottom, var(--surface), var(--surface-fade));
+}
+
+.scroll-fade-bottom {
+  bottom: 0;
+  height: 64px;
+  background: linear-gradient(to top, var(--surface), var(--surface-fade));
+}
+
+/* Vertical nav: fades span the content column to the right of the sidebar. */
+@media (min-width: 992px) {
+  .scroll-fade {
+    left: var(--nav-width);
+    right: var(--nav-width);
+  }
+
+  .scroll-fade-top {
+    top: 0;
+  }
+}

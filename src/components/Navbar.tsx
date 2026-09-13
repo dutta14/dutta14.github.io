@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import useActiveSection from '../hooks/useActiveSection';
 import '../styles/Navbar.css';
 
 interface NavbarProps {
   isDark: boolean;
   onToggleTheme: () => void;
-  brandVisible: boolean;
   onBooking: () => void;
 }
 
 const navLinks: { href: string; label: string; isRoute?: boolean }[] = [
-  { href: '#home', label: 'Home' },
+  { href: '#home', label: 'About' },
   { href: '#products', label: 'Work' },
   { href: '#experience', label: 'Experience' },
   { href: '#writing', label: 'Writing' },
@@ -19,10 +19,14 @@ const navLinks: { href: string; label: string; isRoute?: boolean }[] = [
   { href: '#contact', label: 'Contact' },
 ];
 
-const Navbar = ({ isDark, onToggleTheme, brandVisible, onBooking }: NavbarProps) => {
+const sectionIds = navLinks.filter((link) => !link.isRoute).map((link) => link.href.slice(1));
+
+const Navbar = ({ isDark, onToggleTheme, onBooking }: NavbarProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === '/';
+  const activeSection = useActiveSection(sectionIds, isHome);
+  const activeHref = isHome ? `#${activeSection}` : location.pathname;
 
   return (
     <nav className="navbar navbar-expand-lg sticky-top" aria-label="Main">
@@ -43,12 +47,7 @@ const Navbar = ({ isDark, onToggleTheme, brandVisible, onBooking }: NavbarProps)
             </svg>
           </button>
         )}
-        <Link
-          to="/"
-          className={`navbar-brand${brandVisible ? ' show' : ''}`}
-          tabIndex={brandVisible ? 0 : -1}
-          aria-hidden={!brandVisible}
-        >
+        <Link to="/" className="navbar-brand">
           Anindya Dutta
         </Link>
         <div className="d-flex gap-2 align-items-center order-lg-last navbar-actions">
@@ -82,23 +81,28 @@ const Navbar = ({ isDark, onToggleTheme, brandVisible, onBooking }: NavbarProps)
             Book 30 Minutes
           </button>
           <ul className="navbar-nav">
-            {navLinks.map((link) => (
-              <li className="nav-item" key={link.href}>
-                {link.isRoute ? (
-                  <Link className="nav-link" to={link.href} onClick={() => setMenuOpen(false)}>
-                    {link.label}
-                  </Link>
-                ) : isHome ? (
-                  <a className="nav-link" href={link.href} onClick={() => setMenuOpen(false)}>
-                    {link.label}
-                  </a>
-                ) : (
-                  <Link className="nav-link" to={`/${link.href}`} onClick={() => setMenuOpen(false)}>
-                    {link.label}
-                  </Link>
-                )}
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = link.href === activeHref;
+              const className = `nav-link${isActive ? ' active' : ''}`;
+              const ariaCurrent = isActive ? (link.isRoute ? 'page' : 'location') : undefined;
+              return (
+                <li className="nav-item" key={link.href}>
+                  {link.isRoute ? (
+                    <Link className={className} to={link.href} aria-current={ariaCurrent} onClick={() => setMenuOpen(false)}>
+                      {link.label}
+                    </Link>
+                  ) : isHome ? (
+                    <a className={className} href={link.href} aria-current={ariaCurrent} onClick={() => setMenuOpen(false)}>
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link className={className} to={`/${link.href}`} onClick={() => setMenuOpen(false)}>
+                      {link.label}
+                    </Link>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>

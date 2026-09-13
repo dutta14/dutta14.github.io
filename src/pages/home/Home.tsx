@@ -1,4 +1,3 @@
-import { forwardRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import useJsonLd from '../../hooks/useJsonLd';
 import Hero from './Hero';
@@ -41,7 +40,7 @@ interface HomeProps {
   onBooking: (context?: BookingContext) => void;
 }
 
-const Home = forwardRef<HTMLElement, HomeProps>(({ onBooking }, ref) => {
+const Home = ({ onBooking }: HomeProps) => {
   useJsonLd([personJsonLd, websiteJsonLd]);
 
   return (
@@ -53,7 +52,7 @@ const Home = forwardRef<HTMLElement, HomeProps>(({ onBooking }, ref) => {
           content="Principal SWE Manager at Microsoft, M365 Copilot. Shipped Alexa Hands-Free (5M+ users), built voice AI in Outlook, mixed reality auth at Meta."
         />
       </Helmet>
-      <Hero ref={ref} />
+      <Hero />
       <ProductsSection />
       <ExperienceSection />
       <CredentialsBar />
@@ -63,8 +62,6 @@ const Home = forwardRef<HTMLElement, HomeProps>(({ onBooking }, ref) => {
       <ContactSection onBooking={onBooking} />
     </>
   );
-});
-
-Home.displayName = 'Home';
+};
 
 export default Home;
