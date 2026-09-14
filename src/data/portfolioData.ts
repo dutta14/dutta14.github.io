@@ -1,4 +1,4 @@
-import { Experience, Product, SocialLink, WritingPost, SkillPillar, TalkTopic, SpeakerBio } from '../types';
+import { Experience, Product, SocialLink, WritingPost, TalkTopic, SpeakerBio, Principle, MentoringTopic } from '../types';
 
 export const experiences: Experience[] = [
   {
@@ -68,25 +68,6 @@ export const products: Product[] = [
   },
 ];
 
-export const skillPillars: SkillPillar[] = [
-  {
-    title: 'AI Product Engineering',
-    evidence: 'M365 Copilot, Alexa Hands-Free, Voice Assistant in Outlook, Patent US20180188935A1',
-  },
-  {
-    title: 'Zero-to-One Builds',
-    evidence: 'Alexa Hands-Free India launch (0 → 5M users), Outlook voice assistant, Copilot mobile experiences',
-  },
-  {
-    title: 'Engineering Leadership',
-    evidence: 'Teams of 15-20 across 5 companies, cross-org alignment at Microsoft, mixed reality platform at Meta',
-  },
-  {
-    title: 'Writing and Thinking',
-    evidence: '40 essays on engineering leadership, Amazon six-pager discipline, Microsoft growth mindset culture',
-  },
-];
-
 export const socialLinks: SocialLink[] = [
   {
     href: 'https://linkedin.com/in/dutta14',
@@ -121,6 +102,76 @@ export const heroStats: { value: string; label: string; href?: string }[] = [
   { value: '4', label: 'Companies' },
   { value: '5M+', label: 'Users shipped' },
   { value: '1', label: 'U.S. Patent', href: 'https://patents.google.com/patent/US20180188935A1' },
+];
+
+export const principlesData = {
+  heading: 'How I Work',
+  subheading: 'Four things I believe about this job, and where each one came from.',
+};
+
+export const principles: Principle[] = [
+  {
+    belief: 'People want to be seen, not just unblocked.',
+    detail:
+      'My first team had four people on it. I held the one-on-ones, tracked the action items, removed the obstacles. I was managing a process when I should have been knowing four people.',
+    postSlug: 'what-i-got-wrong-about-being-a-manager-the-first-time',
+    postTitle: 'What I got wrong about being a manager the first time',
+  },
+  {
+    belief: 'Say you don\u2019t know.',
+    detail:
+      'Three weeks into managing, an engineer asked me something about our pipeline and I had no answer. I said so and asked him to explain. Months later he told me the thing he valued most was that I never faked understanding.',
+    postSlug: 'managing-someone-who-knows-more-than-you',
+    postTitle: 'Managing someone who knows more than you',
+  },
+  {
+    belief: 'Be useful in the ways your team cannot be for themselves.',
+    detail:
+      'I could not debug the notification pipeline faster than the person who built it. I could make sure the people deciding funding knew what it did and why it mattered.',
+    postSlug: 'the-year-i-stopped-writing-code',
+    postTitle: 'The year I stopped writing code',
+  },
+  {
+    belief: 'In the hard conversations, clarity is the only kindness available.',
+    detail:
+      'I have watched managers go vague when the news is bad, out of their own discomfort, and watched the person on the other end try to read through it. Being vague there is its own kind of cruelty.',
+    postSlug: 'letting-someone-go',
+    postTitle: 'Letting someone go',
+  },
+];
+
+export const mentoringData = {
+  heading: 'Happy to Talk About',
+  subheading:
+    'I keep a few slots open each month for one-on-one conversations. No charge, no pitch. These are the things I get asked about most, and the things I can actually help with.',
+  closing: 'If your question is not on this list, ask anyway.',
+};
+
+export const mentoringTopics: MentoringTopic[] = [
+  {
+    title: 'Going from engineer to manager, and back again',
+    description:
+      'I made the switch at Amazon, went back to writing code as a Staff Engineer at Meta, and then went into management again at Microsoft. I can tell you what you give up, what you get, and how to tell which one you actually want right now.',
+    forWhom: 'Senior engineers weighing the move',
+  },
+  {
+    title: 'Scoping an AI product that is worth building',
+    description:
+      'Most AI ideas demo well and fall apart in production. I work on Copilot, where the gap between a good demo and a shippable feature is the whole job. Bring me the idea and we can find where it breaks.',
+    forWhom: 'Founders, PMs, engineering leads',
+  },
+  {
+    title: 'Interviewing at a big company',
+    description:
+      'I have interviewed at and worked for Samsung, Amazon, Microsoft, and Meta, and I have sat on the hiring side for years. I can tell you how the loop is actually scored and where strong candidates lose points they did not need to lose.',
+    forWhom: 'Anyone preparing for a loop',
+  },
+  {
+    title: 'The parts of managing that nobody warns you about',
+    description:
+      'Managing someone who knows more than you. Giving feedback that lands. Saying the hard thing clearly. I have gotten these wrong enough times to have something useful to say about them.',
+    forWhom: 'New and struggling managers',
+  },
 ];
 
 export const nowData = {

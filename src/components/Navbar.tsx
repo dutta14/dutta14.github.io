@@ -13,8 +13,9 @@ const navLinks: { href: string; label: string; isRoute?: boolean }[] = [
   { href: '#home', label: 'About' },
   { href: '#products', label: 'Work' },
   { href: '#experience', label: 'Experience' },
+  { href: '#approach', label: 'How I Work' },
   { href: '#writing', label: 'Writing' },
-  { href: '#skills', label: 'Strengths' },
+  { href: '#mentoring', label: 'Mentoring' },
   { href: '#contact', label: 'Contact' },
   { href: '/speaking', label: 'Speaking', isRoute: true },
 ];

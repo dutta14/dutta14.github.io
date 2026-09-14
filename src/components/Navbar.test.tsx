@@ -23,16 +23,17 @@ describe('Navbar', () => {
     expect(screen.getByText('About')).toBeInTheDocument();
     expect(screen.getByText('Work')).toBeInTheDocument();
     expect(screen.getByText('Experience')).toBeInTheDocument();
+    expect(screen.getByText('How I Work')).toBeInTheDocument();
+    expect(screen.getByText('Mentoring')).toBeInTheDocument();
     expect(screen.getByText('Writing')).toBeInTheDocument();
     expect(screen.getByText('Speaking')).toBeInTheDocument();
-    expect(screen.getByText('Strengths')).toBeInTheDocument();
     expect(screen.getByText('Contact')).toBeInTheDocument();
   });
 
   it('groups the in-page anchors together and puts the separate-page link last', () => {
     const { container } = renderWithRouter(<Navbar {...defaultProps} />);
     const labels = Array.from(container.querySelectorAll('.nav-link')).map((el) => el.textContent?.trim());
-    expect(labels).toEqual(['About', 'Work', 'Experience', 'Writing', 'Strengths', 'Contact', 'Speaking']);
+    expect(labels).toEqual(['About', 'Work', 'Experience', 'How I Work', 'Writing', 'Mentoring', 'Contact', 'Speaking']);
   });
 
   it('marks the separate-page link so it reads apart from the in-page anchors', () => {
@@ -145,7 +146,7 @@ describe('Navbar', () => {
       Object.defineProperty(window, 'scrollY', { value: 0, configurable: true });
       Object.defineProperty(window, 'innerHeight', { value: 800, configurable: true });
       Object.defineProperty(document.documentElement, 'scrollHeight', {
-        value: 5400,
+        value: 6300,
         configurable: true,
       });
       ids.forEach((id) => {
@@ -156,53 +157,53 @@ describe('Navbar', () => {
       });
     };
 
-    const sectionIds = ['home', 'products', 'experience', 'writing', 'skills', 'contact'];
+    const sectionIds = ['home', 'products', 'experience', 'approach', 'writing', 'mentoring', 'contact'];
 
     afterEach(() => {
       document.querySelectorAll('section').forEach((el) => el.remove());
     });
 
     it('marks About as active when the page is scrolled to the top', () => {
-      mountSections(sectionIds, { home: 0, products: 900, experience: 1800, writing: 2700, skills: 3600, contact: 4500 });
+      mountSections(sectionIds, { home: 0, products: 900, experience: 1800, approach: 2700, writing: 3600, mentoring: 5400, contact: 6300 });
       renderWithRouter(<Navbar {...defaultProps} />);
       expect(screen.getByText('About')).toHaveClass('active');
       expect(screen.getByText('Work')).not.toHaveClass('active');
     });
 
     it('marks Work as active when the products section is under the navbar', () => {
-      mountSections(sectionIds, { home: -900, products: 0, experience: 900, writing: 1800, skills: 2700, contact: 3600 });
+      mountSections(sectionIds, { home: -900, products: 0, experience: 900, approach: 1800, writing: 2700, mentoring: 4500, contact: 5400 });
       renderWithRouter(<Navbar {...defaultProps} />);
       expect(screen.getByText('Work')).toHaveClass('active');
       expect(screen.getByText('About')).not.toHaveClass('active');
     });
 
     it('marks exactly one nav link active at a time', () => {
-      mountSections(sectionIds, { home: -1800, products: -900, experience: 0, writing: 900, skills: 1800, contact: 2700 });
+      mountSections(sectionIds, { home: -1800, products: -900, experience: 0, approach: 900, writing: 1800, mentoring: 3600, contact: 4500 });
       const { container } = renderWithRouter(<Navbar {...defaultProps} />);
       expect(container.querySelectorAll('.nav-link.active')).toHaveLength(1);
       expect(screen.getByText('Experience')).toHaveClass('active');
     });
 
     it('exposes the active section link to assistive technology with aria-current', () => {
-      mountSections(sectionIds, { home: -900, products: 0, experience: 900, writing: 1800, skills: 2700, contact: 3600 });
+      mountSections(sectionIds, { home: -900, products: 0, experience: 900, approach: 1800, writing: 2700, mentoring: 4500, contact: 5400 });
       renderWithRouter(<Navbar {...defaultProps} />);
       expect(screen.getByText('Work')).toHaveAttribute('aria-current', 'location');
       expect(screen.getByText('About')).not.toHaveAttribute('aria-current');
     });
 
     it('highlights consecutive nav items as the reader scrolls, with no skipped item between them', () => {
-      mountSections(sectionIds, { home: -2700, products: -1800, experience: -900, writing: 0, skills: 900, contact: 1800 });
+      mountSections(sectionIds, { home: -3600, products: -2700, experience: -1800, approach: -900, writing: 0, mentoring: 1800, contact: 2700 });
       const { container, unmount } = renderWithRouter(<Navbar {...defaultProps} />);
       const labels = Array.from(container.querySelectorAll('.nav-link')).map((el) => el.textContent);
       const writingIndex = labels.indexOf('Writing');
       expect(screen.getByText('Writing')).toHaveClass('active');
       unmount();
 
-      mountSections(sectionIds, { home: -3600, products: -2700, experience: -1800, writing: -900, skills: 0, contact: 900 });
+      mountSections(sectionIds, { home: -4500, products: -3600, experience: -2700, approach: -1800, writing: -900, mentoring: 0, contact: 900 });
       const second = renderWithRouter(<Navbar {...defaultProps} />);
       const nextLabels = Array.from(second.container.querySelectorAll('.nav-link')).map((el) => el.textContent);
-      expect(screen.getByText('Strengths')).toHaveClass('active');
-      expect(nextLabels.indexOf('Strengths')).toBe(writingIndex + 1);
+      expect(screen.getByText('Mentoring')).toHaveClass('active');
+      expect(nextLabels.indexOf('Mentoring')).toBe(writingIndex + 1);
     });
 
     it('marks Speaking as the current page when on the speaking route', () => {
@@ -214,7 +215,7 @@ describe('Navbar', () => {
     });
 
     it('marks no section link active when off the home route', () => {
-      mountSections(sectionIds, { home: 0, products: 900, experience: 1800, writing: 2700, skills: 3600, contact: 4500 });
+      mountSections(sectionIds, { home: 0, products: 900, experience: 1800, approach: 2700, writing: 3600, mentoring: 5400, contact: 6300 });
       const { container } = render(
         <MemoryRouter initialEntries={['/case-study/m365-copilot']}><Navbar {...defaultProps} /></MemoryRouter>
       );

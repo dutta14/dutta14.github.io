@@ -4,7 +4,7 @@ Personal portfolio website for Anindya Dutta. React 18 + TypeScript + Vite singl
 
 ## Sections
 
-Hero, Products (3 items), Experience (5 roles with SVG company logos), Credentials bar (degrees + patent), Now, Writing (live from the blog), Skills ("What I Bring" — 4 pillars, each with supporting evidence), Contact/Footer (CTA + social links + copyright combined).
+Hero, Products (3 items), Experience (5 roles with SVG company logos), Credentials bar (degrees + patent), How I Work (4 beliefs, each linked to the blog post it came from), Now, Writing (live from the blog), Mentoring ("Happy to Talk About" — 4 conversation topics + booking CTA), Contact/Footer (CTA + social links + copyright combined).
 
 ## Design Tokens
 
@@ -45,7 +45,6 @@ Dark mode (`body.dark-mode`):
 - Responsive breakpoint at 768px (hero stacks, headings shrink)
 - No colored backgrounds — white surfaces on warm off-white canvas
 - Thin borders as dividers between sections and list items (no alternating backgrounds)
-- Outlined skill badges, no card shadows on list items
 
 ## Data
 

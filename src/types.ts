@@ -33,11 +33,6 @@ export interface BlogPost {
   excerpt?: string;
 }
 
-export interface SkillPillar {
-  title: string;
-  evidence: string;
-}
-
 export interface CaseStudySection {
   heading: string;
   body: string;
@@ -66,4 +61,17 @@ export interface SpeakerBio {
   label: string;
   wordCount: number;
   text: string;
+}
+
+export interface Principle {
+  belief: string;
+  detail: string;
+  postSlug: string;
+  postTitle: string;
+}
+
+export interface MentoringTopic {
+  title: string;
+  description: string;
+  forWhom: string;
 }

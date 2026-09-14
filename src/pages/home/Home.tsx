@@ -4,9 +4,10 @@ import Hero from './Hero';
 import ExperienceSection from './ExperienceSection';
 import ProductsSection from './ProductsSection';
 import CredentialsBar from './CredentialsBar';
+import ApproachSection from './ApproachSection';
+import MentoringSection from './MentoringSection';
 import WritingSection from './WritingSection';
 import NowSection from './NowSection';
-import SkillsSection from './SkillsSection';
 import ContactSection from './ContactSection';
 import type { BookingContext } from '../../components/BookingModal';
 
@@ -56,9 +57,10 @@ const Home = ({ onBooking }: HomeProps) => {
       <ProductsSection />
       <ExperienceSection />
       <CredentialsBar />
+      <ApproachSection />
       <NowSection />
       <WritingSection />
-      <SkillsSection />
+      <MentoringSection onBooking={onBooking} />
       <ContactSection onBooking={onBooking} />
     </>
   );
