@@ -11,9 +11,8 @@
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 28px 32px;
-  max-width: 68ch;
 }
 
 .mentoring-item {
@@ -24,7 +23,8 @@
 .mentoring-title {
   font-size: 0.9375rem;
   font-weight: 600;
-  line-height: 1.45;
+  line-height: 1.4;
+  text-wrap: balance;
   color: var(--text-dark);
   margin: 0 0 8px;
 }
@@ -73,6 +73,12 @@
   font-style: italic;
   color: var(--text-muted);
   margin: 0;
+}
+
+@media (max-width: 991.98px) {
+  .mentoring-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 767px) {

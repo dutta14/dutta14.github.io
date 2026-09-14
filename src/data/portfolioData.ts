@@ -151,26 +151,38 @@ export const mentoringTopics: MentoringTopic[] = [
   {
     title: 'Going from engineer to manager, and back again',
     description:
-      'I made the switch at Amazon, went back to writing code as a Staff Engineer at Meta, and then went into management again at Microsoft. I can tell you what you give up, what you get, and how to tell which one you actually want right now.',
+      'I made the switch at Amazon, went back to writing code as a Staff Engineer at Meta, then managed again at Microsoft. I can tell you what you give up and how to tell which one you want right now.',
     forWhom: 'Senior engineers weighing the move',
   },
   {
-    title: 'Scoping an AI product that is worth building',
+    title: 'Scoping an AI product worth building',
     description:
-      'Most AI ideas demo well and fall apart in production. I work on Copilot, where the gap between a good demo and a shippable feature is the whole job. Bring me the idea and we can find where it breaks.',
+      'Most AI ideas demo well and fall apart in production. I work on Copilot, where the gap between a good demo and a shippable feature is the whole job. Bring the idea and we can find where it breaks.',
     forWhom: 'Founders, PMs, engineering leads',
   },
   {
     title: 'Interviewing at a big company',
     description:
-      'I have interviewed at and worked for Samsung, Amazon, Microsoft, and Meta, and I have sat on the hiring side for years. I can tell you how the loop is actually scored and where strong candidates lose points they did not need to lose.',
+      'I have interviewed at and worked for Samsung, Amazon, Microsoft, and Meta, and I have sat on the hiring side for years. I can tell you how the loop is scored and where strong candidates lose points.',
     forWhom: 'Anyone preparing for a loop',
   },
   {
-    title: 'The parts of managing that nobody warns you about',
+    title: 'The parts of managing nobody warns you about',
     description:
-      'Managing someone who knows more than you. Giving feedback that lands. Saying the hard thing clearly. I have gotten these wrong enough times to have something useful to say about them.',
+      'Managing someone who knows more than you. Giving feedback that lands. Saying the hard thing clearly instead of going vague. I have gotten these wrong enough times to have something useful to say.',
     forWhom: 'New and struggling managers',
+  },
+  {
+    title: 'Building a career here on someone else’s paperwork',
+    description:
+      'I came over on an F-1, did a masters at twenty-four, and spent years making career decisions shaped by a document I did not control. Which offer you can accept is a different question when the clock is running.',
+    forWhom: 'International engineers in the US',
+  },
+  {
+    title: 'Knowing when to leave, and when to go back',
+    description:
+      'I left Microsoft for Meta, then returned a year later to a different team and a different problem. Both decisions took weeks. I can help you separate the real reason from the one you say out loud.',
+    forWhom: 'Anyone sitting on an offer',
   },
 ];
 

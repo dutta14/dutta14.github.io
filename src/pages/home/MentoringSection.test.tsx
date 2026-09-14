@@ -39,6 +39,15 @@ describe('MentoringSection', () => {
     expect(window.umami?.track).toHaveBeenCalledWith('mentoring-booking-click');
   });
 
+  it('keeps exactly six topics so the three-column grid stays a full 3x2', () => {
+    expect(mentoringTopics).toHaveLength(6);
+  });
+
+  it('gives every topic a distinct title and audience', () => {
+    expect(new Set(mentoringTopics.map((t) => t.title)).size).toBe(mentoringTopics.length);
+    expect(new Set(mentoringTopics.map((t) => t.forWhom)).size).toBe(mentoringTopics.length);
+  });
+
   it('invites questions outside the listed topics', () => {
     render(<MentoringSection onBooking={vi.fn()} />);
     expect(screen.getByText(/If your question is not on this list, ask anyway/)).toBeInTheDocument();
