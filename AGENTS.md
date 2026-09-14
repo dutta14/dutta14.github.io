@@ -4,7 +4,7 @@ Personal portfolio website for Anindya Dutta. React 18 + TypeScript + Vite singl
 
 ## Sections
 
-Hero, Experience (5 roles with SVG company logos), Products (react-bootstrap Carousel, 3 items), Education (2 schools with SVG logos), Skills (12 badges), Contact/Footer (CTA + social links + copyright combined).
+Hero, Products (3 items), Experience (5 roles with SVG company logos), Credentials bar (degrees + patent), Now, Writing (live from the blog), Skills (12 badges), Contact/Footer (CTA + social links + copyright combined).
 
 ## Design Tokens
 

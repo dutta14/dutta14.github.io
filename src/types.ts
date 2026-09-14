@@ -5,13 +5,6 @@ export interface Experience {
   description: string;
 }
 
-export interface Education {
-  degree: string;
-  field: string;
-  school: string;
-  years: string;
-}
-
 export interface Product {
   image: string;
   alt: string;

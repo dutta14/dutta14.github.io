@@ -1,4 +1,4 @@
-import { Experience, Education, Product, SocialLink, WritingPost, SkillPillar, TalkTopic, SpeakerBio } from '../types';
+import { Experience, Product, SocialLink, WritingPost, SkillPillar, TalkTopic, SpeakerBio } from '../types';
 
 export const experiences: Experience[] = [
   {
@@ -35,21 +35,6 @@ export const experiences: Experience[] = [
     duration: 'June 2014 - June 2016',
     description:
       'Built Smart Notifications, an on-device Android system that learned which notifications to surface, when, and at what priority based on how you actually used your phone. The work earned a U.S. patent (A1) for adaptive notification delivery.',
-  },
-];
-
-export const educations: Education[] = [
-  {
-    degree: 'Master of Science',
-    field: 'Computer Science',
-    school: 'University of Southern California',
-    years: '2016 - 2018',
-  },
-  {
-    degree: 'Bachelor of Engineering',
-    field: 'Computer Science and Engineering',
-    school: 'Manipal University',
-    years: '2010 - 2014',
   },
 ];
 
