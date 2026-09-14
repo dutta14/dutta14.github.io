@@ -44,6 +44,19 @@
   color: var(--text-dark) !important;
 }
 
+/* The route link leaves the page, so it is grouped apart from the in-page
+   anchors and carries an arrow to set the expectation. */
+.nav-link-page {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-link-page-icon {
+  flex-shrink: 0;
+  opacity: 0.65;
+}
+
 .theme-toggle {
   cursor: pointer;
   font-size: 1rem;
@@ -150,6 +163,10 @@
     font-size: 0.9375rem;
   }
 
+  .navbar-collapse .nav-item-page {
+    margin-top: 10px;
+  }
+
   .navbar-collapse .nav-cta {
     margin: 16px 20px;
     display: block;
@@ -227,6 +244,14 @@
     padding: 7px 10px;
     font-size: 0.875rem;
     transition: color 0.2s;
+  }
+
+  .navbar .nav-item-page {
+    margin-top: 14px;
+  }
+
+  .navbar .nav-link-page {
+    display: inline-flex;
   }
 
   .navbar .navbar-actions {

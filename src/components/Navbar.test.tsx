@@ -25,8 +25,21 @@ describe('Navbar', () => {
     expect(screen.getByText('Experience')).toBeInTheDocument();
     expect(screen.getByText('Writing')).toBeInTheDocument();
     expect(screen.getByText('Speaking')).toBeInTheDocument();
-    expect(screen.getByText('Skills')).toBeInTheDocument();
+    expect(screen.getByText('Strengths')).toBeInTheDocument();
     expect(screen.getByText('Contact')).toBeInTheDocument();
+  });
+
+  it('groups the in-page anchors together and puts the separate-page link last', () => {
+    const { container } = renderWithRouter(<Navbar {...defaultProps} />);
+    const labels = Array.from(container.querySelectorAll('.nav-link')).map((el) => el.textContent?.trim());
+    expect(labels).toEqual(['About', 'Work', 'Experience', 'Writing', 'Strengths', 'Contact', 'Speaking']);
+  });
+
+  it('marks the separate-page link so it reads apart from the in-page anchors', () => {
+    const { container } = renderWithRouter(<Navbar {...defaultProps} />);
+    expect(screen.getByText('Speaking').closest('.nav-item')).toHaveClass('nav-item-page');
+    expect(container.querySelectorAll('.nav-item-page')).toHaveLength(1);
+    expect(screen.getByText('Speaking').querySelector('svg')).toHaveAttribute('aria-hidden', 'true');
   });
 
   it('always shows the brand name, reachable by keyboard and assistive tech', () => {
@@ -128,6 +141,7 @@ describe('Navbar', () => {
 
   describe('active section highlighting', () => {
     const mountSections = (ids: string[], tops: Record<string, number>) => {
+      document.querySelectorAll('section').forEach((el) => el.remove());
       Object.defineProperty(window, 'scrollY', { value: 0, configurable: true });
       Object.defineProperty(window, 'innerHeight', { value: 800, configurable: true });
       Object.defineProperty(document.documentElement, 'scrollHeight', {
@@ -174,6 +188,21 @@ describe('Navbar', () => {
       renderWithRouter(<Navbar {...defaultProps} />);
       expect(screen.getByText('Work')).toHaveAttribute('aria-current', 'location');
       expect(screen.getByText('About')).not.toHaveAttribute('aria-current');
+    });
+
+    it('highlights consecutive nav items as the reader scrolls, with no skipped item between them', () => {
+      mountSections(sectionIds, { home: -2700, products: -1800, experience: -900, writing: 0, skills: 900, contact: 1800 });
+      const { container, unmount } = renderWithRouter(<Navbar {...defaultProps} />);
+      const labels = Array.from(container.querySelectorAll('.nav-link')).map((el) => el.textContent);
+      const writingIndex = labels.indexOf('Writing');
+      expect(screen.getByText('Writing')).toHaveClass('active');
+      unmount();
+
+      mountSections(sectionIds, { home: -3600, products: -2700, experience: -1800, writing: -900, skills: 0, contact: 900 });
+      const second = renderWithRouter(<Navbar {...defaultProps} />);
+      const nextLabels = Array.from(second.container.querySelectorAll('.nav-link')).map((el) => el.textContent);
+      expect(screen.getByText('Strengths')).toHaveClass('active');
+      expect(nextLabels.indexOf('Strengths')).toBe(writingIndex + 1);
     });
 
     it('marks Speaking as the current page when on the speaking route', () => {

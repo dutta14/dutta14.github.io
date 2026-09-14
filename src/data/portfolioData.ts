@@ -68,21 +68,6 @@ export const products: Product[] = [
   },
 ];
 
-export const skills: string[] = [
-  'Engineering Management (IC to GM track)',
-  'AI products shipped at scale',
-  'U.S. Patent holder (Android systems)',
-  'Built for 5M+ users (Alexa Android)',
-  'Conversational AI and LLM products',
-  'Mobile platform architecture (Android and iOS)',
-  'Mixed Reality authentication systems',
-  '0-to-1 product launches',
-  'Cross-functional team leadership',
-  'M365 Copilot experiences',
-  'SDK and developer platform design',
-  'Technical recruiting and org scaling',
-];
-
 export const skillPillars: SkillPillar[] = [
   {
     title: 'AI Product Engineering',

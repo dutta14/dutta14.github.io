@@ -14,9 +14,9 @@ const navLinks: { href: string; label: string; isRoute?: boolean }[] = [
   { href: '#products', label: 'Work' },
   { href: '#experience', label: 'Experience' },
   { href: '#writing', label: 'Writing' },
-  { href: '/speaking', label: 'Speaking', isRoute: true },
-  { href: '#skills', label: 'Skills' },
+  { href: '#skills', label: 'Strengths' },
   { href: '#contact', label: 'Contact' },
+  { href: '/speaking', label: 'Speaking', isRoute: true },
 ];
 
 const sectionIds = navLinks.filter((link) => !link.isRoute).map((link) => link.href.slice(1));
@@ -83,13 +83,17 @@ const Navbar = ({ isDark, onToggleTheme, onBooking }: NavbarProps) => {
           <ul className="navbar-nav">
             {navLinks.map((link) => {
               const isActive = link.href === activeHref;
-              const className = `nav-link${isActive ? ' active' : ''}`;
+              const className = `nav-link${link.isRoute ? ' nav-link-page' : ''}${isActive ? ' active' : ''}`;
               const ariaCurrent = isActive ? (link.isRoute ? 'page' : 'location') : undefined;
               return (
-                <li className="nav-item" key={link.href}>
+                <li className={`nav-item${link.isRoute ? ' nav-item-page' : ''}`} key={link.href}>
                   {link.isRoute ? (
                     <Link className={className} to={link.href} aria-current={ariaCurrent} onClick={() => setMenuOpen(false)}>
                       {link.label}
+                      <svg className="nav-link-page-icon" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M2.5 7.5 7.5 2.5" />
+                        <path d="M3.5 2.5h4v4" />
+                      </svg>
                     </Link>
                   ) : isHome ? (
                     <a className={className} href={link.href} aria-current={ariaCurrent} onClick={() => setMenuOpen(false)}>
